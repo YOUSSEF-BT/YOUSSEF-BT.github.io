@@ -3,30 +3,40 @@ export const chatbotProject = {
   slug: "8-chatbot-2026-05",
   title: "OpenLegaMa — Moroccan Legal AI Assistant",
   description:
-    "A Moroccan legal AI assistant available in French, Modern Standard Arabic, and English, powered by controlled Retrieval-Augmented Generation. OpenLegaMa retrieves official legal texts, validates exact law and article references, links legal claims to accepted evidence, and abstains when verified sources are insufficient.",
-  image: "/raw.githubusercontent.com/YOUSSEF-BT/OpenLegaMa/main/docs/screenshots/home-page.png",
-  tags: ["Legal AI", "RAG", "NLP", "Next.js", "TypeScript"],
+    "A Moroccan legal AI assistant available in French, Modern Standard Arabic, and English. OpenLegaMa uses controlled Retrieval-Augmented Generation to retrieve official legal texts, validate exact law and article references, connect legal claims to accepted evidence, and abstain when verified sources are insufficient.",
+  image:
+    "https://raw.githubusercontent.com/YOUSSEF-BT/OpenLegaMa/main/docs/screenshots/home-page.png",
+  tags: ["Legal AI", "Controlled RAG", "NLP", "Next.js", "TypeScript"],
   link: "/projects/8-chatbot-2026-05",
   github: "https://github.com/YOUSSEF-BT/OpenLegaMa",
-  company: "Personal Project",
-  period: "2026-07",
+  company: "Independent Project",
+  period: "July 2026",
   location: "Morocco",
-  role: "AI Engineer & Full-Stack Developer",
+  role: "AI Engineer • RAG & Full-Stack Developer",
+  version: "v1.0.1",
+  status: "Stable MVP",
+  license: "Proprietary",
   overview: {
-    architectureImage: "/raw.githubusercontent.com/YOUSSEF-BT/YOUSSEF-BT.github.io/main/public/assets/architecture/openlegama-architecture.svg",
+    description:
+      "OpenLegaMa is a controlled legal-information system designed for Moroccan law. Instead of sending every question directly to a language model, it first determines the user’s intent, checks whether clarification or retrieval is required, validates explicit legal references, filters evidence for relevance, and only then generates a structured answer supported by accepted official sources.",
+    architectureImage: "assets/architecture/openlegama-architecture.svg",
+    architectureDescription:
+      "The architecture separates multilingual query handling, deterministic routing, official-source retrieval, relevance filtering, grounded generation, citation validation, and controlled abstention.",
     keyContributions: [
       "Designed a controlled legal RAG architecture that separates query understanding, routing, retrieval, evidence validation, and answer generation.",
       "Built deterministic validation for exact Moroccan law and article references to reject fabricated legal citations before generation.",
       "Implemented multilingual interaction in French, Modern Standard Arabic, and English, including Arabic RTL presentation.",
       "Created a curated official-source corpus containing 30 active legal texts, 7,708 indexed articles, and 27 represented legal domains.",
       "Developed legal-code browsing, exact article search, citation cards, conversation memory, coverage reporting, and controlled abstention through CORPUS_GAP.",
-      "Established a complete quality workflow with TypeScript validation, ESLint, automated tests, retrieval benchmarks, corpus checks, and production builds.",
+      "Established a release-quality workflow with TypeScript validation, ESLint, automated tests, retrieval benchmarks, corpus checks, and production builds.",
     ],
   },
+  disclaimer:
+    "OpenLegaMa provides structured and sourced legal information, but it does not replace a lawyer or another qualified legal professional. Its legal corpus is curated and partial, and systematic temporal validation of all active texts is not yet complete.",
   problemStatement: {
     title: "Reliable Access to Moroccan Legal Information",
     description:
-      "General-purpose language models can produce fluent but unsupported legal answers, fabricate references, ignore missing facts, or cite irrelevant provisions. Moroccan legal information is also distributed across many official texts and portals, making reliable retrieval difficult for non-specialists.",
+      "General-purpose language models can produce fluent but unsupported legal answers, fabricate references, ignore missing facts, or cite irrelevant provisions. Moroccan legal information is also distributed across multiple official texts and portals, making reliable retrieval difficult for non-specialists.",
     challenges: [
       "Preventing hallucinated Moroccan laws, articles, deadlines, amounts, and procedures",
       "Selecting the correct legal route for general, personal, exact-reference, and out-of-scope questions",
@@ -37,15 +47,15 @@ export const chatbotProject = {
     ],
   },
   solution:
-    "OpenLegaMa uses controlled RAG rather than a direct question-to-LLM pipeline. A semantic router first classifies the request, checks whether clarification is required, validates explicit legal references, and decides whether retrieval is permitted. Relevant articles are then ranked and filtered before grounded generation. A final claim-to-citation validation layer ensures that sourced legal claims are linked to accepted official evidence, while CORPUS_GAP and controlled abstention prevent unsupported answers.",
+    "OpenLegaMa uses controlled RAG rather than a direct question-to-LLM pipeline. A semantic router classifies the request, checks whether clarification is required, validates explicit legal references, and decides whether retrieval is permitted. Relevant articles are then ranked and filtered before grounded generation. A final claim-to-citation validation layer connects sourced legal claims to accepted official evidence, while CORPUS_GAP and controlled abstention prevent unsupported answers.",
   keyAchievements: [
     "Released OpenLegaMa v1.0.1 as a stable, publicly accessible MVP",
     "143 of 143 automated tests passing",
     "610 curated benchmark cases and 120 independent holdout cases evaluated",
-    "100% document recall at 5 on the curated retrieval benchmark",
-    "100% exact article recall and citation integrity on measured benchmark cases",
+    "100% document recall at 5 on the current curated retrieval benchmark",
+    "100% exact-article recall and citation integrity on the measured benchmark cases",
     "30 active official legal texts and 7,708 indexed legal articles",
-    "French, Modern Standard Arabic, and English legal interaction with Arabic RTL support",
+    "French, Modern Standard Arabic, and English interaction with Arabic RTL support",
     "Production build, TypeScript checks, ESLint, corpus validation, and benchmark thresholds passing",
   ],
   techStack: [
@@ -91,12 +101,12 @@ export const chatbotProject = {
       id: 3,
       name: "Evidence & Citation Guard",
       description:
-        "Links important Moroccan legal claims to accepted citations and rejects unsupported or irrelevant references.",
+        "Connects important Moroccan legal claims to accepted citations and rejects unsupported or irrelevant references.",
       details:
         "Citation cards expose the legal instrument, article, institution, official URL, supporting excerpt, and citation identifier.",
       metrics: {
-        citationIntegrity: "100%*",
-        exactArticleRecall: "100%*",
+        citationIntegrity: "100% measured",
+        exactArticleRecall: "100% measured",
         abstention: "CORPUS_GAP",
       },
     },
@@ -115,48 +125,56 @@ export const chatbotProject = {
     },
   ],
   dataset: {
+    sectionTitle: "Legal Corpus & Official Sources",
     name: "Curated Moroccan Official Legal Corpus",
-    source: "Adala, SGG, Bulletin Officiel and stored official-source metadata",
+    source: "Adala, SGG, Bulletin Officiel, and stored official-source metadata",
     volume: "30 active texts • 7,708 indexed articles • 27 domains",
     annotation:
       "Structured legal instruments, articles, provenance, official URLs, registry metadata, activation status, and retrieval evaluation cases",
   },
   challenges: {
     hallucinatedReferences: {
-      problem: "Language models may fabricate laws or article numbers that sound legally plausible.",
+      problem:
+        "Language models may fabricate laws or article numbers that sound legally plausible.",
       solution:
         "Validate explicit laws and article references deterministically before retrieval and reject false references without substituting unrelated citations.",
       status: "Implemented",
     },
     insufficientEvidence: {
-      problem: "A relevant legal question may concern material that is absent from the active corpus.",
+      problem:
+        "A relevant legal question may concern material that is absent from the active corpus.",
       solution:
         "Return CORPUS_GAP or controlled abstention instead of inventing a rule, amount, deadline, or procedure.",
       status: "Implemented",
     },
     multilingualConsistency: {
-      problem: "The same legal intent can be expressed differently in French, Modern Standard Arabic, or English.",
+      problem:
+        "The same legal intent can be expressed differently in French, Modern Standard Arabic, or English.",
       solution:
         "Normalize the three supported languages into a canonical legal intent while preserving the user’s response language and Arabic RTL presentation.",
       status: "Implemented",
     },
     temporalValidity: {
-      problem: "Legal rules may change through amendments, repeals, implementing decrees, and transitional provisions.",
+      problem:
+        "Legal rules may change through amendments, repeals, implementing decrees, and transitional provisions.",
       solution:
         "Expose temporal uncertainty and coverage limitations explicitly; full end-to-end temporal validation remains a planned improvement.",
       status: "Open limitation",
     },
   },
   results: {
-    automatedTests: "143 / 143",
+    automatedTests: "143 / 143 passing",
     indexedArticles: "7,708",
     activeLegalTexts: "30",
+    legalDomains: "27",
     curatedBenchmark: "610 cases",
     holdoutBenchmark: "120 cases",
-    documentRecallAt5: "100%*",
+    documentRecallAt5: "100% curated",
+    exactArticleRecall: "100% measured",
   },
+  resultsNote:
+    "Benchmark figures describe the current evaluation datasets and pipeline behavior. They are not a claim of universal legal accuracy, complete Moroccan-law coverage, or professional legal validation.",
   team: ["Youssef Bouzit"],
-  supervisor: "Self-directed engineering project",
   liveDemo: {
     url: "https://openlegama.vercel.app",
     description:
