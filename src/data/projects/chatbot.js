@@ -3,7 +3,7 @@ export const chatbotProject = {
   slug: "8-chatbot-2026-05",
   title: "OpenLegaMa — Moroccan Legal AI Assistant",
   description:
-    "A multilingual Moroccan legal AI assistant powered by controlled Retrieval-Augmented Generation. OpenLegaMa retrieves official legal texts, validates exact law and article references, links legal claims to accepted evidence, and abstains when verified sources are insufficient.",
+    "A Moroccan legal AI assistant available in French, Modern Standard Arabic, and English, powered by controlled Retrieval-Augmented Generation. OpenLegaMa retrieves official legal texts, validates exact law and article references, links legal claims to accepted evidence, and abstains when verified sources are insufficient.",
   image: "assets/images/projects/chatbot/main.svg",
   tags: ["Legal AI", "RAG", "NLP", "Next.js", "TypeScript"],
   link: "/projects/8-chatbot-2026-05",
@@ -17,7 +17,7 @@ export const chatbotProject = {
     keyContributions: [
       "Designed a controlled legal RAG architecture that separates query understanding, routing, retrieval, evidence validation, and answer generation.",
       "Built deterministic validation for exact Moroccan law and article references to reject fabricated legal citations before generation.",
-      "Implemented multilingual support for French, Modern Standard Arabic, English, Arabic Darija, and Latin-script Darija queries.",
+      "Implemented multilingual interaction in French, Modern Standard Arabic, and English, including Arabic RTL presentation.",
       "Created a curated official-source corpus containing 30 active legal texts, 7,708 indexed articles, and 27 represented legal domains.",
       "Developed legal-code browsing, exact article search, citation cards, conversation memory, coverage reporting, and controlled abstention through CORPUS_GAP.",
       "Established a complete quality workflow with TypeScript validation, ESLint, automated tests, retrieval benchmarks, corpus checks, and production builds.",
@@ -32,7 +32,7 @@ export const chatbotProject = {
       "Selecting the correct legal route for general, personal, exact-reference, and out-of-scope questions",
       "Retrieving relevant provisions from a partial but curated legal corpus",
       "Maintaining citation integrity between each legal claim and its supporting evidence",
-      "Handling French, Arabic, English, and Darija queries consistently",
+      "Handling French, Modern Standard Arabic, and English queries consistently",
       "Exposing legal coverage and temporal limitations instead of overstating system accuracy",
     ],
   },
@@ -45,7 +45,7 @@ export const chatbotProject = {
     "100% document recall at 5 on the curated retrieval benchmark",
     "100% exact article recall and citation integrity on measured benchmark cases",
     "30 active official legal texts and 7,708 indexed legal articles",
-    "Multilingual legal interaction with Arabic RTL support and Darija normalization",
+    "French, Modern Standard Arabic, and English legal interaction with Arabic RTL support",
     "Production build, TypeScript checks, ESLint, corpus validation, and benchmark thresholds passing",
   ],
   techStack: [
@@ -70,7 +70,7 @@ export const chatbotProject = {
         "The router determines whether retrieval is necessary, whether the user must provide missing facts, and whether the system is allowed to produce a sourced legal answer.",
       metrics: {
         routes: "9",
-        languages: "FR / AR / EN / Darija",
+        languages: "FR / AR / EN",
         behavior: "Deterministic + semantic",
       },
     },
@@ -135,9 +135,9 @@ export const chatbotProject = {
       status: "Implemented",
     },
     multilingualConsistency: {
-      problem: "The same legal intent can be expressed differently in French, Arabic, English, or Darija.",
+      problem: "The same legal intent can be expressed differently in French, Modern Standard Arabic, or English.",
       solution:
-        "Normalize multilingual queries into a canonical legal intent while preserving the user’s response language and Arabic RTL presentation.",
+        "Normalize the three supported languages into a canonical legal intent while preserving the user’s response language and Arabic RTL presentation.",
       status: "Implemented",
     },
     temporalValidity: {
@@ -160,6 +160,6 @@ export const chatbotProject = {
   liveDemo: {
     url: "https://openlegama.vercel.app",
     description:
-      "Explore OpenLegaMa’s multilingual Moroccan legal assistant, sourced legal search, legal-code library, article reader, and corpus coverage dashboard.",
+      "Explore OpenLegaMa’s Moroccan legal assistant in French, Modern Standard Arabic, and English, with sourced legal search, a legal-code library, article reader, and corpus coverage dashboard.",
   },
 };
