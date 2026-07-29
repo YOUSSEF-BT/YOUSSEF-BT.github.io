@@ -4,6 +4,37 @@ import { ArrowLeft, ExternalLink, ChevronRight } from "lucide-react";
 import { projectsData } from "@/data/projects";
 import { resolveAssetUrl } from "@/utils/assetUrl";
 
+const getDemoPresentation = (demo) => {
+  const isRepository =
+    demo.type === "repository" || demo.url.includes("github.com");
+  const isVideo = demo.type === "video";
+
+  if (isVideo) {
+    return {
+      showBadges: true,
+      statusLabel: "Demo",
+      formatLabel: "Video",
+      buttonLabel: demo.buttonLabel ?? "Watch Demo",
+    };
+  }
+
+  if (isRepository) {
+    return {
+      showBadges: false,
+      statusLabel: null,
+      formatLabel: null,
+      buttonLabel: demo.buttonLabel ?? "Open Repository",
+    };
+  }
+
+  return {
+    showBadges: true,
+    statusLabel: "Live",
+    formatLabel: "Interactive",
+    buttonLabel: demo.buttonLabel ?? "Launch Demo",
+  };
+};
+
 export const Demos = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -56,7 +87,8 @@ export const Demos = () => {
             </span>
           </h1>
           <p className="text-sm md:text-base text-muted-foreground animate-fade-in animation-delay-200">
-            Interactive live demonstrations of my projects and technical skills.
+            Interactive applications, video demonstrations, and repository-based
+            project showcases.
           </p>
         </div>
 
@@ -78,85 +110,89 @@ export const Demos = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {filteredDemos.map((demo, index) => (
-            <div
-              key={demo.projectSlug}
-              className="group glass rounded-2xl overflow-hidden animate-fade-in hover:border-primary/50 transition-all duration-300"
-              style={{ animationDelay: `${(index + 1) * 100}ms` }}
-            >
-              <div className="relative overflow-hidden aspect-video bg-black">
-                <img
-                  src={resolveAssetUrl(demo.projectImage)}
-                  alt={`${demo.projectTitle} preview`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  width="640"
-                  height="360"
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
+          {filteredDemos.map((demo, index) => {
+            const presentation = getDemoPresentation(demo);
 
-                {!demo.url.includes("github.com") && (
-                  <>
-                    <div className="absolute top-3 left-3 px-3 py-1 bg-highlight/90 text-xs font-bold rounded-full flex items-center gap-1">
-                      <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
-                      Live
-                    </div>
-                    <div className="absolute top-3 right-3 px-3 py-1 bg-primary/90 text-xs font-bold rounded-full">
-                      Interactive
-                    </div>
-                  </>
-                )}
-              </div>
+            return (
+              <div
+                key={demo.projectSlug}
+                className="group glass rounded-2xl overflow-hidden animate-fade-in hover:border-primary/50 transition-all duration-300"
+                style={{ animationDelay: `${(index + 1) * 100}ms` }}
+              >
+                <div className="relative overflow-hidden aspect-video bg-black">
+                  <img
+                    src={resolveAssetUrl(demo.projectImage)}
+                    alt={`${demo.projectTitle} preview`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    width="640"
+                    height="360"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
 
-              <div className="p-4 space-y-3">
-                <div className="space-y-1">
-                  <h3 className="text-sm font-semibold group-hover:text-primary transition-colors line-clamp-2">
-                    {demo.projectTitle}
-                  </h3>
-                  <p className="text-xs text-muted-foreground line-clamp-2">
-                    {demo.description}
-                  </p>
+                  {presentation.showBadges && (
+                    <>
+                      <div className="absolute top-3 left-3 px-3 py-1 bg-highlight/90 text-xs font-bold rounded-full flex items-center gap-1">
+                        <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                        {presentation.statusLabel}
+                      </div>
+                      <div className="absolute top-3 right-3 px-3 py-1 bg-primary/90 text-xs font-bold rounded-full">
+                        {presentation.formatLabel}
+                      </div>
+                    </>
+                  )}
                 </div>
 
-                <div className="flex flex-wrap gap-1">
-                  {demo.projectTags?.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 bg-surface text-xs rounded-full text-muted-foreground border border-border/50"
+                <div className="p-4 space-y-3">
+                  <div className="space-y-1">
+                    <h3 className="text-sm font-semibold group-hover:text-primary transition-colors line-clamp-2">
+                      {demo.projectTitle}
+                    </h3>
+                    <p className="text-xs text-muted-foreground line-clamp-2">
+                      {demo.description}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1">
+                    {demo.projectTags?.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 bg-surface text-xs rounded-full text-muted-foreground border border-border/50"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-3 mt-2">
+                    <a
+                      href={demo.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:gap-2 transition-all"
                     >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                      {presentation.buttonLabel}
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
 
-                <div className="flex flex-wrap gap-3 mt-2">
-                  <a
-                    href={demo.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:gap-2 transition-all"
-                  >
-                    Launch Demo
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-
-                  <Link
-                    to={`/projects/${demo.projectSlug}`}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground transition-all"
-                  >
-                    View Details
-                    <ChevronRight className="w-3 h-3" />
-                  </Link>
+                    <Link
+                      to={`/projects/${demo.projectSlug}`}
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground transition-all"
+                    >
+                      View Details
+                      <ChevronRight className="w-3 h-3" />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {filteredDemos.length === 0 && (
           <div className="text-center py-10">
             <p className="text-muted-foreground mb-4">
-              No live demos found in this category.
+              No demos found in this category.
             </p>
           </div>
         )}
