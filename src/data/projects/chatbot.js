@@ -4,7 +4,7 @@ export const chatbotProject = {
   title: "OpenLegaMa — Moroccan Legal AI Assistant",
   description:
     "A Moroccan legal AI assistant available in French, Modern Standard Arabic, and English, powered by controlled Retrieval-Augmented Generation. OpenLegaMa retrieves official legal texts, validates exact law and article references, links legal claims to accepted evidence, and abstains when verified sources are insufficient.",
-  image: "assets/images/projects/chatbot/main.svg",
+  image: "/raw.githubusercontent.com/YOUSSEF-BT/OpenLegaMa/main/docs/screenshots/home-page.png",
   tags: ["Legal AI", "RAG", "NLP", "Next.js", "TypeScript"],
   link: "/projects/8-chatbot-2026-05",
   github: "https://github.com/YOUSSEF-BT/OpenLegaMa",
@@ -13,7 +13,7 @@ export const chatbotProject = {
   location: "Morocco",
   role: "AI Engineer & Full-Stack Developer",
   overview: {
-    architectureImage: "assets/architecture/openlegama-architecture.svg",
+    architectureImage: "/raw.githubusercontent.com/YOUSSEF-BT/YOUSSEF-BT.github.io/main/public/assets/architecture/openlegama-architecture.svg",
     keyContributions: [
       "Designed a controlled legal RAG architecture that separates query understanding, routing, retrieval, evidence validation, and answer generation.",
       "Built deterministic validation for exact Moroccan law and article references to reject fabricated legal citations before generation.",
