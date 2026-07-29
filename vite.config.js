@@ -7,7 +7,9 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/YOUSSEF_BT_PORTFOLIO/",
+  // This repository is the account-level GitHub Pages site,
+  // so all generated assets must be served from the domain root.
+  base: "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
