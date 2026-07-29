@@ -5,13 +5,13 @@ import githubLogo from "@/assets/images/logos/Github.png";
 
 const experiences = [
   {
-    period: "2026 — Present",
+    period: "Feb 2026 — Aug 2026",
     role: "AI & Computer Vision Engineer Intern",
-    company: "ABA Technologie - Casablanca Technopark, Morocco",
+    company: "NEXTRONIC — ABA Technology Group, Casablanca Technopark",
     companyLink: "https://aba.technology/",
     description:
-      "Currently completing PFE internship focused on AI, NLP, and model robustness. Working on developing intelligent systems and exploring advanced AI applications.",
-    technologies: ["Python", "Machine Learning", "NLP", "AI", "Deep Learning"],
+      "Designed and developed a real-time road accident detection system using YOLO, BoT-SORT, computer vision, and behavioral heuristics. Built video alerts, automated clip saving, and CSV event logging for CCTV-based monitoring.",
+    technologies: ["Python", "YOLO", "OpenCV", "BoT-SORT", "Deep Learning"],
     current: true,
     logos: [abaLogo]
   },
@@ -21,30 +21,30 @@ const experiences = [
     company: "SUP'MTI & Personal Projects",
     companyLink: "https://github.com/YOUSSEF-BT",
     description:
-      "Developed comprehensive MLOps pipelines, fraud detection systems, and data quality monitoring platforms. Built AI-powered applications including document summarizer and customer analytics platforms.",
+      "Developed MLOps pipelines, fraud detection systems, data quality monitoring platforms, customer analytics dashboards, and AI-powered applications for document processing and predictive modeling.",
     technologies: ["Python", "MLOps", "Airflow", "MLflow", "Big Data"],
     current: false,
     logos: [githubLogo]
   },
   {
     period: "2023 — 2026",
-    role: "Data Science Engineering Student",
-    company: "SUP'MTI - 3rd Year Engineering Cycle (GI-IDS)",
+    role: "State Engineering Degree in Data Science",
+    company: "SUP'MTI Rabat — Engineering Cycle, Data Science Option",
     companyLink: "https://supmti.ac.ma/ingenierie-data-science-et-iot/",
     description:
-      "Specialized in Data Science and AI with focus on machine learning, data analysis, and intelligent systems development. Completed preparatory classes and engineering curriculum with practical projects.",
-    technologies: ["Python", "Data Science", "Machine Learning", "AI", "NLP"],
+      "Completed the State Engineering curriculum with a specialization in Data Science and Artificial Intelligence. Graduation project defended with an Excellent distinction and a score of 18/20.",
+    technologies: ["Data Science", "Machine Learning", "AI", "Computer Vision", "MLOps"],
     current: false,
     logos: [supMtiLogo]
   },
   {
     period: "2021 — 2023",
     role: "Preparatory Classes",
-    company: "SUP'MTI",
+    company: "SUP'MTI Rabat",
     companyLink: "https://supmti.ac.ma/classes-preparatoires-technologies-de-linformation/",
     description:
-      "Completed intensive preparatory program focusing on mathematics, physics, and engineering fundamentals as foundation for engineering studies.",
-    technologies: ["Mathematics", "Physics", "Engineering Fundamentals"],
+      "Completed an intensive preparatory program focused on mathematics, physics, computer science, and engineering fundamentals.",
+    technologies: ["Mathematics", "Physics", "Computer Science", "Engineering"],
     current: false,
     logos: [supMtiLogo]
   },
