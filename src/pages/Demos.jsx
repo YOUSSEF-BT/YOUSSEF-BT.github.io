@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ExternalLink, ChevronRight } from "lucide-react";
 import { projectsData } from "@/data/projects";
-import { Navbar } from "@/layout/Navbar";
+import { resolveAssetUrl } from "@/utils/assetUrl";
 
 export const Demos = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -11,7 +11,6 @@ export const Demos = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  // Aggregate all live demos from all projects
   const allDemos = projectsData
     .filter((project) => project.liveDemo && project.liveDemo.url)
     .map((project) => ({
@@ -24,18 +23,19 @@ export const Demos = () => {
 
   const categories = [
     "All",
-    ...new Set(allDemos.flatMap((d) => d.projectTags || [])),
+    ...new Set(allDemos.flatMap((demo) => demo.projectTags || [])),
   ];
 
   const filteredDemos =
     selectedCategory === "All"
       ? allDemos
-      : allDemos.filter((d) => d.projectTags?.includes(selectedCategory));
+      : allDemos.filter((demo) =>
+          demo.projectTags?.includes(selectedCategory),
+        );
 
   return (
     <div className="min-h-screen overflow-hidden pt-24 md:pt-32 pb-16 md:pb-20">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* Back Button - Affiché en premier */}
         <Link
           to="/"
           className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg glass hover:bg-primary/10 hover:text-primary transition-all mb-6 md:mb-8"
@@ -44,7 +44,6 @@ export const Demos = () => {
           Back Home
         </Link>
 
-        {/* Header */}
         <div className="max-w-3xl mb-6 md:mb-10">
           <span className="text-secondary-foreground text-xs md:text-sm font-medium tracking-wider uppercase animate-fade-in">
             💻 Project Demos
@@ -61,36 +60,34 @@ export const Demos = () => {
           </p>
         </div>
 
-        {/* Category Filter */}
         <div className="flex flex-wrap gap-2 mb-6 md:mb-8 animate-fade-in animation-delay-300">
-          {categories.map((cat) => (
+          {categories.map((category) => (
             <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
+              key={category}
+              type="button"
+              onClick={() => setSelectedCategory(category)}
               className={`px-3 md:px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                selectedCategory === cat
+                selectedCategory === category
                   ? "bg-primary text-primary-foreground"
                   : "glass hover:bg-primary/10 text-muted-foreground hover:text-foreground"
               }`}
             >
-              {cat === "All" ? "All Demos" : cat}
+              {category === "All" ? "All Demos" : category}
             </button>
           ))}
         </div>
 
-        {/* Demos Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {filteredDemos.map((demo, idx) => (
+          {filteredDemos.map((demo, index) => (
             <div
-              key={`${demo.projectSlug}`}
+              key={demo.projectSlug}
               className="group glass rounded-2xl overflow-hidden animate-fade-in hover:border-primary/50 transition-all duration-300"
-              style={{ animationDelay: `${(idx + 1) * 100}ms` }}
+              style={{ animationDelay: `${(index + 1) * 100}ms` }}
             >
-              {/* Image Container */}
               <div className="relative overflow-hidden aspect-video bg-black">
                 <img
-                  src={`${import.meta.env.BASE_URL}${demo.projectImage}`}
-                  alt={demo.projectTitle}
+                  src={resolveAssetUrl(demo.projectImage)}
+                  alt={`${demo.projectTitle} preview`}
                   className="w-full h-full object-cover"
                   loading="lazy"
                   width="640"
@@ -98,8 +95,7 @@ export const Demos = () => {
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
 
-                {/* Live & Interactive Badges - only show for real live demos (not GitHub links) */}
-                {!demo.url.includes('github.com') && (
+                {!demo.url.includes("github.com") && (
                   <>
                     <div className="absolute top-3 left-3 px-3 py-1 bg-highlight/90 text-xs font-bold rounded-full flex items-center gap-1">
                       <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
@@ -112,7 +108,6 @@ export const Demos = () => {
                 )}
               </div>
 
-              {/* Content */}
               <div className="p-4 space-y-3">
                 <div className="space-y-1">
                   <h3 className="text-sm font-semibold group-hover:text-primary transition-colors line-clamp-2">
@@ -123,11 +118,10 @@ export const Demos = () => {
                   </p>
                 </div>
 
-                {/* Tags */}
                 <div className="flex flex-wrap gap-1">
-                  {demo.projectTags?.slice(0, 3).map((tag, tagIdx) => (
+                  {demo.projectTags?.slice(0, 3).map((tag) => (
                     <span
-                      key={tagIdx}
+                      key={tag}
                       className="px-2 py-0.5 bg-surface text-xs rounded-full text-muted-foreground border border-border/50"
                     >
                       {tag}
@@ -135,25 +129,20 @@ export const Demos = () => {
                   ))}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-2 mt-2">
-                  {/* Launch Demo Link */}
+                <div className="flex flex-wrap gap-3 mt-2">
                   <a
                     href={demo.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-primary group-hover:gap-2 transition-all"
-                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:gap-2 transition-all"
                   >
                     Launch Demo
                     <ExternalLink className="w-3 h-3" />
                   </a>
 
-                  {/* View Project Link */}
                   <Link
                     to={`/projects/${demo.projectSlug}`}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground group-hover:text-foreground transition-all"
-                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground transition-all"
                   >
                     View Details
                     <ChevronRight className="w-3 h-3" />
@@ -172,9 +161,10 @@ export const Demos = () => {
           </div>
         )}
 
-        {/* GitHub Link */}
         <div className="group glass p-6 md:p-8 rounded-2xl border border-border/50 text-center animate-fade-in hover:border-primary/50 transition-all duration-300 hover:scale-105 mt-12">
-          <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 group-hover:text-primary transition-colors">Check My GitHub</h3>
+          <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 group-hover:text-primary transition-colors">
+            Check My GitHub
+          </h3>
           <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6">
             Explore my repositories and projects to see my skills in action.
           </p>
