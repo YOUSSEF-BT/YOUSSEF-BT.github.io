@@ -8,13 +8,13 @@ import { hybridMovieRecommenderProject } from "./hybridMovieRecommender";
 import { chatbotProject } from "./chatbot";
 import { trafficMVPProject } from "./trafficMVP";
 
-// Organized by creation date (from GitHub) - reversed: recent to older
+// Organized by creation date - most recent projects first
 export const projectsData = [
-  chatbotProject,                // 2026-05 - In Development
-  hybridMovieRecommenderProject, // (no GitHub repo found)
-  fraudDetectionProject,         // (no GitHub repo found)
-  aiSummarizerProject,          // 2026-03-22
-  trafficMVPProject,             // 2025 - Traffic Image Processing (added later)
+  chatbotProject,                // 2026-07 - OpenLegaMa Legal AI
+  hybridMovieRecommenderProject,
+  fraudDetectionProject,
+  aiSummarizerProject,           // 2026-03-22
+  trafficMVPProject,             // Traffic Image Processing
   tweetsSentimentProject,        // 2026-02-06
   mlopsPipelineProject,          // 2025-12-21
   dataQualityProject,            // 2025-12-06
