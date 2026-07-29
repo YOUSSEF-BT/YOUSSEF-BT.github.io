@@ -1,79 +1,165 @@
 export const chatbotProject = {
   id: 8,
   slug: "8-chatbot-2026-05",
-  title: "Chatbot AI",
+  title: "OpenLegaMa — Moroccan Legal AI Assistant",
   description:
-    "Advanced AI-powered chatbot currently in development. Coming soon with intelligent conversation capabilities and natural language understanding.",
+    "A multilingual Moroccan legal AI assistant powered by controlled Retrieval-Augmented Generation. OpenLegaMa retrieves official legal texts, validates exact law and article references, links legal claims to accepted evidence, and abstains when verified sources are insufficient.",
   image: "assets/images/projects/chatbot/main.svg",
-  tags: ["AI", "Chatbot", "NLP", "Coming Soon"],
+  tags: ["Legal AI", "RAG", "NLP", "Next.js", "TypeScript"],
   link: "/projects/8-chatbot-2026-05",
-  github: "#",
+  github: "https://github.com/YOUSSEF-BT/OpenLegaMa",
   company: "Personal Project",
-  period: "2026-05",
+  period: "2026-07",
   location: "Morocco",
-  role: "AI Engineer & Developer",
+  role: "AI Engineer & Full-Stack Developer",
   overview: {
-    architectureImage: "assets/architecture/Chatbot.png",
+    architectureImage: "assets/architecture/openlegama-architecture.svg",
     keyContributions: [
-      "Currently developing advanced AI chatbot",
-      "Implementing natural language understanding",
-      "Building intelligent conversation capabilities",
-      "More details coming soon",
+      "Designed a controlled legal RAG architecture that separates query understanding, routing, retrieval, evidence validation, and answer generation.",
+      "Built deterministic validation for exact Moroccan law and article references to reject fabricated legal citations before generation.",
+      "Implemented multilingual support for French, Modern Standard Arabic, English, Arabic Darija, and Latin-script Darija queries.",
+      "Created a curated official-source corpus containing 30 active legal texts, 7,708 indexed articles, and 27 represented legal domains.",
+      "Developed legal-code browsing, exact article search, citation cards, conversation memory, coverage reporting, and controlled abstention through CORPUS_GAP.",
+      "Established a complete quality workflow with TypeScript validation, ESLint, automated tests, retrieval benchmarks, corpus checks, and production builds.",
     ],
   },
   problemStatement: {
-    title: "AI Chatbot Development",
+    title: "Reliable Access to Moroccan Legal Information",
     description:
-      "Building an intelligent chatbot with advanced conversation capabilities and natural language understanding.",
+      "General-purpose language models can produce fluent but unsupported legal answers, fabricate references, ignore missing facts, or cite irrelevant provisions. Moroccan legal information is also distributed across many official texts and portals, making reliable retrieval difficult for non-specialists.",
     challenges: [
-      "Implementing natural language understanding",
-      "Creating intelligent conversation flows",
-      "Ensuring context awareness",
-      "More details coming soon",
+      "Preventing hallucinated Moroccan laws, articles, deadlines, amounts, and procedures",
+      "Selecting the correct legal route for general, personal, exact-reference, and out-of-scope questions",
+      "Retrieving relevant provisions from a partial but curated legal corpus",
+      "Maintaining citation integrity between each legal claim and its supporting evidence",
+      "Handling French, Arabic, English, and Darija queries consistently",
+      "Exposing legal coverage and temporal limitations instead of overstating system accuracy",
     ],
   },
   solution:
-    "Currently developing an advanced AI-powered chatbot with intelligent conversation capabilities. More details coming soon.",
+    "OpenLegaMa uses controlled RAG rather than a direct question-to-LLM pipeline. A semantic router first classifies the request, checks whether clarification is required, validates explicit legal references, and decides whether retrieval is permitted. Relevant articles are then ranked and filtered before grounded generation. A final claim-to-citation validation layer ensures that sourced legal claims are linked to accepted official evidence, while CORPUS_GAP and controlled abstention prevent unsupported answers.",
   keyAchievements: [
-    "Project in development",
-    "More details coming soon",
+    "Released OpenLegaMa v1.0.1 as a stable, publicly accessible MVP",
+    "143 of 143 automated tests passing",
+    "610 curated benchmark cases and 120 independent holdout cases evaluated",
+    "100% document recall at 5 on the curated retrieval benchmark",
+    "100% exact article recall and citation integrity on measured benchmark cases",
+    "30 active official legal texts and 7,708 indexed legal articles",
+    "Multilingual legal interaction with Arabic RTL support and Darija normalization",
+    "Production build, TypeScript checks, ESLint, corpus validation, and benchmark thresholds passing",
   ],
   techStack: [
-    "AI", "Chatbot", "NLP", "Coming Soon",
+    "Next.js 16",
+    "React 18",
+    "TypeScript 5",
+    "Tailwind CSS 4",
+    "Controlled RAG",
+    "Groq SDK",
+    "Python",
+    "NLP",
+    "Legal Retrieval",
+    "Vercel",
   ],
   modules: [
     {
       id: 1,
-      name: "Chatbot Core",
-      description: "Core chatbot functionality currently in development.",
-      details: "Building intelligent conversation capabilities with natural language understanding.",
+      name: "Semantic Query Router",
+      description:
+        "Classifies project-information, general legal, clarification-required, exact-reference, Moroccan legal RAG, personal-case, corpus-gap, out-of-scope, and safety requests.",
+      details:
+        "The router determines whether retrieval is necessary, whether the user must provide missing facts, and whether the system is allowed to produce a sourced legal answer.",
       metrics: {
-        status: "In Development",
-        progress: "Ongoing",
+        routes: "9",
+        languages: "FR / AR / EN / Darija",
+        behavior: "Deterministic + semantic",
+      },
+    },
+    {
+      id: 2,
+      name: "Controlled Legal RAG",
+      description:
+        "Retrieves official Moroccan legal material through exact lookup and hybrid retrieval, followed by article ranking and relevance filtering.",
+      details:
+        "The assistant only receives accepted context after document-level and article-level relevance checks.",
+      metrics: {
+        legalTexts: "30",
+        indexedArticles: "7,708",
+        legalDomains: "27",
+      },
+    },
+    {
+      id: 3,
+      name: "Evidence & Citation Guard",
+      description:
+        "Links important Moroccan legal claims to accepted citations and rejects unsupported or irrelevant references.",
+      details:
+        "Citation cards expose the legal instrument, article, institution, official URL, supporting excerpt, and citation identifier.",
+      metrics: {
+        citationIntegrity: "100%*",
+        exactArticleRecall: "100%*",
+        abstention: "CORPUS_GAP",
+      },
+    },
+    {
+      id: 4,
+      name: "Evaluation & Release Pipeline",
+      description:
+        "Runs type checking, linting, automated tests, corpus reproducibility, registry synchronization, retrieval benchmarks, holdout validation, and a production build.",
+      details:
+        "The pipeline is designed to reduce regressions while keeping limitations visible; automated metrics do not replace professional legal validation.",
+      metrics: {
+        automatedTests: "143 / 143",
+        curatedCases: "610",
+        holdoutCases: "120",
       },
     },
   ],
   dataset: {
-    name: "Coming Soon",
-    source: "To be determined",
-    volume: "To be determined",
-    annotation: "To be determined",
-    classes: []
+    name: "Curated Moroccan Official Legal Corpus",
+    source: "Adala, SGG, Bulletin Officiel and stored official-source metadata",
+    volume: "30 active texts • 7,708 indexed articles • 27 domains",
+    annotation:
+      "Structured legal instruments, articles, provenance, official URLs, registry metadata, activation status, and retrieval evaluation cases",
   },
   challenges: {
-    development: {
-      description: "Currently in development phase",
-      solution: "More details coming soon"
+    hallucinatedReferences: {
+      problem: "Language models may fabricate laws or article numbers that sound legally plausible.",
+      solution:
+        "Validate explicit laws and article references deterministically before retrieval and reject false references without substituting unrelated citations.",
+      status: "Implemented",
+    },
+    insufficientEvidence: {
+      problem: "A relevant legal question may concern material that is absent from the active corpus.",
+      solution:
+        "Return CORPUS_GAP or controlled abstention instead of inventing a rule, amount, deadline, or procedure.",
+      status: "Implemented",
+    },
+    multilingualConsistency: {
+      problem: "The same legal intent can be expressed differently in French, Arabic, English, or Darija.",
+      solution:
+        "Normalize multilingual queries into a canonical legal intent while preserving the user’s response language and Arabic RTL presentation.",
+      status: "Implemented",
+    },
+    temporalValidity: {
+      problem: "Legal rules may change through amendments, repeals, implementing decrees, and transitional provisions.",
+      solution:
+        "Expose temporal uncertainty and coverage limitations explicitly; full end-to-end temporal validation remains a planned improvement.",
+      status: "Open limitation",
     },
   },
   results: {
-    status: "In Development",
-    progress: "Ongoing",
+    automatedTests: "143 / 143",
+    indexedArticles: "7,708",
+    activeLegalTexts: "30",
+    curatedBenchmark: "610 cases",
+    holdoutBenchmark: "120 cases",
+    documentRecallAt5: "100%*",
   },
   team: ["Youssef Bouzit"],
-  supervisor: "Self-directed",
+  supervisor: "Self-directed engineering project",
   liveDemo: {
-    url: "#",
-    description: "Coming soon - Advanced AI-powered chatbot with intelligent conversation capabilities",
+    url: "https://openlegama.vercel.app",
+    description:
+      "Explore OpenLegaMa’s multilingual Moroccan legal assistant, sourced legal search, legal-code library, article reader, and corpus coverage dashboard.",
   },
 };
