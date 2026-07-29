@@ -1,0 +1,129 @@
+<svg width="1400" height="860" viewBox="0 0 1400 860" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111F"/>
+      <stop offset="1" stop-color="#0D2430"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F4D58D"/>
+      <stop offset="1" stop-color="#C89B3C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0L10 5L0 10Z" fill="#6FA8B8"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="860" fill="url(#bg)"/>
+  <circle cx="1220" cy="100" r="250" fill="#0D9488" fill-opacity="0.07"/>
+  <circle cx="130" cy="790" r="300" fill="#C89B3C" fill-opacity="0.06"/>
+
+  <text x="70" y="70" fill="#F8FAFC" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">OpenLegaMa — Controlled Moroccan Legal RAG Architecture</text>
+  <text x="70" y="105" fill="#9FB2C1" font-family="Arial, Helvetica, sans-serif" font-size="17">Routing and evidence controls determine whether retrieval, clarification, abstention, or grounded generation is allowed.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="170" width="190" height="110" rx="22" fill="#132839" stroke="#3D6277" stroke-width="2"/>
+    <text x="165" y="205" text-anchor="middle" fill="#F8FAFC" font-family="Arial" font-size="18" font-weight="700">User</text>
+    <text x="165" y="235" text-anchor="middle" fill="#AFC1CD" font-family="Arial" font-size="15">French · Arabic · English</text>
+    <text x="165" y="258" text-anchor="middle" fill="#AFC1CD" font-family="Arial" font-size="15">Darija · Latin Darija</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="320" y="170" width="220" height="110" rx="22" fill="#15312F" stroke="#2DD4BF" stroke-opacity="0.65" stroke-width="2"/>
+    <text x="430" y="207" text-anchor="middle" fill="#DDFCF6" font-family="Arial" font-size="18" font-weight="700">Next.js Interface</text>
+    <text x="430" y="237" text-anchor="middle" fill="#A6D7D0" font-family="Arial" font-size="15">Chat · Legal Search</text>
+    <text x="430" y="260" text-anchor="middle" fill="#A6D7D0" font-family="Arial" font-size="15">Codes · Reader · Coverage</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="600" y="150" width="260" height="150" rx="24" fill="#2A2416" stroke="#C89B3C" stroke-width="2"/>
+    <text x="730" y="188" text-anchor="middle" fill="#F4D58D" font-family="Arial" font-size="19" font-weight="700">Language & Query Normalization</text>
+    <text x="730" y="220" text-anchor="middle" fill="#D7C79F" font-family="Arial" font-size="15">Language detection</text>
+    <text x="730" y="244" text-anchor="middle" fill="#D7C79F" font-family="Arial" font-size="15">Canonical legal intent</text>
+    <text x="730" y="268" text-anchor="middle" fill="#D7C79F" font-family="Arial" font-size="15">Domain & jurisdiction signals</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="930" y="140" width="320" height="170" rx="24" fill="#172638" stroke="#5F86B4" stroke-width="2"/>
+    <text x="1090" y="180" text-anchor="middle" fill="#DFEBF7" font-family="Arial" font-size="20" font-weight="700">Semantic Intent Router</text>
+    <text x="1090" y="211" text-anchor="middle" fill="#B7C9DB" font-family="Arial" font-size="14">PROJECT_INFO · GENERAL_ASSISTANT</text>
+    <text x="1090" y="235" text-anchor="middle" fill="#B7C9DB" font-family="Arial" font-size="14">GENERAL_LEGAL · CLARIFICATION_REQUIRED</text>
+    <text x="1090" y="259" text-anchor="middle" fill="#B7C9DB" font-family="Arial" font-size="14">EXACT_REFERENCE · LEGAL_RAG · PERSONAL_CASE</text>
+    <text x="1090" y="283" text-anchor="middle" fill="#B7C9DB" font-family="Arial" font-size="14">CORPUS_GAP · OUT_OF_SCOPE · SAFETY_REFUSAL</text>
+  </g>
+
+  <path d="M260 225H320" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M540 225H600" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M860 225H930" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="390" width="230" height="130" rx="22" fill="#26301F" stroke="#A8C75B" stroke-width="2"/>
+    <text x="195" y="427" text-anchor="middle" fill="#E8F4C7" font-family="Arial" font-size="18" font-weight="700">Exact Reference Validation</text>
+    <text x="195" y="459" text-anchor="middle" fill="#C7D99B" font-family="Arial" font-size="14">Verify law and article existence</text>
+    <text x="195" y="483" text-anchor="middle" fill="#C7D99B" font-family="Arial" font-size="14">Reject fabricated references</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="365" y="365" width="280" height="180" rx="24" fill="#152F34" stroke="#33B8B0" stroke-width="2"/>
+    <text x="505" y="405" text-anchor="middle" fill="#DDFCF6" font-family="Arial" font-size="20" font-weight="700">Official Legal Corpus</text>
+    <text x="505" y="438" text-anchor="middle" fill="#A8D8D4" font-family="Arial" font-size="16">30 active legal texts</text>
+    <text x="505" y="466" text-anchor="middle" fill="#A8D8D4" font-family="Arial" font-size="16">7,708 indexed articles</text>
+    <text x="505" y="494" text-anchor="middle" fill="#A8D8D4" font-family="Arial" font-size="16">27 represented legal domains</text>
+    <text x="505" y="522" text-anchor="middle" fill="#7FBDB7" font-family="Arial" font-size="14">Adala · SGG · Bulletin Officiel metadata</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="700" y="365" width="260" height="180" rx="24" fill="#20283A" stroke="#7085B8" stroke-width="2"/>
+    <text x="830" y="405" text-anchor="middle" fill="#E4EAF7" font-family="Arial" font-size="20" font-weight="700">Retrieval Pipeline</text>
+    <text x="830" y="438" text-anchor="middle" fill="#BDC7E1" font-family="Arial" font-size="15">Exact lookup or hybrid retrieval</text>
+    <text x="830" y="466" text-anchor="middle" fill="#BDC7E1" font-family="Arial" font-size="15">Article ranking</text>
+    <text x="830" y="494" text-anchor="middle" fill="#BDC7E1" font-family="Arial" font-size="15">Document relevance guard</text>
+    <text x="830" y="522" text-anchor="middle" fill="#BDC7E1" font-family="Arial" font-size="15">Article relevance guard</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1015" y="390" width="260" height="130" rx="22" fill="#312418" stroke="#D58A45" stroke-width="2"/>
+    <text x="1145" y="430" text-anchor="middle" fill="#F8DFBF" font-family="Arial" font-size="19" font-weight="700">Grounded Generation</text>
+    <text x="1145" y="461" text-anchor="middle" fill="#E2C29D" font-family="Arial" font-size="15">Groq provider</text>
+    <text x="1145" y="485" text-anchor="middle" fill="#E2C29D" font-family="Arial" font-size="15">Accepted context only</text>
+  </g>
+
+  <path d="M1090 310V342H195V390" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1090 310V342H505V365" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M645 455H700" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M960 455H1015" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M310 455H365" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="180" y="645" width="300" height="140" rx="24" fill="#1D3024" stroke="#62B879" stroke-width="2"/>
+    <text x="330" y="684" text-anchor="middle" fill="#DDF8E4" font-family="Arial" font-size="20" font-weight="700">Claim-to-Citation Validation</text>
+    <text x="330" y="718" text-anchor="middle" fill="#B7DEC2" font-family="Arial" font-size="15">Legal claim ↔ accepted evidence</text>
+    <text x="330" y="744" text-anchor="middle" fill="#B7DEC2" font-family="Arial" font-size="15">C1 · C2 · official source cards</text>
+    <text x="330" y="770" text-anchor="middle" fill="#8FC89E" font-family="Arial" font-size="14">Unsupported citations are rejected</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="550" y="645" width="300" height="140" rx="24" fill="#342B18" stroke="#C89B3C" stroke-width="2"/>
+    <text x="700" y="684" text-anchor="middle" fill="#F5E3B9" font-family="Arial" font-size="20" font-weight="700">Controlled Abstention</text>
+    <text x="700" y="718" text-anchor="middle" fill="#DCCBA2" font-family="Arial" font-size="15">CORPUS_GAP</text>
+    <text x="700" y="744" text-anchor="middle" fill="#DCCBA2" font-family="Arial" font-size="15">Clarification required</text>
+    <text x="700" y="770" text-anchor="middle" fill="#BFAE84" font-family="Arial" font-size="14">No unsupported legal conclusion</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="920" y="645" width="300" height="140" rx="24" fill="#15312F" stroke="#2DD4BF" stroke-width="2"/>
+    <text x="1070" y="684" text-anchor="middle" fill="#DDFCF6" font-family="Arial" font-size="20" font-weight="700">Structured User Answer</text>
+    <text x="1070" y="718" text-anchor="middle" fill="#A6D7D0" font-family="Arial" font-size="15">Sourced legal explanation</text>
+    <text x="1070" y="744" text-anchor="middle" fill="#A6D7D0" font-family="Arial" font-size="15">Official references and excerpts</text>
+    <text x="1070" y="770" text-anchor="middle" fill="#7FBDB7" font-family="Arial" font-size="14">Visible limitations and provenance</text>
+  </g>
+
+  <path d="M1145 520V590H330V645" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1145 520V590H700V645" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M480 715H550" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M850 715H920" stroke="#6FA8B8" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="70" y="830" fill="#7E94A4" font-family="Arial" font-size="14">Quality gates: 143 automated tests · 610 curated benchmark cases · 120 independent holdout cases · production build passing</text>
+</svg>
