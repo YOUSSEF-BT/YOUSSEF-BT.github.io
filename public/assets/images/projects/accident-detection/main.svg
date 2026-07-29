@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Real-time road accident detection project preview</title>
+  <desc id="desc">A computer vision dashboard showing tracked vehicles, an accident alert, and measured model performance.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.52" stop-color="#101f36"/>
+      <stop offset="1" stop-color="#07111f"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#26374b"/>
+      <stop offset="1" stop-color="#101927"/>
+    </linearGradient>
+    <linearGradient id="alert" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff4d5f"/>
+      <stop offset="1" stop-color="#ff7a45"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#8bc6ff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1340" cy="130" r="250" fill="#2e82ff" opacity="0.08"/>
+  <circle cx="250" cy="760" r="300" fill="#16d5c7" opacity="0.06"/>
+
+  <g transform="translate(72 58)">
+    <rect width="1456" height="784" rx="34" fill="#0b1728" stroke="#8cc8ff" stroke-opacity="0.18" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1456" height="84" rx="34" fill="#101f34"/>
+    <rect x="0" y="54" width="1456" height="30" fill="#101f34"/>
+    <circle cx="34" cy="42" r="8" fill="#ff5f57"/>
+    <circle cx="60" cy="42" r="8" fill="#febc2e"/>
+    <circle cx="86" cy="42" r="8" fill="#28c840"/>
+    <text x="128" y="50" fill="#f4f8ff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">RoadVision Safety Console</text>
+    <text x="1190" y="49" fill="#7ee8dd" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">● REAL-TIME</text>
+
+    <g transform="translate(28 112)">
+      <rect width="962" height="614" rx="24" fill="#07101d" stroke="#86c5ff" stroke-opacity="0.14"/>
+      <rect x="18" y="18" width="926" height="578" rx="18" fill="#111d2c"/>
+
+      <path d="M240 596 L405 18 H560 L724 596 Z" fill="url(#road)"/>
+      <path d="M487 34 L487 105" stroke="#eef6ff" stroke-opacity="0.65" stroke-width="9" stroke-linecap="round"/>
+      <path d="M487 151 L487 240" stroke="#eef6ff" stroke-opacity="0.65" stroke-width="10" stroke-linecap="round"/>
+      <path d="M487 303 L487 426" stroke="#eef6ff" stroke-opacity="0.65" stroke-width="12" stroke-linecap="round"/>
+      <path d="M487 498 L487 579" stroke="#eef6ff" stroke-opacity="0.65" stroke-width="14" stroke-linecap="round"/>
+      <path d="M405 18 L240 596" stroke="#d6e8ff" stroke-opacity="0.25" stroke-width="4"/>
+      <path d="M560 18 L724 596" stroke="#d6e8ff" stroke-opacity="0.25" stroke-width="4"/>
+
+      <g opacity="0.62">
+        <rect x="42" y="66" width="220" height="74" rx="12" fill="#07101d" stroke="#8bc6ff" stroke-opacity="0.28"/>
+        <text x="62" y="96" fill="#91a8c1" font-family="Inter, Arial, sans-serif" font-size="17">CAMERA</text>
+        <text x="62" y="125" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700">CCTV — Junction 04</text>
+      </g>
+
+      <g transform="translate(388 280) rotate(-10)">
+        <rect x="-8" y="-8" width="134" height="96" rx="10" fill="none" stroke="#38e6d2" stroke-width="4" filter="url(#glow)"/>
+        <rect x="13" y="12" width="92" height="52" rx="12" fill="#4a6178"/>
+        <rect x="28" y="4" width="56" height="22" rx="7" fill="#7890a8"/>
+        <circle cx="30" cy="69" r="10" fill="#07101d"/>
+        <circle cx="88" cy="69" r="10" fill="#07101d"/>
+        <rect x="-8" y="-38" width="150" height="28" rx="7" fill="#0b1728" stroke="#38e6d2" stroke-width="2"/>
+        <text x="3" y="-18" fill="#63f6e5" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">ID 08 • VEHICLE</text>
+      </g>
+
+      <g transform="translate(498 306) rotate(18)">
+        <rect x="-8" y="-8" width="145" height="101" rx="10" fill="none" stroke="#ff5366" stroke-width="5" filter="url(#glow)"/>
+        <rect x="13" y="12" width="100" height="56" rx="12" fill="#6d5260"/>
+        <rect x="30" y="3" width="60" height="24" rx="7" fill="#aa6f7b"/>
+        <circle cx="31" cy="74" r="10" fill="#07101d"/>
+        <circle cx="96" cy="74" r="10" fill="#07101d"/>
+        <rect x="-8" y="-40" width="172" height="30" rx="7" fill="#2d1018" stroke="#ff5366" stroke-width="2"/>
+        <text x="4" y="-19" fill="#ff8390" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">ID 14 • COLLISION</text>
+      </g>
+
+      <path d="M374 414 C418 386 472 389 530 440" fill="none" stroke="#38e6d2" stroke-width="5" stroke-dasharray="8 10" opacity="0.75"/>
+      <path d="M625 456 C585 412 560 373 552 324" fill="none" stroke="#ff5366" stroke-width="5" stroke-dasharray="8 10" opacity="0.8"/>
+
+      <g transform="translate(52 466)">
+        <rect width="250" height="98" rx="16" fill="#081322" stroke="#ff5d6d" stroke-opacity="0.45"/>
+        <rect width="8" height="98" rx="4" fill="url(#alert)"/>
+        <text x="28" y="36" fill="#ff7180" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">ACCIDENT DETECTED</text>
+        <text x="28" y="67" fill="#f2f6fb" font-family="Inter, Arial, sans-serif" font-size="17">Fusion score 0.864</text>
+        <text x="28" y="88" fill="#8fa4bb" font-family="Inter, Arial, sans-serif" font-size="14">Clip + CSV saved</text>
+      </g>
+
+      <g transform="translate(720 44)">
+        <rect width="196" height="40" rx="20" fill="#0b1728" stroke="#7ee8dd" stroke-opacity="0.45"/>
+        <text x="20" y="27" fill="#7ee8dd" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">31.5 FPS • ACTIVE</text>
+      </g>
+    </g>
+
+    <g transform="translate(1018 112)">
+      <rect width="410" height="614" rx="24" fill="#0d1a2c" stroke="#86c5ff" stroke-opacity="0.14"/>
+      <text x="28" y="48" fill="#f7fbff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">Hybrid Detection</text>
+      <text x="28" y="78" fill="#89a1ba" font-family="Inter, Arial, sans-serif" font-size="16">Vision + behavioral analysis</text>
+
+      <g transform="translate(26 112)">
+        <rect width="358" height="108" rx="18" fill="#101f34" stroke="#52d8c6" stroke-opacity="0.34"/>
+        <text x="22" y="34" fill="#72e7d8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">VISUAL BRANCH</text>
+        <text x="22" y="67" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">YOLOv11s</text>
+        <text x="205" y="67" fill="#9bb0c6" font-family="Inter, Arial, sans-serif" font-size="18">best.pt</text>
+        <text x="22" y="94" fill="#8399b0" font-family="Inter, Arial, sans-serif" font-size="15">Accident confidence scoring</text>
+      </g>
+
+      <g transform="translate(26 238)">
+        <rect width="358" height="108" rx="18" fill="#101f34" stroke="#7da9ff" stroke-opacity="0.34"/>
+        <text x="22" y="34" fill="#9cc0ff" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">BEHAVIORAL BRANCH</text>
+        <text x="22" y="67" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">α + β + γ</text>
+        <text x="22" y="94" fill="#8399b0" font-family="Inter, Arial, sans-serif" font-size="15">Proximity • trajectory • single vehicle</text>
+      </g>
+
+      <g transform="translate(26 372)">
+        <text x="0" y="0" fill="#8ca4bd" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">MEASURED MODEL RESULTS</text>
+        <g transform="translate(0 22)">
+          <rect width="110" height="96" rx="16" fill="#101f34"/>
+          <text x="18" y="31" fill="#829ab2" font-family="Inter, Arial, sans-serif" font-size="14">Precision</text>
+          <text x="18" y="70" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="800">86.68%</text>
+        </g>
+        <g transform="translate(124 22)">
+          <rect width="110" height="96" rx="16" fill="#101f34"/>
+          <text x="18" y="31" fill="#829ab2" font-family="Inter, Arial, sans-serif" font-size="14">Recall</text>
+          <text x="18" y="70" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="800">91.56%</text>
+        </g>
+        <g transform="translate(248 22)">
+          <rect width="110" height="96" rx="16" fill="#101f34"/>
+          <text x="18" y="31" fill="#829ab2" font-family="Inter, Arial, sans-serif" font-size="14">F1</text>
+          <text x="18" y="70" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="800">89.06%</text>
+        </g>
+      </g>
+
+      <g transform="translate(26 526)">
+        <rect width="358" height="62" rx="16" fill="url(#alert)" opacity="0.95"/>
+        <text x="22" y="27" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">DECISION ENGINE</text>
+        <text x="22" y="49" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">max(vision, heuristic) → 0.6 / 0.8</text>
+      </g>
+    </g>
+  </g>
+</svg>
