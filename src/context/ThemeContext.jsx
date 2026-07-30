@@ -36,21 +36,19 @@ const applyTheme = (newTheme) => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("dark");
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "dark",
+  );
+  const mounted = true;
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    setTheme(savedTheme);
-    applyTheme(savedTheme);
-    setMounted(true);
-  }, []);
+    applyTheme(theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    applyTheme(newTheme);
   };
 
   return (
