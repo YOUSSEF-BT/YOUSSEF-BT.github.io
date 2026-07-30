@@ -8,13 +8,23 @@ import { hybridMovieRecommenderProject } from "./hybridMovieRecommender";
 import { chatbotProject } from "./chatbot";
 import { trafficMVPProject } from "./trafficMVP";
 import { accidentDetectionProject } from "./accidentDetection";
-import pfeCoverBase64 from "../../../build-assets/pfe-cover/part00.b64?raw";
+import pfeCoverBase64Part00 from "../../../build-assets/pfe-cover/part00.b64?raw";
+import pfeCoverBase64Part01 from "../../../build-assets/pfe-cover/part01.b64?raw";
+import pfeCoverBase64Part02 from "../../../build-assets/pfe-cover/part02.b64?raw";
+import pfeCoverBase64Part03 from "../../../build-assets/pfe-cover/part03.b64?raw";
 
-// Embed only the valid first WebP stored in part00. The source file contains
-// additional legacy image data after the WebP, so keep exactly 49,592 Base64
-// characters = 37,192 decoded bytes declared by the RIFF header.
-const cleanPfeCoverBase64 = pfeCoverBase64.replace(/\s+/g, "").slice(0, 49592);
-const pfeCoverDataUrl = `data:image/webp;base64,${cleanPfeCoverBase64}`;
+// The optimized PFE cover is embedded in the production bundle so the image
+// remains reliable on GitHub Pages without asset-path or browser-cache issues.
+const pfeCoverBase64 = [
+  pfeCoverBase64Part00,
+  pfeCoverBase64Part01,
+  pfeCoverBase64Part02,
+  pfeCoverBase64Part03,
+]
+  .join("")
+  .replace(/\s+/g, "");
+
+const pfeCoverDataUrl = `data:image/webp;base64,${pfeCoverBase64}`;
 
 // Only the project cover is overridden. The System Architecture image remains
 // defined inside accidentDetectionProject.overview and is not modified here.
