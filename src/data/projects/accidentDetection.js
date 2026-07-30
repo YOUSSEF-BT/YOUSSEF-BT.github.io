@@ -130,21 +130,22 @@ export const accidentDetectionProject = {
     },
   ],
   dataset: {
-    name: "accident_pro",
-    source: "Manually annotated and managed with Roboflow",
-    volume: "12,716 images",
+    sectionTitle: "Dataset Engineering & Evaluation Split",
+    name: "accident_pro — Custom Road-Accident Vision Corpus",
+    source: "Manual annotation • Roboflow management • CCTV-oriented road scenes",
+    volume: "12,716 labeled images • 2 semantic classes",
     annotation:
-      "YOLO format • 10,192 train • 1,290 validation • 1,234 test",
+      "Train 10,192 (80%) • Validation 1,290 (10%) • Test 1,234 (10%) • YOLO format",
     classes: [
       {
         name: "Accident",
-        label: "Collision or abnormal crash scene",
-        distribution: "2-class dataset",
+        label: "Collision, rollover, impact, or visually abnormal crash scene",
+        distribution: "Target class",
       },
       {
         name: "Vehicle",
-        label: "Non-accident road vehicle",
-        distribution: "2-class dataset",
+        label: "Road vehicle used as contextual and non-accident reference",
+        distribution: "Reference class",
       },
     ],
   },
