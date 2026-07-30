@@ -13,7 +13,7 @@ import { accidentDetectionProject } from "./accidentDetection";
 // defined inside accidentDetectionProject.overview and is not modified here.
 const accidentDetectionProjectWithCover = {
   ...accidentDetectionProject,
-  image: "assets/images/projects/accident-detection/main-cover-exact-v4.webp",
+  image: "https://raw.githubusercontent.com/YOUSSEF-BT/YOUSSEF-BT.github.io/main/public/assets/images/projects/accident-detection/main-cover-photo.jpg?v=20260730-1855",
 };
 
 // Organized by creation date - most recent projects first
