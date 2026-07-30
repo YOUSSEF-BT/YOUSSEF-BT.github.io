@@ -1,7 +1,7 @@
 import { Share2, Facebook, Twitter, Linkedin, Link as LinkIcon, Check, Mail } from "lucide-react";
 import { useState } from "react";
 
-export const SocialShare = ({ title, url, description }) => {
+export const SocialShare = ({ title, url }) => {
   const [copied, setCopied] = useState(false);
 
   const shareLinks = [
@@ -73,7 +73,7 @@ export const SocialShare = ({ title, url, description }) => {
   );
 };
 
-export const SocialShareButton = ({ title, url, description }) => {
+export const SocialShareButton = ({ title, url }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const shareLinks = [
