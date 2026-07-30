@@ -40,7 +40,10 @@ jobs:
 
       - name: Use photo only as PFE project cover
         run: |
-          find dist/assets -type f -name '*.js' -exec sed -i 's#assets/images/projects/accident-detection/main-cover-vector\.svg#assets/images/projects/accident-detection/main-cover-photo.webp#g' {} +
+          find dist/assets -type f -name '*.js' -exec sed -i \
+            -e 's#assets/images/projects/accident-detection/main-cover-final\.jpg#assets/images/projects/accident-detection/main-cover-photo.webp#g' \
+            -e 's#assets/images/projects/accident-detection/main-cover-vector\.svg#assets/images/projects/accident-detection/main-cover-photo.webp#g' \
+            {} +
 
       - name: Publish complete build to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
