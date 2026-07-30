@@ -10,11 +10,14 @@ import { trafficMVPProject } from "./trafficMVP";
 import { accidentDetectionProject } from "./accidentDetection";
 import pfeCoverBase64 from "../../../build-assets/pfe-cover/part00.b64?raw";
 
-// Embed only the PFE project cover directly in the production bundle. This
-// removes all asset-path, cache, CORS, and GitHub Pages deployment failures.
-// The System Architecture image remains defined in accidentDetectionProject.
-const pfeCoverDataUrl = `data:image/webp;base64,${pfeCoverBase64.replace(/\s+/g, "")}`;
+// Embed only the valid first WebP stored in part00. The source file contains
+// additional legacy image data after the WebP, so keep exactly 49,592 Base64
+// characters = 37,192 decoded bytes declared by the RIFF header.
+const cleanPfeCoverBase64 = pfeCoverBase64.replace(/\s+/g, "").slice(0, 49592);
+const pfeCoverDataUrl = `data:image/webp;base64,${cleanPfeCoverBase64}`;
 
+// Only the project cover is overridden. The System Architecture image remains
+// defined inside accidentDetectionProject.overview and is not modified here.
 const accidentDetectionProjectWithCover = {
   ...accidentDetectionProject,
   image: pfeCoverDataUrl,
