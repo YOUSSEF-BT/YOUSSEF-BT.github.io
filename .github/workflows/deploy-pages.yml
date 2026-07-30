@@ -30,8 +30,49 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Rebuild and verify PFE project cover
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="public/assets/images/projects/accident-detection/main-cover-final-v6.webp"
+          mkdir -p "$(dirname "$output")"
+          tr -d '\r\n' < build-assets/pfe-cover/part00.b64 | base64 --decode > "$output"
+
+          python3 - "$output" <<'PY'
+          import pathlib
+          import sys
+
+          path = pathlib.Path(sys.argv[1])
+          data = path.read_bytes()
+          assert data[:4] == b"RIFF", "Missing RIFF header"
+          assert data[8:12] == b"WEBP", "Missing WEBP signature"
+          declared_size = int.from_bytes(data[4:8], "little") + 8
+          assert declared_size == len(data), (
+              f"Invalid WebP length: header={declared_size}, actual={len(data)}"
+          )
+          assert len(data) > 30000, f"Unexpectedly small cover: {len(data)} bytes"
+          print(f"Verified PFE cover: {len(data)} bytes")
+          PY
+
       - name: Build portfolio
         run: npm run build
+
+      - name: Verify PFE cover in production build
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="dist/assets/images/projects/accident-detection/main-cover-final-v6.webp"
+          python3 - "$output" <<'PY'
+          import pathlib
+          import sys
+
+          path = pathlib.Path(sys.argv[1])
+          data = path.read_bytes()
+          assert data[:4] == b"RIFF"
+          assert data[8:12] == b"WEBP"
+          assert int.from_bytes(data[4:8], "little") + 8 == len(data)
+          print(f"Verified deployed PFE cover: {len(data)} bytes")
+          PY
 
       - name: Publish complete build to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
