@@ -8,12 +8,16 @@ import { hybridMovieRecommenderProject } from "./hybridMovieRecommender";
 import { chatbotProject } from "./chatbot";
 import { trafficMVPProject } from "./trafficMVP";
 import { accidentDetectionProject } from "./accidentDetection";
+import pfeCoverBase64 from "../../../build-assets/pfe-cover/part00.b64?raw";
 
-// Override only the PFE project cover. The System Architecture image remains
-// defined inside accidentDetectionProject.overview and is not modified here.
+// Embed only the PFE project cover directly in the production bundle. This
+// removes all asset-path, cache, CORS, and GitHub Pages deployment failures.
+// The System Architecture image remains defined in accidentDetectionProject.
+const pfeCoverDataUrl = `data:image/webp;base64,${pfeCoverBase64.replace(/\s+/g, "")}`;
+
 const accidentDetectionProjectWithCover = {
   ...accidentDetectionProject,
-  image: "assets/images/projects/accident-detection/main-cover-final-v6.webp",
+  image: pfeCoverDataUrl,
 };
 
 // Organized by creation date - most recent projects first
