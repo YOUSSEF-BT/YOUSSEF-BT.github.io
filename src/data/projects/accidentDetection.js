@@ -4,7 +4,7 @@ export const accidentDetectionProject = {
   title: "Real-Time Road Accident Detection — Computer Vision & Deep Learning",
   description:
     "A hybrid real-time road-safety system that combines YOLOv11 vehicle detection, BoT-SORT tracking, a fine-tuned YOLOv11s accident classifier, and αβγ behavioral analysis to trigger alerts and automatically save MP4 evidence clips with CSV event logs.",
-  image: "assets/images/projects/accident-detection/main-cover-v2.webp",
+  image: "assets/images/projects/accident-detection/main-cover-final.jpg",
   tags: [
     "Computer Vision",
     "Deep Learning",
