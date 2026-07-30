@@ -30,8 +30,38 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Rebuild and verify PFE cover
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="public/assets/images/projects/accident-detection/main-cover-exact-v4.webp"
+          mkdir -p "$(dirname "$output")"
+          cat \
+            build-assets/pfe-cover/part00.b64 \
+            build-assets/pfe-cover/part01.b64 \
+            build-assets/pfe-cover/part02.b64 \
+            build-assets/pfe-cover/part03.b64 \
+            build-assets/pfe-cover/part04.b64 \
+            build-assets/pfe-cover/part05.b64 \
+            build-assets/pfe-cover/part06.b64 \
+            | tr -d '\r\n' \
+            | base64 --decode > "$output"
+
+          test "$(head -c 4 "$output")" = "RIFF"
+          test "$(dd if="$output" bs=1 skip=8 count=4 status=none)" = "WEBP"
+          test "$(stat -c%s "$output")" -gt 50000
+          file "$output"
+
       - name: Build portfolio
         run: npm run build
+
+      - name: Verify cover in production build
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s dist/assets/images/projects/accident-detection/main-cover-exact-v4.webp
+          test "$(head -c 4 dist/assets/images/projects/accident-detection/main-cover-exact-v4.webp)" = "RIFF"
+          test "$(dd if=dist/assets/images/projects/accident-detection/main-cover-exact-v4.webp bs=1 skip=8 count=4 status=none)" = "WEBP"
 
       - name: Publish complete build to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
