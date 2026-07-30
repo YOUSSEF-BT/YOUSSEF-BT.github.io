@@ -30,13 +30,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Rebuild PFE cover image
-        run: |
-          mkdir -p public/assets/images/projects/accident-detection
-          cat build-assets/pfe-cover/part*.b64 | tr -d '\n' | base64 --decode > public/assets/images/projects/accident-detection/main-cover-photo.webp
-          file public/assets/images/projects/accident-detection/main-cover-photo.webp
-          test -s public/assets/images/projects/accident-detection/main-cover-photo.webp
-
       - name: Build portfolio
         run: npm run build
 
