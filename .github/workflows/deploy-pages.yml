@@ -30,8 +30,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Rebuild PFE cover image
+        run: |
+          mkdir -p public/assets/images/projects/accident-detection
+          cat build-assets/pfe-cover/part*.b64 | tr -d '\n' | base64 --decode > public/assets/images/projects/accident-detection/main-cover-photo.webp
+
       - name: Build portfolio
         run: npm run build
+
+      - name: Use photo only as PFE project cover
+        run: |
+          find dist/assets -type f -name '*.js' -exec sed -i 's#assets/images/projects/accident-detection/main-cover-vector\.svg#assets/images/projects/accident-detection/main-cover-photo.webp#g' {} +
 
       - name: Publish complete build to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
