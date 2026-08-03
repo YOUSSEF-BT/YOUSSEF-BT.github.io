@@ -1,9 +1,12 @@
 <div align="center">
 
-# AI Engineering Portfolio
+# Youssef Bouzit — AI & Data Science Portfolio
 
-### A professional platform for presenting intelligent systems,  
-### engineering decisions and verifiable technical evidence.
+### State Engineer in Data Science
+
+**AI • Computer Vision • Machine Learning • RAG • MLOps**
+
+Building practical AI systems for real-world problems.
 
 <br />
 
