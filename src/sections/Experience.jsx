@@ -12,7 +12,7 @@ const experiences = [
     description:
       "Designed and developed a real-time road accident detection system using YOLO, BoT-SORT, computer vision, and behavioral heuristics. Built video alerts, automated clip saving, and CSV event logging for CCTV-based monitoring.",
     technologies: ["Python", "YOLO", "OpenCV", "BoT-SORT", "Deep Learning"],
-    current: true,
+    current: false,
     logos: [abaLogo]
   },
   {
