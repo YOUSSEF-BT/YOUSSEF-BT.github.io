@@ -1,352 +1,467 @@
 <div align="center">
 
-# 👋 Hi, I'm Youssef Bouzit
+<img
+  src="https://capsule-render.vercel.app/api?type=waving&color=0:0B132B,50:1C2541,100:14B8A6&height=210&section=header&text=Youssef%20Bouzit&fontSize=48&fontColor=FFFFFF&fontAlignY=34&desc=AI%20%26%20Computer%20Vision%20Engineer%20%E2%80%A2%20State%20Engineer%20in%20Data%20Science&descAlignY=57&descSize=17"
+  width="100%"
+  alt="Youssef Bouzit — AI and Computer Vision Engineer"
+/>
 
-**Data Science Engineering Student | AI Engineer | Full-Stack Developer**
+<br />
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/youssef-bouzit-74863239b/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/YOUSSEF-BT)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:bt.youssef.369@gmail.com)
-[![Website](https://img.shields.io/badge/Portfolio-24292e?style=for-the-badge&logo=vercel&logoColor=white)](https://youssef-bt.github.io/YOUSSEF_BT_PORTFOLIO/)
+# AI Engineering Portfolio
 
-*🌍 Available for work & collaboration | 🇫🇷 Bilingual (English/Français)*
+### A professional platform for presenting intelligent systems,  
+### engineering decisions and verifiable technical evidence.
+
+<br />
+
+[![Live Portfolio](https://img.shields.io/badge/OPEN_LIVE_PORTFOLIO-14B8A6?style=for-the-badge&logo=googlechrome&logoColor=white)](https://youssef-bt.github.io/)
+[![LinkedIn](https://img.shields.io/badge/CONNECT_ON_LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/youssef-bouzit-74863239b/)
+[![GitHub](https://img.shields.io/badge/VIEW_GITHUB_PROFILE-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/YOUSSEF-BT)
+[![Email](https://img.shields.io/badge/PROFESSIONAL_CONTACT-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:bt.youssef.369@gmail.com)
+
+<br />
+
+![Portfolio Status](https://img.shields.io/website?label=Portfolio&style=flat-square&up_color=14B8A6&up_message=Online&down_message=Offline&url=https%3A%2F%2Fyoussef-bt.github.io%2F)
+![Last Commit](https://img.shields.io/github/last-commit/YOUSSEF-BT/YOUSSEF-BT.github.io?style=flat-square)
+![Repository Size](https://img.shields.io/github/repo-size/YOUSSEF-BT/YOUSSEF-BT.github.io?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-22C55E?style=flat-square)
+
 </div>
-   
-## 🚀 About
 
-A modern, responsive portfolio website built with **React, Vite, and Tailwind CSS** to showcase my expertise in **Data Science**, **Artificial Intelligence**, **Machine Learning Engineering**, and **Full-Stack Development**.
+---
 
-**Current Role:** AI & Computer Vision Engineer Intern @ ABA Technologie (Casablanca Technopark)
+## About the Portfolio
 
-## 🚦 Getting Started
+This repository contains the source code of my professional portfolio:
 
-### Prerequisites
+### **[youssef-bt.github.io](https://youssef-bt.github.io/)**
 
-- **Node.js** ≥ v18.0.0
-- **npm** ≥ v9.0.0
+I am a **State Engineer in Data Science** with a focus on Artificial Intelligence, Computer Vision, Machine Learning, Controlled RAG and MLOps.
 
-### Installation
+I completed a six-month **AI and Computer Vision engineering internship at NEXTRONIC, part of ABA Technology Group**, where I designed and developed a real-time road-accident detection system using deep learning, multi-object tracking and behavioral analysis.
 
-```bash
-# Clone the repository
-git clone https://github.com/YOUSSEF-BT/youssef-bouzit-portfolio.git
-cd portfolio
+My graduation project was defended with an **Excellent distinction and a score of 18/20**.
 
-# Install dependencies
-npm ci --prefer-offline --no-audit
+I am currently open to full-time opportunities in:
+
+- AI Engineering
+- Computer Vision Engineering
+- Machine Learning Engineering
+- Data Science
+- RAG and LLM applications
+- MLOps
+
+---
+
+## Purpose
+
+This platform is designed to communicate engineering work clearly to recruiters, technical teams and potential collaborators.
+
+It goes beyond project titles and screenshots by presenting:
+
+- the problem addressed by each project;
+- the proposed technical solution;
+- the system architecture;
+- the technologies and data used;
+- the implementation decisions;
+- the measured results;
+- the evaluation context;
+- the known limitations;
+- the source repository;
+- the available demonstration.
+
+> **Not just a project gallery — a portfolio built around engineering evidence.**
+
+---
+
+## Engineering Focus
+
+<table>
+<tr>
+<td width="25%" align="center">
+
+### Computer Vision
+
+Object detection, tracking, video intelligence and real-time analysis.
+
+</td>
+<td width="25%" align="center">
+
+### Machine Learning
+
+Prediction, classification, anomaly detection and evaluation.
+
+</td>
+<td width="25%" align="center">
+
+### Controlled RAG
+
+Retrieval, evidence filtering, citation validation and abstention.
+
+</td>
+<td width="25%" align="center">
+
+### MLOps
+
+Experiment tracking, orchestration, monitoring and delivery workflows.
+
+</td>
+</tr>
+</table>
+
+---
+
+## Featured Engineering Work
+
+The portfolio presents detailed case studies across:
+
+```text
+Artificial Intelligence
+Computer Vision
+Machine Learning
+Deep Learning
+Controlled RAG
+MLOps
+Data Engineering
+NLP
+Recommendation Systems
+Intelligent Applications
 ```
 
-### Development
+Each project remains accessible through its dedicated page, with its architecture, results, limitations, source code and available demonstrations.
 
-```bash
-# Start development server
-npm run dev
+<div align="center">
 
-# Open http://localhost:5173 in your browser
-```
+[![Explore Projects](https://img.shields.io/badge/EXPLORE_ALL_PROJECTS-14B8A6?style=for-the-badge&logo=rocket&logoColor=white)](https://youssef-bt.github.io/#/demos)
+[![Explore Skills](https://img.shields.io/badge/VIEW_TECHNICAL_SKILLS-2563EB?style=for-the-badge&logo=codersrank&logoColor=white)](https://youssef-bt.github.io/#/skills)
+[![View Certifications](https://img.shields.io/badge/VIEW_CERTIFICATIONS-7C3AED?style=for-the-badge&logo=credly&logoColor=white)](https://youssef-bt.github.io/#/certifications)
 
-### Production Build
+</div>
 
-```bash
-# Create optimized production build
-npm run build
+---
 
-# Preview production build locally
-npm run preview
-```
+## Platform Experience
 
-### Code Quality
+### Engineering Content
 
-```bash
-# Run ESLint
-npm run lint
+- Dedicated project case-study pages
+- System architecture visualizations
+- Dataset and knowledge-base descriptions
+- Evaluation metrics with contextual notes
+- Technical challenges and implemented solutions
+- Transparent limitations and future improvements
+- Live demonstrations and source repositories
+
+### User Experience
+
+- Responsive desktop, tablet and mobile layouts
+- French and English interfaces
+- Dark and light themes
+- Smooth client-side navigation
+- Interactive visual background
+- Modern glass-inspired interface
+- Downloadable CV
+- Professional contact form
+
+---
+
+## Technology Stack
+
+<div align="center">
+
+### Core Application
+
+![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite_7-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-111827?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+
+### Interface and Visualization
+
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white)
+![Lucide React](https://img.shields.io/badge/Lucide_React-F56565?style=for-the-badge&logo=lucide&logoColor=white)
+![Mermaid](https://img.shields.io/badge/Mermaid-FF3670?style=for-the-badge&logo=mermaid&logoColor=white)
+![Flowchart.js](https://img.shields.io/badge/Flowchart.js-2563EB?style=for-the-badge&logo=diagramsdotnet&logoColor=white)
+
+### Integration and Delivery
+
+![EmailJS](https://img.shields.io/badge/EmailJS-FF8434?style=for-the-badge&logo=maildotru&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
+![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white)
+
+</div>
+
+---
+
+## Application Architecture
+
+```mermaid
+flowchart TD
+    Visitor[Portfolio Visitor]
+
+    Visitor --> Hosting[GitHub Pages]
+    Hosting --> Application[React Application]
+    Application --> Router[HashRouter]
+
+    Router --> Home[Homepage]
+    Router --> Projects[Project Details]
+    Router --> Skills[Skills]
+    Router --> Certifications[Certifications]
+    Router --> Demos[Project Demos]
+    Router --> Architecture[System Architecture]
+
+    Home --> Hero[Hero]
+    Home --> About[About]
+    Home --> ProjectSection[Projects]
+    Home --> Experience[Experience]
+    Home --> CertificationSection[Certifications]
+    Home --> Contact[Contact]
+
+    Projects --> ProjectData[Project Data Layer]
+    ProjectData --> Assets[Images and Architecture Assets]
+    ProjectData --> Repositories[GitHub Repositories]
+    ProjectData --> Applications[Live Applications and Demos]
+
+    Contact --> EmailService[EmailJS]
 ```
 
 ---
 
-## ✨ Features
+<details>
+<summary><strong>Repository Structure</strong></summary>
 
-### 🎨 UI/UX
+<br />
 
-- **Interactive Particle Effects** - Dynamic Particles.js background
-- **Theme Toggle** - Dark/Light mode with localStorage persistence
-- **Bilingual Support** - Full French/English language switching
-- **Responsive Design** - Optimized for all devices
-- **Smooth Scrolling** - Enhanced navigation
-- **Glassmorphism UI** - Modern design elements
-- **Animated Elements** - CSS keyframe animations
-- **Loading States** - Professional page loader
-
-### 📊 Content
-
-- **Hero Section** - Eye-catching introduction with availability status
-- **About Section** - Professional background and expertise
-- **Projects Showcase** - 9 detailed AI/ML/Full-Stack projects
-- **Experience Timeline** - Professional journey display
-- **Certifications** - Filterable certification gallery
-- **Testimonials** - Social proof from colleagues
-- **Contact Form** - EmailJS integration
-- **CV Download** - One-click resume download
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| **React** | 19.2 | Component framework |
-| **Vite** | 7.2 | Build tool & dev server |
-| **Tailwind CSS** | 4.1 | Utility-first styling |
-| **React Router DOM** | 7.13.1 | Client-side routing |
-
-### UI & Animation
-
-| Library | Purpose |
-|---------|---------|
-| **Lucide React** | Icon library (400+ SVG icons) |
-| **Particles.js** | Interactive particle background |
-
-### Integration & Tools
-
-| Service | Purpose |
-|---------|---------|
-| **EmailJS** | Contact form email delivery |
-| **ESLint** | Code quality & linting |
-
----
-
-## 📁 Project Structure
-
-```
-portfolio/
+```text
+YOUSSEF-BT.github.io/
 ├── public/
-│   ├── assets/
-│   │   ├── images/
-│   │   │   ├── hero/
-│   │   │   ├── projects/
-│   │   │   ├── profile/
-│   │   │   └── certifications/
-│   │   └── vite.svg
-│   └── index.html
+│   └── assets/
+│       ├── architecture/
+│       ├── documents/
+│       └── images/
 │
 ├── src/
-│   ├── components/          # Reusable UI components
-│   │   ├── AnimatedBorderButton.jsx
-│   │   ├── Button.jsx
-│   │   ├── CVDownloadButton.jsx
-│   │   ├── LanguageToggle.jsx
-│   │   ├── LiveDemoSection.jsx
-│   │   ├── PageLoader.jsx
-│   │   ├── ParticlesBackground.jsx
-│   │   ├── ScrollToTop.jsx
-│   │   ├── SocialShare.jsx
-│   │   └── ThemeToggle.jsx
-│   │
-│   ├── sections/            # Homepage sections
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Experience.jsx
-│   │   ├── Certifications.jsx
-│   │   ├── Testimonials.jsx
-│   │   └── Contact.jsx
-│   │
-│   ├── pages/               # Full-page components
-│   │   ├── ProjectDetail.jsx
-│   │   ├── Demos.jsx
-│   │   ├── Skills.jsx
-│   │   ├── CertificationsPage.jsx
-│   │   ├── SystemArchitecture.jsx
-│   │   └── NotFound.jsx
-│   │
-│   ├── layout/              # Layout components
-│   │   ├── Navbar.jsx
-│   │   └── Footer.jsx
-│   │
-│   ├── context/             # React contexts
-│   │   ├── LanguageContext.jsx
-│   │   └── ThemeContext.jsx
-│   │
-│   ├── data/                # Project data
-│   │   └── projects/        # Individual project definitions
-│   │       ├── index.js
-│   │       ├── aiSummarizer.js
-│   │       ├── chatbot.js
-│   │       ├── churnPrediction.js
-│   │       ├── dataQuality.js
-│   │       ├── fraudDetection.js
-│   │       ├── hybridMovieRecommender.js
-│   │       ├── mlopsPipeline.js
-│   │       ├── tweetsSentiment.js
-│   │       └── trafficMVP.js
-│   │
-│   ├── assets/              # Assets (symlinked to public/)
-│   ├── index.css            # Global styles & Tailwind
-│   ├── main.jsx             # React entry point
-│   └── App.jsx              # Root component
+│   ├── components/
+│   ├── context/
+│   ├── data/
+│   │   └── projects/
+│   ├── layout/
+│   ├── pages/
+│   ├── sections/
+│   ├── utils/
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
 │
-├── dist/                    # Production build output
-├── .gitignore
-├── eslint.config.js
+├── index.html
 ├── package.json
 ├── vite.config.js
-├── particles.json
 └── README.md
 ```
 
-**Note:** Section data (certifications, experience, testimonials) is embedded directly in their respective components for simplicity. Translations are defined in `LanguageContext.jsx`.
+</details>
 
 ---
 
-## 🌐 Deployment
+<details>
+<summary><strong>Local Development</strong></summary>
 
-### GitHub Pages
+<br />
+
+### Requirements
+
+- Node.js 18 or later
+- npm 9 or later
+- Git
+
+### Clone the Repository
 
 ```bash
-# Build and deploy to gh-pages branch
-npm run deploy
+git clone https://github.com/YOUSSEF-BT/YOUSSEF-BT.github.io.git
+cd YOUSSEF-BT.github.io
 ```
 
-After deployment:
-- Access at: `https://YOUSSEF-BT.github.io/youssef-bouzit-portfolio/`
-- Enable GitHub Pages in repo settings → Pages → Source: `gh-pages` branch
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start the Development Server
+
+```bash
+npm run dev
+```
+
+The application will normally be available at:
+
+```text
+http://localhost:5173
+```
+
+### Create a Production Build
+
+```bash
+npm run build
+```
+
+### Preview the Production Build
+
+```bash
+npm run preview
+```
+
+### Run Code-Quality Checks
+
+```bash
+npm run lint
+```
+
+</details>
 
 ---
 
-## ⚙️ Configuration
+<details>
+<summary><strong>Environment Configuration</strong></summary>
 
-### Environment Variables
+<br />
 
-Create `.env.local` in the project root:
+Create a `.env.local` file in the project root:
 
 ```env
-# Required for EmailJS contact form
 VITE_EMAILJS_SERVICE_ID=your_service_id
 VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
-**Important:** Never commit `.env.local` to version control. Set environment variables in your hosting platform instead.
+Never commit private credentials or environment files.
 
-### Theme & Particles
-
-- **Theme**: Configurable in `src/context/ThemeContext.jsx`
-- **Particles**: Customize `particles.json` for particle count, colors, shapes
+</details>
 
 ---
 
-## 📦 Dependencies
+<details>
+<summary><strong>Deployment</strong></summary>
 
-See [package.json](./package.json) for full list.
+<br />
 
-Key production dependencies:
-- react: ^19.2.0
-- react-dom: ^19.2.0
-- react-router-dom: ^7.13.1
-- tailwindcss: ^4.1.17
-- @emailjs/browser: ^4.4.1
-- lucide-react: ^0.556.0
-- particles.js: ^2.0.0
-- flowchart.js: ^1.18.0
-- mermaid: ^11.13.0
+The portfolio is deployed through GitHub Pages.
 
----
+```bash
+npm run deploy
+```
 
-## 📊 Performance
+Production URL:
 
-This portfolio is optimized for performance:
+```text
+https://youssef-bt.github.io/
+```
 
-- ✅ Fast initial load with Vite + Rollup
-- ✅ Code splitting via React Router lazy loading
-- ✅ CSS purging with Tailwind
-- ✅ Image optimization (served from public/)
-- ✅ Asset hashing for cache busting
-- ✅ Minimal JavaScript bundle (~414 KB gzipped to ~119 KB)
-
-**Lighthouse Target Scores:** >95 for Performance, Accessibility, Best Practices, SEO
+</details>
 
 ---
 
-## 🔒 Security Notes
+## Engineering Principles
 
-- This is a static SPA - no server-side code or database access
-- EmailJS keys are stored client-side (by design)
-- No sensitive credentials in repository
-- Deploy over HTTPS only
-- Consider adding CAPTCHA to contact form for production use
+### Evidence Before Promotion
 
----
+Important technical claims should be connected to visible project evidence.
 
-## 🧪 Testing
+### Evaluation Transparency
 
-No automated tests are currently implemented. Recommended testing strategy:
+Metrics should always be presented with their scope and evaluation context.
 
-- Visual regression testing across breakpoints
-- Browser compatibility (Chrome, Firefox, Safari, Edge)
-- Theme switching verification
-- Language switching verification
-- Accessibility audits (screen readers, keyboard navigation)
-- Lighthouse performance audits
+### Documented Limitations
 
----
+Known limitations should remain visible rather than being hidden behind promotional language.
 
-## 🤝 Contributing
+### Complete System Ownership
 
-Improvements and feedback are welcome!
+Projects should demonstrate the full lifecycle from data and models to interfaces, validation and delivery.
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/feature-name`
-3. Make your changes
-4. Run ESLint: `npm run lint`
-5. Test in development mode
-6. Submit a Pull Request with:
-   - Clear description of changes
-   - Screenshots for UI changes
-   - Testing instructions
+### Professional Communication
+
+Technical systems should remain understandable to both engineers and non-technical decision-makers.
 
 ---
 
-## 📝 License
+## Current Status
 
-MIT © Youssef Bouzit
+```yaml
+education:
+  degree: State Engineering Degree in Data Science
+  institution: SUP'MTI Rabat
+  status: Completed
 
-This portfolio is open source under the MIT License. You are free to:
-- Use this portfolio as a template for your own projects
-- Modify and customize it
-- Use it for personal or commercial projects
+graduation_project:
+  organization: NEXTRONIC — ABA Technology Group
+  duration: February 2026 to August 2026
+  status: Completed
+  distinction: Excellent
+  score: 18/20
 
-The only requirement is to include the original copyright and license notice in all copies or substantial portions of the software.
+professional_status:
+  availability: Open to full-time opportunities
+  location: Rabat, Morocco
+  target_roles:
+    - AI Engineer
+    - Computer Vision Engineer
+    - Machine Learning Engineer
+    - Data Scientist
+    - RAG / LLM Engineer
+    - MLOps Engineer
+```
 
 ---
 
-## 🙋‍♂️ Author
+## Contact
 
-**Youssef Bouzit**
+<div align="center">
 
-*AI & Computer Vision Engineer Intern @ ABA Technologie*
+### Open to full-time opportunities and technical collaborations.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/youssef-bouzit-74863239b/) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/YOUSSEF-BT) [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:bt.youssef.369@gmail.com)
+<br />
+
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-youssef--bt.github.io-14B8A6?style=for-the-badge&logo=googlechrome&logoColor=white)](https://youssef-bt.github.io/)
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-Youssef_Bouzit-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/youssef-bouzit-74863239b/)
+[![GitHub](https://img.shields.io/badge/GITHUB-YOUSSEF--BT-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/YOUSSEF-BT)
+[![Email](https://img.shields.io/badge/EMAIL-bt.youssef.369%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:bt.youssef.369@gmail.com)
+
+</div>
 
 ---
 
-## 🙏 Acknowledgments
+## License
 
-- [React](https://reactjs.org/)
-- [Vite](https://vitejs.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Particles.js](https://vincentgarreau.com/particles.js/)
-- [Lucide](https://lucide.dev/)
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
+This project is distributed under the MIT License.
+
+The source code may be studied, reused and adapted while preserving the original copyright and license notice.
 
 ---
 
 <div align="center">
 
-**Built with ❤️ using React, Vite & Tailwind CSS**
+## Youssef Bouzit
 
-Last updated: June 2026
+### State Engineer in Data Science  
+### AI & Computer Vision Engineer
+
+**Building practical, reliable and evidence-backed intelligent systems.**
+
+<br />
+
+[![Explore Portfolio](https://img.shields.io/badge/EXPLORE_THE_LIVE_PORTFOLIO-14B8A6?style=for-the-badge&logo=rocket&logoColor=white)](https://youssef-bt.github.io/)
+
+<br />
+
+`Artificial Intelligence` · `Computer Vision` · `Machine Learning` · `Controlled RAG` · `MLOps`
+
+<img
+  src="https://capsule-render.vercel.app/api?type=waving&color=0:0B132B,50:1C2541,100:14B8A6&height=110&section=footer"
+  width="100%"
+  alt=""
+/>
 
 </div>
