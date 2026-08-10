@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting…</title>
+    <script>
+      (() => {
+        const legacyPrefix = "/Portfolio-Youssef-Bouzit/documents/";
+        const { pathname, search, hash } = window.location;
+
+        if (pathname.startsWith(legacyPrefix)) {
+          const filename = pathname.slice(legacyPrefix.length);
+          window.location.replace(`/documents/${filename}${search}${hash}`);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Certificate not found. <a href="/">Return to portfolio</a>.</p>
+  </body>
+</html>
