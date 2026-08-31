@@ -7,11 +7,28 @@
     <script>
       (() => {
         const legacyPrefix = "/Portfolio-Youssef-Bouzit/documents/";
+        const documentsPrefix = "/documents/";
         const { pathname, search, hash } = window.location;
+
+        const redirectLegacyAnthropicCertificate = (filename) => {
+          const match = filename.match(/^certificate-([a-z0-9]+)-\d+\.pdf$/i);
+          if (!match) return false;
+
+          const credentialId = match[1];
+          window.location.replace(`https://verify.skilljar.com/c/${credentialId}`);
+          return true;
+        };
 
         if (pathname.startsWith(legacyPrefix)) {
           const filename = pathname.slice(legacyPrefix.length);
+          if (redirectLegacyAnthropicCertificate(filename)) return;
           window.location.replace(`/documents/${filename}${search}${hash}`);
+          return;
+        }
+
+        if (pathname.startsWith(documentsPrefix)) {
+          const filename = pathname.slice(documentsPrefix.length);
+          redirectLegacyAnthropicCertificate(filename);
         }
       })();
     </script>
