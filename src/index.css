@@ -197,3 +197,9 @@
   opacity: 0.6;
   pointer-events: none;
 }
+
+/* The Oracle certificate is best verified through Oracle's official badge page.
+   Hide the locally hosted compressed PDF link so recruiters only see the authoritative credential. */
+a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"] {
+  display: none !important;
+}
