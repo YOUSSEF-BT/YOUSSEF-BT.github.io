@@ -562,6 +562,7 @@ const certifications = [
     description: "Foundational certification in agentic AI, covering core AI agent concepts, LLM-enabled workflows, and practical foundations for building and using agentic AI solutions with Oracle technologies.",
     icon: <Award className="w-6 h-6" />,
     link: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=4ED881F3563D305B8064FC31D3992AE57F09F08EBB25565878C4609D1706F328",
+    pdfLink: `${import.meta.env.BASE_URL}documents/Oracle_Agentic_AI_Certified_Foundations_Associate.pdf`,
     category: "agentic-ai-llms",
   },
 ];
@@ -653,7 +654,6 @@ export const CertificationsPage = () => {
           </div>
         </div>
 
-
         {/* Header */}
         <div className="max-w-3xl mb-8">
           <span className="text-secondary-foreground text-xs md:text-sm font-medium tracking-wider uppercase animate-fade-in">
@@ -699,7 +699,52 @@ export const CertificationsPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10 md:mb-16">
           {filteredCertifications.length > 0 ? (
             filteredCertifications.map((cert, idx) => (
-              cert.link ? (
+              cert.pdfLink ? (
+                <div
+                  key={cert.id}
+                  className="group glass p-4 md:p-6 rounded-2xl border border-border/50 hover:border-primary/50 transition-all duration-300 animate-fade-in hover:scale-105"
+                  style={{ animationDelay: `${(idx + 1) * 100}ms` }}
+                >
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                      <div className="text-primary">{cert.icon}</div>
+                    </div>
+                    <div className="flex-1 space-y-1.5 md:space-y-2">
+                      <h3 className="text-sm md:text-lg font-semibold group-hover:text-primary transition-colors">
+                        {cert.title}
+                      </h3>
+                      <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
+                        <span>{cert.issuer}</span>
+                        <span className="w-1 h-1 bg-muted-foreground rounded-full" />
+                        <span>{cert.date}</span>
+                      </div>
+                      <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                        {cert.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        <a
+                          href={cert.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-primary/10 text-xs font-medium transition-colors"
+                        >
+                          Official credential
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                        <a
+                          href={cert.pdfLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-primary/10 text-xs font-medium transition-colors"
+                        >
+                          PDF certificate
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : cert.link ? (
                 <a
                   key={cert.id}
                   href={cert.link}
