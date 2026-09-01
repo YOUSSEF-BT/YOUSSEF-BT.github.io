@@ -198,9 +198,9 @@
   pointer-events: none;
 }
 
-/* Oracle: show only the authoritative Oracle credential as the compact
-   top-right external-link control, matching the other certification cards.
-   The blurry local PDF is intentionally hidden. */
+/* Oracle: make the complete card clickable like every other certification.
+   The whole card opens Oracle's official credential, while the external-link
+   icon stays in the normal top-right position. The blurry local PDF stays hidden. */
 div.group.glass:has(a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]) {
   position: relative;
 }
@@ -215,28 +215,29 @@ a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"] {
 
 div.group.glass:has(a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]) a[href^="https://catalog-education.oracle.com/pls/certview/sharebadge"] {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  inset: 0;
   z-index: 5;
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  display: block !important;
+  width: auto;
+  height: auto;
   padding: 0 !important;
   border: 0 !important;
   background: transparent !important;
   color: var(--color-muted-foreground);
   font-size: 0;
-  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 div.group.glass:has(a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]) a[href^="https://catalog-education.oracle.com/pls/certview/sharebadge"] svg {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   width: 1rem;
   height: 1rem;
+  color: var(--color-muted-foreground);
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-div.group.glass:has(a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]) a[href^="https://catalog-education.oracle.com/pls/certview/sharebadge"]:hover {
+div.group.glass:has(a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]):hover a[href^="https://catalog-education.oracle.com/pls/certview/sharebadge"] svg {
   color: var(--color-primary);
   transform: translateY(-1px);
 }
