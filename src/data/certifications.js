@@ -452,4 +452,14 @@ export const certifications = [
     icon: <Award className="w-6 h-6" />,
     link: "https://www.linkedin.com/learning/certificates/b80361cb9f0a09530b24417d8733ecce79ebb8adaa55a9bcf416342e96063e2e/?trk=share_certificate",
   },
+  {
+    id: 112,
+    title: "Oracle Agentic AI Certified Foundations Associate",
+    issuer: "Oracle",
+    date: "Aug 2026 · Expires Aug 2028",
+    credentialId: "4ED881F3563D305B8064FC31D3992AE57F09F08EBB25565878C4609D1706F328",
+    description: "Foundational certification in agentic AI, covering core AI agent concepts, LLM-enabled workflows, and practical foundations for building and using agentic AI solutions with Oracle technologies.",
+    icon: <Award className="w-6 h-6" />,
+    link: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=4ED881F3563D305B8064FC31D3992AE57F09F08EBB25565878C4609D1706F328",
+  },
 ];
