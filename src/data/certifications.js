@@ -468,6 +468,7 @@ export const certifications = [
     description: "Foundational certification in agentic AI, covering core AI agent concepts, LLM-enabled workflows, and practical foundations for building and using agentic AI solutions with Oracle technologies.",
     icon: <Award className="w-6 h-6" />,
     link: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=4ED881F3563D305B8064FC31D3992AE57F09F08EBB25565878C4609D1706F328",
+    pdfLink: `${import.meta.env.BASE_URL}documents/Oracle_Agentic_AI_Certified_Foundations_Associate.pdf`,
     category: "agentic-ai-llms",
   },
 ];
