@@ -144,6 +144,7 @@ export const certifications = [
     description: "Introduction to agent skills, understanding AI agent capabilities and their applications in automated workflows.",
     icon: <Award className="w-6 h-6" />,
     link: "/Portfolio-Youssef-Bouzit/documents/certificate-wy7mgcgom536-1778435984.pdf",
+    category: "agentic-ai-llms",
   },
   {
     id: 15,
@@ -153,6 +154,7 @@ export const certifications = [
     description: "Introduction to subagents, understanding hierarchical AI systems and their applications in complex task management.",
     icon: <Award className="w-6 h-6" />,
     link: "/Portfolio-Youssef-Bouzit/documents/certificate-mmyj2epvatui-1778436437.pdf",
+    category: "agentic-ai-llms",
   },
   {
     id: 16,
@@ -162,6 +164,7 @@ export const certifications = [
     description: "Introduction to Model Context Protocol, understanding standardized communication between AI models and external tools.",
     icon: <Award className="w-6 h-6" />,
     link: "/Portfolio-Youssef-Bouzit/documents/certificate-twqnruaazwjq-1778439125.pdf",
+    category: "agentic-ai-llms",
   },
   {
     id: 17,
@@ -180,6 +183,7 @@ export const certifications = [
     description: "Advanced training in Model Context Protocol, exploring complex implementations and enterprise use cases.",
     icon: <Award className="w-6 h-6" />,
     link: "/Portfolio-Youssef-Bouzit/documents/certificate-pramdigjasq9-1778457583.pdf",
+    category: "agentic-ai-llms",
   },
   {
     id: 19,
@@ -207,6 +211,7 @@ export const certifications = [
     description: "Comprehensive training in building applications with the Claude API, including prompt engineering, API integration, and best practices for production deployments.",
     icon: <Award className="w-6 h-6" />,
     link: "/Portfolio-Youssef-Bouzit/documents/certificate-tharwi7o229k-1778507744.pdf",
+    category: "agentic-ai-llms",
   },
   {
     id: 102,
@@ -267,6 +272,7 @@ export const certifications = [
     description: "Foundational training on the Claude Platform, including core capabilities, platform concepts, API-oriented workflows, and best practices for building with Claude.",
     icon: <Award className="w-6 h-6" />,
     link: "https://academy.claude.com/verify/d9a17d8d3e773246c479e8fbe32d5562",
+    category: "agentic-ai-llms",
   },
   {
     id: 22,
@@ -375,6 +381,7 @@ export const certifications = [
     description: "Comprehensive introduction to Large Language Models (LLMs), covering the fundamentals of generative AI, transformer architecture, training methodologies, and real-world applications.",
     icon: <Award className="w-6 h-6" />,
     link: `${import.meta.env.BASE_URL}documents/CertificateOfCompletion_Generative AI Introduction to Large Language Models.pdf`,
+    category: "agentic-ai-llms",
   },
   {
     id: 37,
@@ -461,5 +468,6 @@ export const certifications = [
     description: "Foundational certification in agentic AI, covering core AI agent concepts, LLM-enabled workflows, and practical foundations for building and using agentic AI solutions with Oracle technologies.",
     icon: <Award className="w-6 h-6" />,
     link: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=4ED881F3563D305B8064FC31D3992AE57F09F08EBB25565878C4609D1706F328",
+    category: "agentic-ai-llms",
   },
 ];
