@@ -198,14 +198,22 @@
   pointer-events: none;
 }
 
-/* Oracle: keep the certificate viewer as the same compact top-right external-link
-   control used by the other certification cards. The official Oracle credential
-   remains available as the secondary verification action inside the card. */
+/* Oracle: show only the authoritative Oracle credential as the compact
+   top-right external-link control, matching the other certification cards.
+   The blurry local PDF is intentionally hidden. */
 div.group.glass:has(a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]) {
   position: relative;
 }
 
+div.group.glass:has(a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]) .flex.flex-wrap.gap-2.pt-2 {
+  display: contents;
+}
+
 a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"] {
+  display: none !important;
+}
+
+div.group.glass:has(a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]) a[href^="https://catalog-education.oracle.com/pls/certview/sharebadge"] {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -223,12 +231,12 @@ a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"] {
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
-a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"] svg {
+div.group.glass:has(a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]) a[href^="https://catalog-education.oracle.com/pls/certview/sharebadge"] svg {
   width: 1rem;
   height: 1rem;
 }
 
-a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]:hover {
+div.group.glass:has(a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]) a[href^="https://catalog-education.oracle.com/pls/certview/sharebadge"]:hover {
   color: var(--color-primary);
   transform: translateY(-1px);
 }
