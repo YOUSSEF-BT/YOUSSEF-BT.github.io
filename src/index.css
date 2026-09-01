@@ -198,8 +198,37 @@
   pointer-events: none;
 }
 
-/* The Oracle certificate is best verified through Oracle's official badge page.
-   Hide the locally hosted compressed PDF link so recruiters only see the authoritative credential. */
+/* Oracle: keep the certificate viewer as the same compact top-right external-link
+   control used by the other certification cards. The official Oracle credential
+   remains available as the secondary verification action inside the card. */
+div.group.glass:has(a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]) {
+  position: relative;
+}
+
 a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"] {
-  display: none !important;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 5;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--color-muted-foreground);
+  font-size: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"] svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+a[href$="Oracle_Agentic_AI_Certified_Foundations_Associate.pdf"]:hover {
+  color: var(--color-primary);
+  transform: translateY(-1px);
 }
