@@ -468,7 +468,17 @@ export const certifications = [
     description: "Foundational certification in agentic AI, covering core AI agent concepts, LLM-enabled workflows, and practical foundations for building and using agentic AI solutions with Oracle technologies.",
     icon: <Award className="w-6 h-6" />,
     link: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=4ED881F3563D305B8064FC31D3992AE57F09F08EBB25565878C4609D1706F328",
-    pdfLink: `${import.meta.env.BASE_URL}documents/Oracle_Agentic_AI_Certified_Foundations_Associate.pdf`,
     category: "agentic-ai-llms",
+  },
+  {
+    id: 113,
+    title: "Oracle AI Database Certified Foundations Associate",
+    issuer: "Oracle",
+    date: "Sep 2026 · Expires Sep 2028",
+    credentialId: "7022BC9CA3F2FE2B58B4706AE7646E5212D5D17F87BAA6D5A3E1B137AF38CE50",
+    description: "Foundational certification in Oracle AI Database, covering core concepts for AI-enabled database technologies, data management, and AI-oriented database capabilities.",
+    icon: <Award className="w-6 h-6" />,
+    link: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=7022BC9CA3F2FE2B58B4706AE7646E5212D5D17F87BAA6D5A3E1B137AF38CE50",
+    category: "data-science",
   },
 ];
