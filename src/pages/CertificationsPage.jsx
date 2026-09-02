@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Award, ExternalLink, ArrowLeft, Search, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const certifications = [
+export const certifications = [
   {
     id: 5,
     title: "Claude 101",
