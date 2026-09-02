@@ -1,0 +1,40 @@
+name: Fix certification audit issues
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/fix-certification-audit.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply certification fixes
+        run: python3 scripts/fix_certifications.py
+
+      - name: Build portfolio
+        run: |
+          npm ci
+          npm run build
+
+      - name: Commit fixes
+        run: |
+          git config user.name "YOUSSEF-BT"
+          git config user.email "YOUSSEF-BT@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Fix certification data and filters"
+            git push origin main
+          fi
