@@ -4,7 +4,7 @@ import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { certificationsNewestFirst } from "@/pages/CertificationsPage";
 
 export const Certifications = () => {
-  // Always show the 4 most recently added certifications, newest first.
+  // Always show the 4 most recent certifications, newest first.
   // The full certifications page is the single source of truth for this preview.
   const displayedCerts = certificationsNewestFirst.slice(0, 4);
 
