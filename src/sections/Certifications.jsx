@@ -1,12 +1,11 @@
 import { ExternalLink, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
-import { certifications } from "@/data/certifications";
+import { certifications } from "@/pages/CertificationsPage";
 
 export const Certifications = () => {
   // Always show the 4 most recently added certifications, newest first.
-  // The certifications array is the single source of truth for both the
-  // full certifications page and this homepage preview.
+  // The full certifications page is the single source of truth for this preview.
   const displayedCerts = certifications.slice(-4).reverse();
 
   return (
