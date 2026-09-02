@@ -1,7 +1,7 @@
 import { ExternalLink, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
-import { certificationsNewestFirst } from "@/pages/CertificationsPage";
+import { certificationsNewestFirst, CertificationIssuerLogo } from "@/pages/CertificationsPage";
 
 export const Certifications = () => {
   // Always show the 4 most recent certifications, newest first.
@@ -45,8 +45,8 @@ export const Certifications = () => {
                 style={{ animationDelay: `${(idx + 1) * 100}ms` }}
               >
                 <div className="flex items-start gap-3 md:gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <div className="text-primary">{cert.icon}</div>
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white flex items-center justify-center flex-shrink-0 p-1.5 shadow-sm group-hover:scale-105 transition-transform overflow-hidden">
+                    <CertificationIssuerLogo issuer={cert.issuer} />
                   </div>
 
                   <div className="flex-1 space-y-1.5 md:space-y-2">
@@ -74,8 +74,8 @@ export const Certifications = () => {
                 style={{ animationDelay: `${(idx + 1) * 100}ms` }}
               >
                 <div className="flex items-start gap-3 md:gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <div className="text-primary">{cert.icon}</div>
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white flex items-center justify-center flex-shrink-0 p-1.5 shadow-sm group-hover:scale-105 transition-transform overflow-hidden">
+                    <CertificationIssuerLogo issuer={cert.issuer} />
                   </div>
 
                   <div className="flex-1 space-y-1.5 md:space-y-2">

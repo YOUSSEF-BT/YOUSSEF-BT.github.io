@@ -2,6 +2,37 @@ import { useState, useEffect } from "react";
 import { Award, ExternalLink, ArrowLeft, Search, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
+const issuerLogoDomains = {
+  "Oracle": "oracle.com",
+  "Anthropic": "anthropic.com",
+  "LinkedIn": "linkedin.com",
+  "LinkedIn Learning Community": "linkedin.com",
+  "IBM Cognitive Class": "ibm.com",
+  "OpenCV University": "opencv.org",
+  "KNIME": "knime.com",
+  "Anaconda": "anaconda.com",
+};
+
+export const CertificationIssuerLogo = ({ issuer }) => {
+  const [logoFailed, setLogoFailed] = useState(false);
+  const domain = issuerLogoDomains[issuer];
+
+  if (!domain || logoFailed) {
+    return <Award className="w-6 h-6 text-primary" />;
+  }
+
+  return (
+    <img
+      src={`https://www.google.com/s2/favicons?domain=${domain}&sz=128`}
+      alt={`${issuer} logo`}
+      className="w-7 h-7 md:w-8 md:h-8 object-contain rounded-md"
+      onError={() => setLogoFailed(true)}
+      decoding="async"
+    />
+  );
+};
+
+
 export const certifications = [
   {
     id: 5,
@@ -756,8 +787,8 @@ export const CertificationsPage = () => {
                 >
                   <div className="flex items-start gap-3 md:gap-4">
                     {/* Icon */}
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <div className="text-primary">{cert.icon}</div>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white flex items-center justify-center flex-shrink-0 p-1.5 shadow-sm group-hover:scale-105 transition-transform overflow-hidden">
+                      <CertificationIssuerLogo issuer={cert.issuer} />
                     </div>
 
                     {/* Content */}
@@ -787,8 +818,8 @@ export const CertificationsPage = () => {
                 >
                   <div className="flex items-start gap-3 md:gap-4">
                     {/* Icon */}
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <div className="text-primary">{cert.icon}</div>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white flex items-center justify-center flex-shrink-0 p-1.5 shadow-sm group-hover:scale-105 transition-transform overflow-hidden">
+                      <CertificationIssuerLogo issuer={cert.issuer} />
                     </div>
 
                     {/* Content */}
