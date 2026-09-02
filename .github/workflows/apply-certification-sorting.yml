@@ -1,0 +1,35 @@
+name: Apply certification recency sorting
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-certification-sorting.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply sorting logic
+        run: python3 scripts/sort_certifications_newest.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "YOUSSEF-BT"
+          git config user.email "YOUSSEF-BT@users.noreply.github.com"
+          git add src/pages/CertificationsPage.jsx src/sections/Certifications.jsx
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Sort certifications newest first"
+            git push origin main
+          fi
