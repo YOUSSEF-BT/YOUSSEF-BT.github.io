@@ -577,6 +577,47 @@ export const certifications = [
   },
 ];
 
+const CERTIFICATION_MONTHS = {
+  Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+  Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+};
+
+// Precise ordering for certificates issued in the same month.
+// This preserves the real recency order requested for the August 2026 additions.
+const certificationRecencyOverrides = {
+  113: Date.UTC(2026, 8, 1),
+  112: Date.UTC(2026, 7, 30),
+  102: Date.UTC(2026, 7, 29),
+  103: Date.UTC(2026, 7, 28),
+  104: Date.UTC(2026, 7, 27),
+  105: Date.UTC(2026, 7, 26),
+  106: Date.UTC(2026, 7, 25),
+  107: Date.UTC(2026, 7, 24),
+};
+
+const getCertificationRecency = (cert) => {
+  if (certificationRecencyOverrides[cert.id]) {
+    return certificationRecencyOverrides[cert.id];
+  }
+
+  const issuedDate = cert.date.split("·")[0].trim();
+  const monthYear = issuedDate.match(/^([A-Z][a-z]{2})\s+(\d{4})$/);
+  if (monthYear && CERTIFICATION_MONTHS[monthYear[1]] !== undefined) {
+    return Date.UTC(Number(monthYear[2]), CERTIFICATION_MONTHS[monthYear[1]], 1);
+  }
+
+  const yearOnly = issuedDate.match(/^(\d{4})$/);
+  if (yearOnly) {
+    return Date.UTC(Number(yearOnly[1]), 0, 1);
+  }
+
+  return 0;
+};
+
+export const certificationsNewestFirst = [...certifications].sort(
+  (a, b) => getCertificationRecency(b) - getCertificationRecency(a)
+);
+
 const categories = [
   { id: "all", name: "All Certifications" },
   { id: "data-science", name: "Data Science & AI" },
@@ -606,7 +647,7 @@ export const CertificationsPage = () => {
 
   const normalize = (text) => text.toLowerCase().replace(/[^\w\s]/g, '').trim();
   const normalizedQuery = normalize(searchQuery);
-  const filteredCertifications = certifications.filter((cert) => {
+  const filteredCertifications = certificationsNewestFirst.filter((cert) => {
     const matchesCategory =
       selectedCategory === "all" || cert.category === selectedCategory;
     if (normalizedQuery === "") return matchesCategory;

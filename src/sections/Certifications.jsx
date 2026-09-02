@@ -1,12 +1,12 @@
 import { ExternalLink, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
-import { certifications } from "@/pages/CertificationsPage";
+import { certificationsNewestFirst } from "@/pages/CertificationsPage";
 
 export const Certifications = () => {
   // Always show the 4 most recently added certifications, newest first.
   // The full certifications page is the single source of truth for this preview.
-  const displayedCerts = certifications.slice(-4).reverse();
+  const displayedCerts = certificationsNewestFirst.slice(0, 4);
 
   return (
     <section id="certifications" className="py-20 md:py-32 relative overflow-hidden">
