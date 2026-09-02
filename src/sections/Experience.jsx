@@ -6,7 +6,7 @@ import githubLogo from "@/assets/images/logos/Github.png";
 const experiences = [
   {
     period: "Feb 2026 — Aug 2026",
-    role: "AI & Computer Vision Engineer Intern",
+    role: "AI/ML Engineer Intern | Computer Vision",
     company: "NEXTRONIC — ABA Technology Group, Casablanca Technopark",
     companyLink: "https://aba.technology/",
     description:
