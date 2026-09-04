@@ -28,12 +28,25 @@
 
         if (pathname.startsWith(documentsPrefix)) {
           const filename = pathname.slice(documentsPrefix.length);
-          redirectLegacyAnthropicCertificate(filename);
+          if (redirectLegacyAnthropicCertificate(filename)) return;
+          return;
         }
+
+        // GitHub Pages does not natively serve SPA routes. Preserve the
+        // requested clean URL, load the root document, then restore the route
+        // in index.html before React Router starts.
+        try {
+          sessionStorage.setItem(
+            "portfolio-spa-route",
+            `${pathname}${search}${hash}`
+          );
+        } catch (e) {}
+
+        window.location.replace("/");
       })();
     </script>
   </head>
   <body>
-    <p>Certificate not found. <a href="/">Return to portfolio</a>.</p>
+    <p>Redirecting to the portfolio… <a href="/">Return to portfolio</a>.</p>
   </body>
 </html>
