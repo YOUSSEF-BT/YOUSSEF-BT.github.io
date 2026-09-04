@@ -1,7 +1,6 @@
 export const tweetsSentimentProject = {
   id: 4,
-  // Keep the existing slug for backward compatibility with portfolio links.
-  slug: "4-bigdata-reddit-sentiment-analysis-2026-02",
+  slug: "pulsestream-real-time-social-media-intelligence",
   title: "PulseStream — Real-Time Big Data & Social Media Intelligence",
   description:
     "A containerized Big Data platform for real-time social media analytics. PulseStream ingests live Reddit posts and comments through Apache Kafka, processes streaming data with Apache Spark Structured Streaming, persists raw and enriched records in MongoDB, and supports downstream NLP, sentiment analysis, and topic modeling.",
@@ -14,7 +13,7 @@ export const tweetsSentimentProject = {
     "Data Engineering",
     "NLP",
   ],
-  link: "/projects/4-bigdata-reddit-sentiment-analysis-2026-02",
+  link: "/projects/pulsestream-real-time-social-media-intelligence",
   github:
     "https://github.com/YOUSSEF-BT/PulseStream_Real-Time-Social-Media-Sentiment-Intelligence",
   company: "Academic Team Project",
