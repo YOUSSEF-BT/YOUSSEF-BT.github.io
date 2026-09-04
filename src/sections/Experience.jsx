@@ -30,14 +30,15 @@ const experiences = [
   },
   {
     period: "2025 — 2026",
-    role: "MLOps & Data Science Projects",
-    company: "SUP'MTI & Personal Projects",
+    role: "Data Science & AI Engineering Projects",
+    company: "SUP'MTI & Personal Engineering Projects",
     companyLink: "https://github.com/YOUSSEF-BT",
     description:
-      "Developed MLOps pipelines, fraud detection systems, data quality monitoring platforms, customer analytics dashboards, and AI-powered applications for document processing and predictive modeling.",
-    technologies: ["Python", "MLOps", "Airflow", "MLflow", "Big Data"],
+      "Developed end-to-end Data Science, Machine Learning, MLOps, Big Data, and AI projects, including fraud detection, data quality monitoring, customer analytics, predictive modeling, and AI-powered document applications.",
+    technologies: ["Python", "Machine Learning", "MLOps", "Big Data", "AI"],
     current: false,
-    logos: [githubLogo]
+    logos: [githubLogo],
+    logoClassName: "w-full h-full object-contain bg-white p-3"
   },
   {
     period: "2023 — 2026",
