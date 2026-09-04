@@ -119,9 +119,7 @@ export const Hero = () => {
 
           <div className="relative animate-fade-in animation-delay-300 order-1 lg:order-2">
             <div className="relative max-w-xs sm:max-w-md mx-auto">
-              <div
-                className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse"
-              />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse" />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
                   src={`${import.meta.env.BASE_URL}assets/images/profile/youssef_bouzit_profile.png`}
@@ -153,21 +151,28 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-12 md:mt-20 animate-fade-in animation-delay-600">
-          <p className="text-xs md:text-sm text-muted-foreground mb-4 md:mb-6 text-center">
-            {t("hero.technologies")}
-          </p>
-          <div className="relative overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent z-10" />
-            <div className="flex animate-marquee">
-              {[...skills, ...skills].map((skill, idx) => (
-                <div key={idx} className="flex-shrink-0 px-4 md:px-8 py-3 md:py-4">
-                  <span className="text-sm md:text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">
+        <div className="mt-12 md:mt-16 animate-fade-in animation-delay-600">
+          <div className="max-w-5xl mx-auto glass rounded-2xl border border-primary/20 px-4 py-5 md:px-6 md:py-6 shadow-[0_10px_35px_rgba(0,0,0,0.08)]">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="md:max-w-xs">
+                <p className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                  {t("hero.technologies")}
+                </p>
+                <p className="mt-1 text-xs md:text-sm text-muted-foreground">
+                  {t("hero.stackDescription")}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-2 md:justify-end md:max-w-3xl">
+                {skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs md:text-sm font-medium text-foreground/85 transition-all duration-300 hover:border-primary/50 hover:bg-primary/10 hover:text-primary hover:-translate-y-0.5"
+                  >
                     {skill}
                   </span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
