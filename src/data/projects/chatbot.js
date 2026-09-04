@@ -1,13 +1,13 @@
 export const chatbotProject = {
   id: 8,
-  slug: "8-chatbot-2026-05",
+  slug: "openlegama-moroccan-legal-ai",
   title: "OpenLegaMa — Moroccan Legal AI Assistant",
   description:
     "A Moroccan legal AI assistant available in French, Modern Standard Arabic, and English. OpenLegaMa uses controlled Retrieval-Augmented Generation to retrieve official legal texts, validate exact law and article references, connect legal claims to accepted evidence, and abstain when verified sources are insufficient.",
   image:
     "https://raw.githubusercontent.com/YOUSSEF-BT/OpenLegaMa/main/docs/screenshots/home-page.png",
   tags: ["Legal AI", "Controlled RAG", "NLP", "Next.js", "TypeScript"],
-  link: "/projects/8-chatbot-2026-05",
+  link: "/projects/openlegama-moroccan-legal-ai",
   github: "https://github.com/YOUSSEF-BT/OpenLegaMa",
   company: "Independent Project",
   period: "July 2026",
