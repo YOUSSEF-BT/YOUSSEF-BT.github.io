@@ -2,22 +2,10 @@ import { Button } from "@/components/Button";
 import {
   ArrowRight,
   ChevronDown,
-  Github,
-  Linkedin,
-  Download,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 import { CVDownloadButton } from "../components/CVDownloadButton";
 import { useLanguage } from "@/context/LanguageContext";
-
-const FiverrIcon = ({ className = "" }) => (
-  <img
-    src="https://cdn.simpleicons.org/fiverr/1DBF73"
-    alt=""
-    aria-hidden="true"
-    className={`${className} object-contain`}
-  />
-);
 
 const skills = [
   "Python",
@@ -107,17 +95,17 @@ export const Hero = () => {
               <span className="text-xs md:text-sm text-muted-foreground">{t("hero.follow")} </span>
               {[
                 {
-                  icon: Github,
+                  logo: "https://cdn.simpleicons.org/github/181717",
                   href: "https://github.com/YOUSSEF-BT",
                   label: "GitHub",
                 },
                 {
-                  icon: Linkedin,
+                  logo: "https://cdn.simpleicons.org/linkedin/0A66C2",
                   href: "https://www.linkedin.com/in/youssef-bouzit-74863239b/",
                   label: "LinkedIn",
                 },
                 {
-                  icon: FiverrIcon,
+                  logo: "https://cdn.simpleicons.org/fiverr/1DBF73",
                   href: "https://www.fiverr.com/youssef_bouzit",
                   label: "Fiverr — Hire me",
                 },
@@ -129,9 +117,14 @@ export const Hero = () => {
                   title={social.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 md:p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                  className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-white/90 border border-black/5 shadow-sm flex items-center justify-center hover:scale-105 hover:shadow-md transition-all duration-300"
                 >
-                  {<social.icon className="w-4 h-4 md:w-5 md:h-5" />}
+                  <img
+                    src={social.logo}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-5 h-5 md:w-6 md:h-6 object-contain"
+                  />
                 </a>
               ))}
             </div>
