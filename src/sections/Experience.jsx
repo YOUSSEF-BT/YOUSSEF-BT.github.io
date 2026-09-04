@@ -138,7 +138,7 @@ export const Experience = () => {
     locale === "fr"
       ? {
           experienceLabel: "Expérience professionnelle",
-          experienceTitle: "Une expérience orientée vers des systèmes IA",
+          experienceTitle: "Une expérience orientée vers des systèmes d’IA",
           experienceHighlight: "concrets.",
           experienceDescription:
             "Expérience professionnelle en IA/ML, de la vision par ordinateur en temps réel aux systèmes RAG, LLM et solutions IA appliquées.",
@@ -220,7 +220,7 @@ export const Experience = () => {
                         <span>{exp.company[locale]}</span>
                         <ExternalLink className="w-3.5 h-3.5" />
                       </a>
-                      <p className="text-[11px] md:text-xs text-muted-foreground/80 mt-0.5">
+                      <p className="text-xs md:text-sm text-muted-foreground mt-0.5">
                         {exp.companyDetail[locale]}
                       </p>
                     </div>
@@ -242,7 +242,7 @@ export const Experience = () => {
                   </div>
                 </div>
 
-                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-5 text-sm md:text-[15px] leading-relaxed text-foreground/75">
                   {exp.description[locale]}
                 </p>
 
@@ -250,7 +250,7 @@ export const Experience = () => {
                   {exp.highlights[locale].map((item) => (
                     <div key={item} className="flex items-start gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-xs md:text-sm text-foreground/85 leading-relaxed">
+                      <span className="text-sm text-foreground/90 leading-relaxed">
                         {item}
                       </span>
                     </div>
@@ -323,13 +323,13 @@ export const Experience = () => {
                       {item.school}
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
-                    <p className="text-[11px] md:text-xs text-muted-foreground/80 mt-0.5">
+                    <p className="text-xs md:text-sm text-muted-foreground mt-0.5">
                       {item.detail[locale]}
                     </p>
                   </div>
                 </div>
 
-                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-5 text-sm md:text-[15px] leading-relaxed text-foreground/75">
                   {item.description[locale]}
                 </p>
 
