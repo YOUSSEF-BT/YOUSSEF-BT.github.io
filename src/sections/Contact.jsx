@@ -5,6 +5,7 @@ import {
   CheckCircle,
   AlertCircle,
   ExternalLink,
+  MessageSquareText,
 } from "lucide-react";
 import { Button } from "@/components/Button";
 import { FIVERR_PROFILE_URL } from "@/components/FiverrLogo";
@@ -23,7 +24,6 @@ const contactInfo = [
     icon: MapPin,
     label: "Location",
     value: "Rabat, Morocco",
-    href: "#",
   },
 ];
 
@@ -36,16 +36,22 @@ export const Contact = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({
-    type: null, // 'success' or 'error'
+    type: null,
     message: "",
   });
 
-  const availabilityCopy =
+  const contactCopy =
     language === "fr"
       ? {
-          title: "Ouvert aux opportunités IA/ML",
-          description:
-            "Ouvert aux postes en CDI / temps plein en ingénierie IA/ML et à une sélection de missions freelance, avec un focus sur les systèmes RAG, les applications LLM, la vision par ordinateur, le MLOps et la Data Science.",
+          formTitle: "Envoyez-moi un message",
+          formDescription:
+            "Une opportunité, un projet ou une collaboration ? Écrivez-moi directement.",
+          namePlaceholder: "Votre nom",
+          emailPlaceholder: "votre@email.com",
+          messagePlaceholder: "Parlez-moi de votre projet ou opportunité...",
+          availabilityTitle: "Ouvert aux opportunités IA/ML",
+          availabilityDescription:
+            "Disponible pour des postes CDI / temps plein en ingénierie IA/ML et une sélection de missions freelance, avec un focus sur RAG, LLM, Computer Vision, MLOps et Data Science.",
           badges: ["CDI / Temps plein", "Freelance", "Remote / Hybride"],
           location:
             "Rabat · Casablanca · Ouvert aux opportunités internationales",
@@ -53,9 +59,15 @@ export const Contact = () => {
           fiverrCta: "Profil Fiverr",
         }
       : {
-          title: "Open to AI/ML Opportunities",
-          description:
-            "Open to full-time AI/ML Engineering roles and selected freelance projects, with a focus on RAG systems, LLM applications, Computer Vision, MLOps, and Data Science.",
+          formTitle: "Send me a message",
+          formDescription:
+            "Have an opportunity, project, or collaboration in mind? Reach out directly.",
+          namePlaceholder: "Your name",
+          emailPlaceholder: "your@email.com",
+          messagePlaceholder: "Tell me about your project or opportunity...",
+          availabilityTitle: "Open to AI/ML Opportunities",
+          availabilityDescription:
+            "Available for full-time AI/ML Engineering roles and selected freelance projects, with a focus on RAG, LLM applications, Computer Vision, MLOps, and Data Science.",
           badges: ["Full-Time", "Freelance", "Remote / Hybrid"],
           location:
             "Rabat · Casablanca · Open to international opportunities",
@@ -76,6 +88,7 @@ export const Contact = () => {
 
     setIsLoading(true);
     setSubmitStatus({ type: null, message: "" });
+
     try {
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -115,19 +128,18 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full">
+    <section id="contact" className="py-20 md:py-28 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-48 md:w-64 h-48 md:h-64 bg-highlight/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
           <span className="text-secondary-foreground text-xs md:text-sm font-medium tracking-wider uppercase animate-fade-in">
             {t("contact.title")}
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4 md:mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4 md:mb-5 animate-fade-in animation-delay-100 text-secondary-foreground">
             {t("contact.headline")}{" "}
             <span className="font-serif italic font-normal text-foreground">
               {t("contact.headlineHighlight")}
@@ -138,159 +150,188 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 items-start gap-8 md:gap-12 max-w-5xl mx-auto">
-          <div className="glass self-start p-6 md:p-8 rounded-2xl md:rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
-            <form
-              id="contact-form"
-              className="space-y-4 md:space-y-6"
-              onSubmit={handleSubmit}
-            >
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-xs md:text-sm font-medium mb-2"
-                >
-                  {t("contact.name")}
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  required
-                  placeholder="Your name..."
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-sm md:text-base"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-xs md:text-sm font-medium mb-2"
-                >
-                  {t("contact.email")}
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-sm md:text-base"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-xs md:text-sm font-medium mb-2"
-                >
-                  {t("contact.message")}
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  required
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  placeholder="Your message..."
-                  className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none text-sm md:text-base"
-                />
-              </div>
-
-              <Button
-                className="w-full"
-                type="submit"
-                size="lg"
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <>{t("contact.sending")}</>
-                ) : (
-                  <>
-                    {t("contact.send")}
-                    <Send className="w-4 h-4 md:w-5 md:h-5" />
-                  </>
-                )}
-              </Button>
-
-              {submitStatus.type && (
-                <div
-                  className={`flex items-center gap-2 md:gap-3
-                     p-3 md:p-4 rounded-xl ${
-                       submitStatus.type === "success"
-                         ? "bg-emerald-500/10 border border-emerald-500/20 text-emerald-400"
-                         : "bg-rose-500/10 border border-rose-500/20 text-rose-400"
-                     }`}
-                >
-                  {submitStatus.type === "success" ? (
-                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
-                  ) : (
-                    <AlertCircle className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
-                  )}
-                  <p className="text-xs md:text-sm">{submitStatus.message}</p>
+        <div className="max-w-6xl mx-auto glass rounded-3xl md:rounded-[2rem] border border-border/60 overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.18)] animate-fade-in animation-delay-300">
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
+            <div className="p-5 sm:p-7 md:p-9 lg:p-10">
+              <div className="flex items-start gap-4 mb-7 md:mb-8">
+                <div className="w-11 h-11 md:w-12 md:h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                  <MessageSquareText className="w-5 h-5 text-primary" />
                 </div>
-              )}
-            </form>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-4 md:space-y-6 animate-fade-in animation-delay-400">
-            <div className="glass rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8">
-              <h3 className="text-lg md:text-xl font-semibold mb-4 md:mb-6">
-                {t("contact.contactInfo")}
-              </h3>
-              <div className="space-y-3 md:space-y-4">
-                {contactInfo.map((item, i) => (
-                  <a
-                    key={i}
-                    href={item.href}
-                    className="flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-xl hover:bg-surface transition-colors group"
-                  >
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <item.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                    </div>
-                    <div>
-                      <div className="text-xs md:text-sm text-muted-foreground">
-                        {item.label}
-                      </div>
-                      <div className="text-sm md:text-base font-medium">
-                        {item.value}
-                      </div>
-                    </div>
-                  </a>
-                ))}
+                <div>
+                  <h3 className="text-lg md:text-xl font-semibold tracking-tight">
+                    {contactCopy.formTitle}
+                  </h3>
+                  <p className="mt-1.5 text-xs md:text-sm leading-relaxed text-muted-foreground max-w-xl">
+                    {contactCopy.formDescription}
+                  </p>
+                </div>
               </div>
+
+              <form
+                id="contact-form"
+                className="space-y-4 md:space-y-5"
+                onSubmit={handleSubmit}
+              >
+                <div className="grid md:grid-cols-2 gap-4 md:gap-5">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-xs md:text-sm font-medium mb-2"
+                    >
+                      {t("contact.name")}
+                    </label>
+                    <input
+                      id="name"
+                      type="text"
+                      required
+                      placeholder={contactCopy.namePlaceholder}
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      className="w-full px-4 py-3 md:py-3.5 bg-surface/70 rounded-xl border border-border/70 focus:border-primary/70 focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm md:text-base placeholder:text-muted-foreground/60"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-xs md:text-sm font-medium mb-2"
+                    >
+                      {t("contact.email")}
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      required
+                      placeholder={contactCopy.emailPlaceholder}
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      className="w-full px-4 py-3 md:py-3.5 bg-surface/70 rounded-xl border border-border/70 focus:border-primary/70 focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm md:text-base placeholder:text-muted-foreground/60"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-xs md:text-sm font-medium mb-2"
+                  >
+                    {t("contact.message")}
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={5}
+                    required
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    placeholder={contactCopy.messagePlaceholder}
+                    className="w-full px-4 py-3 md:py-3.5 bg-surface/70 rounded-xl border border-border/70 focus:border-primary/70 focus:ring-2 focus:ring-primary/10 outline-none transition-all resize-none text-sm md:text-base placeholder:text-muted-foreground/60"
+                  />
+                </div>
+
+                <Button
+                  className="w-full rounded-xl shadow-lg shadow-primary/15"
+                  type="submit"
+                  size="lg"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>{t("contact.sending")}</>
+                  ) : (
+                    <>
+                      {t("contact.send")}
+                      <Send className="w-4 h-4 md:w-5 md:h-5" />
+                    </>
+                  )}
+                </Button>
+
+                {submitStatus.type && (
+                  <div
+                    className={`flex items-center gap-3 p-3.5 md:p-4 rounded-xl ${
+                      submitStatus.type === "success"
+                        ? "bg-emerald-500/10 border border-emerald-500/20 text-emerald-400"
+                        : "bg-rose-500/10 border border-rose-500/20 text-rose-400"
+                    }`}
+                  >
+                    {submitStatus.type === "success" ? (
+                      <CheckCircle className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+                    ) : (
+                      <AlertCircle className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+                    )}
+                    <p className="text-xs md:text-sm">{submitStatus.message}</p>
+                  </div>
+                )}
+              </form>
             </div>
 
-            {/* Availability Card */}
-            <div className="glass relative overflow-hidden rounded-2xl md:rounded-3xl p-5 md:p-6 lg:p-8 border border-primary/35 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
-              <div className="absolute -top-16 -right-16 w-36 h-36 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+            <aside className="relative p-5 sm:p-7 md:p-9 lg:p-10 border-t lg:border-t-0 lg:border-l border-border/60 bg-surface/20">
+              <div className="absolute -top-20 -right-20 w-52 h-52 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
               <div className="relative z-10">
-                <div className="flex items-center gap-2.5 md:gap-3">
-                  <span className="relative flex w-2.5 h-2.5 md:w-3 md:h-3 flex-shrink-0">
+                <h3 className="text-lg md:text-xl font-semibold mb-5 md:mb-6">
+                  {t("contact.contactInfo")}
+                </h3>
+
+                <div className="space-y-3">
+                  {contactInfo.map((item) => {
+                    const content = (
+                      <>
+                        <div className="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-primary/10 border border-primary/10 flex items-center justify-center flex-shrink-0 transition-colors group-hover:bg-primary/15">
+                          <item.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-[11px] md:text-xs uppercase tracking-wider text-muted-foreground">
+                            {item.label}
+                          </div>
+                          <div className="mt-0.5 text-sm md:text-base font-medium break-words">
+                            {item.value}
+                          </div>
+                        </div>
+                      </>
+                    );
+
+                    return item.href ? (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        className="group flex items-center gap-3.5 p-3 rounded-2xl border border-transparent hover:border-border/70 hover:bg-background/30 transition-all"
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <div
+                        key={item.label}
+                        className="group flex items-center gap-3.5 p-3 rounded-2xl"
+                      >
+                        {content}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="my-6 md:my-7 h-px bg-border/60" />
+
+                <div className="flex items-center gap-2.5">
+                  <span className="relative flex w-2.5 h-2.5 flex-shrink-0">
                     <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
                     <span className="relative inline-flex h-full w-full rounded-full bg-emerald-500" />
                   </span>
                   <h3 className="text-sm md:text-base font-semibold tracking-tight">
-                    {availabilityCopy.title}
+                    {contactCopy.availabilityTitle}
                   </h3>
                 </div>
 
-                <p className="mt-3 md:mt-4 text-xs md:text-sm leading-relaxed text-muted-foreground">
-                  {availabilityCopy.description}
+                <p className="mt-3 text-xs md:text-sm leading-relaxed text-muted-foreground">
+                  {contactCopy.availabilityDescription}
                 </p>
 
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {availabilityCopy.badges.map((badge) => (
+                  {contactCopy.badges.map((badge) => (
                     <span
                       key={badge}
                       className="rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-[10px] md:text-xs font-medium text-foreground/80"
@@ -300,18 +341,18 @@ export const Contact = () => {
                   ))}
                 </div>
 
-                <div className="mt-4 flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
+                <div className="mt-5 flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
                   <MapPin className="mt-0.5 w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0 text-primary" />
-                  <span>{availabilityCopy.location}</span>
+                  <span>{contactCopy.location}</span>
                 </div>
 
-                <div className="mt-5 flex flex-col sm:flex-row gap-3">
+                <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3">
                   <button
                     type="button"
                     onClick={focusContactForm}
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:bg-primary/90 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/15 transition-all duration-300 hover:bg-primary/90 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/30"
                   >
-                    {availabilityCopy.contactCta}
+                    {contactCopy.contactCta}
                     <Send className="w-4 h-4" />
                   </button>
 
@@ -319,14 +360,14 @@ export const Contact = () => {
                     href={FIVERR_PROFILE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-primary/30 bg-surface/70 px-5 py-2.5 text-sm font-medium text-foreground transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-border/80 bg-background/25 px-4 py-3 text-sm font-medium text-foreground transition-all duration-300 hover:border-primary/40 hover:bg-primary/5 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/20"
                   >
-                    {availabilityCopy.fiverrCta}
+                    {contactCopy.fiverrCta}
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
               </div>
-            </div>
+            </aside>
           </div>
         </div>
       </div>
