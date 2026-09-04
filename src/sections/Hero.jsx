@@ -27,7 +27,7 @@ const skills = [
 ];
 
 const socialButtonClass =
-  "w-10 h-10 md:w-11 md:h-11 rounded-full shadow-sm flex items-center justify-center hover:scale-105 hover:shadow-md transition-all duration-300";
+  "w-8 h-8 md:w-9 md:h-9 rounded-full shadow-sm flex items-center justify-center hover:scale-105 hover:shadow-md transition-all duration-300";
 
 export const Hero = () => {
   const { t } = useLanguage();
@@ -99,7 +99,7 @@ export const Hero = () => {
                 rel="noopener noreferrer"
                 className={`${socialButtonClass} bg-[#181717] text-white border border-[#181717]`}
               >
-                <Github className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.2} />
+                <Github className="w-4 h-4 md:w-[18px] md:h-[18px]" strokeWidth={2.2} />
               </a>
 
               <a
@@ -110,7 +110,7 @@ export const Hero = () => {
                 rel="noopener noreferrer"
                 className={`${socialButtonClass} bg-[#0A66C2] text-white border border-[#0A66C2]`}
               >
-                <Linkedin className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.2} />
+                <Linkedin className="w-4 h-4 md:w-[18px] md:h-[18px]" strokeWidth={2.2} />
               </a>
 
               <a
@@ -121,7 +121,7 @@ export const Hero = () => {
                 rel="noopener noreferrer"
                 className={`${socialButtonClass} bg-[#1DBF73] text-white border border-[#1DBF73]`}
               >
-                <span className="font-black text-[9px] md:text-[10px] tracking-[-0.05em] leading-none">
+                <span className="font-black text-[7px] md:text-[8px] tracking-[-0.05em] leading-none">
                   fiverr.
                 </span>
               </a>
