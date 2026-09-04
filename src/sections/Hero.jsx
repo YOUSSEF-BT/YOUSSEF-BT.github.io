@@ -38,7 +38,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/80 to-background" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 pt-16 md:pt-24 pb-16 md:pb-20 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 pt-16 md:pt-24 pb-10 md:pb-14 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="space-y-3 md:space-y-4 order-2 lg:order-1">
             <div className="animate-fade-in">
@@ -180,16 +180,20 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-800">
-        <a
-          href="#about"
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
-        >
-          <span className="text-xs uppercase tracking-wider">{t("hero.scroll")}</span>
-          <ChevronDown className="w-6 h-6 animate-bounce" />
-        </a>
+        <div className="mt-5 md:mt-6 flex justify-center animate-fade-in animation-delay-800">
+          <a
+            href="#about"
+            className="group inline-flex flex-col items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
+          >
+            <span className="text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-medium">
+              {t("hero.scroll")}
+            </span>
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-primary/15 bg-background/40 backdrop-blur-sm transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/5 group-hover:-translate-y-0.5">
+              <ChevronDown className="w-4 h-4 animate-bounce" />
+            </span>
+          </a>
+        </div>
       </div>
     </section>
   );
