@@ -4,6 +4,7 @@ import {
   Send,
   CheckCircle,
   AlertCircle,
+  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/Button";
 import { useState } from "react";
@@ -237,6 +238,15 @@ export const Contact = () => {
               <p className="text-xs md:text-sm text-muted-foreground">
                 {t("contact.availableDesc")}
               </p>
+              <a
+                href="https://www.fiverr.com/youssef_bouzit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:bg-primary/90 hover:-translate-y-0.5"
+              >
+                {t("contact.fiverrCta")}
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
