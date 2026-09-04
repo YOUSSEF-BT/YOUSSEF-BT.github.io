@@ -29,7 +29,7 @@ const experiences = [
     logos: [abaLogo]
   },
   {
-    period: "2025 — 2026",
+    period: "Jan 2025 — Aug 2026",
     role: "Data Science & AI Engineering Projects",
     company: "SUP'MTI & Personal Engineering Projects",
     companyLink: "https://github.com/YOUSSEF-BT",
