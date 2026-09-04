@@ -5,6 +5,7 @@ import {
   Github,
   Linkedin,
   Download,
+  BriefcaseBusiness,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 import { CVDownloadButton } from "../components/CVDownloadButton";
@@ -97,15 +98,29 @@ export const Hero = () => {
             <div className="flex items-center gap-3 md:gap-4 animate-fade-in animation-delay-400">
               <span className="text-xs md:text-sm text-muted-foreground">{t("hero.follow")} </span>
               {[
-                { icon: Github, href: "https://github.com/YOUSSEF-BT" },
+                {
+                  icon: Github,
+                  href: "https://github.com/YOUSSEF-BT",
+                  label: "GitHub",
+                },
                 {
                   icon: Linkedin,
                   href: "https://www.linkedin.com/in/youssef-bouzit-74863239b/",
+                  label: "LinkedIn",
+                },
+                {
+                  icon: BriefcaseBusiness,
+                  href: "https://www.fiverr.com/youssef_bouzit",
+                  label: "Fiverr — Hire me",
                 },
               ].map((social, idx) => (
                 <a
                   key={idx}
                   href={social.href}
+                  aria-label={social.label}
+                  title={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 md:p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 >
                   {<social.icon className="w-4 h-4 md:w-5 md:h-5" />}
