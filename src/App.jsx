@@ -52,6 +52,24 @@ function App() {
                 />
               }
             />
+            <Route
+              path="/projects/3-customer-mlops-pipeline-2025-12"
+              element={
+                <Navigate
+                  to="/projects/customer-churn-mlops-platform"
+                  replace
+                />
+              }
+            />
+            <Route
+              path="/projects/8-chatbot-2026-05"
+              element={
+                <Navigate
+                  to="/projects/openlegama-moroccan-legal-ai"
+                  replace
+                />
+              }
+            />
             <Route path="/projects/:slug" element={<ProjectDetail />} />
             <Route path="/demos" element={<Demos />} />
             <Route path="/skills" element={<Skills />} />
