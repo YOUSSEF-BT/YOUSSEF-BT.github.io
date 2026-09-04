@@ -55,7 +55,7 @@ export const Contact = () => {
           badges: ["CDI / Temps plein", "Freelance", "Remote / Hybride"],
           location:
             "Rabat · Casablanca · Ouvert aux opportunités internationales",
-          contactCta: "Me contacter",
+          emailCta: "M’envoyer un e-mail",
           fiverrCta: "Profil Fiverr",
         }
       : {
@@ -71,17 +71,9 @@ export const Contact = () => {
           badges: ["Full-Time", "Freelance", "Remote / Hybrid"],
           location:
             "Rabat · Casablanca · Open to international opportunities",
-          contactCta: "Contact Me",
+          emailCta: "Email Me",
           fiverrCta: "Fiverr Profile",
         };
-
-  const focusContactForm = () => {
-    const form = document.getElementById("contact-form");
-    const nameField = document.getElementById("name");
-
-    form?.scrollIntoView({ behavior: "smooth", block: "center" });
-    window.setTimeout(() => nameField?.focus(), 350);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -225,7 +217,7 @@ export const Contact = () => {
                   </label>
                   <textarea
                     id="message"
-                    rows={4}
+                    rows={5}
                     required
                     value={formData.message}
                     onChange={(e) =>
@@ -279,7 +271,7 @@ export const Contact = () => {
                   {t("contact.contactInfo")}
                 </h3>
 
-                <div className="space-y-2.5">
+                <div className="space-y-2">
                   {contactInfo.map((item) => {
                     const content = (
                       <>
@@ -316,7 +308,7 @@ export const Contact = () => {
                   })}
                 </div>
 
-                <div className="my-7 md:my-8 h-px bg-border/60" />
+                <div className="my-5 md:my-6 h-px bg-border/60" />
 
                 <div className="flex items-center gap-2.5">
                   <span className="relative flex w-2.5 h-2.5 flex-shrink-0">
@@ -328,11 +320,11 @@ export const Contact = () => {
                   </h3>
                 </div>
 
-                <p className="mt-3.5 text-xs md:text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-xs md:text-sm leading-relaxed text-muted-foreground">
                   {contactCopy.availabilityDescription}
                 </p>
 
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-3.5 flex flex-wrap gap-2">
                   {contactCopy.badges.map((badge) => (
                     <span
                       key={badge}
@@ -343,20 +335,19 @@ export const Contact = () => {
                   ))}
                 </div>
 
-                <div className="mt-5 flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
+                <div className="mt-4 flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
                   <MapPin className="mt-0.5 w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0 text-primary" />
                   <span>{contactCopy.location}</span>
                 </div>
 
-                <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3">
-                  <button
-                    type="button"
-                    onClick={focusContactForm}
+                <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3">
+                  <a
+                    href="mailto:bt.youssef.369@gmail.com"
                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-md shadow-primary/10 transition-all duration-300 hover:bg-primary/90 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/30"
                   >
-                    {contactCopy.contactCta}
-                    <Send className="w-4 h-4" />
-                  </button>
+                    {contactCopy.emailCta}
+                    <Mail className="w-4 h-4" />
+                  </a>
 
                   <a
                     href={FIVERR_PROFILE_URL}
