@@ -41,7 +41,7 @@ const experiences = [
     logoClassName: "w-full h-full object-contain bg-white p-3"
   },
   {
-    period: "2023 — 2026",
+    period: "Oct 2023 — Jul 2026",
     role: "State Engineering Degree in Data Science",
     company: "SUP'MTI Rabat — Engineering Cycle, Data Science Option",
     companyLink: "https://supmti.ac.ma/ingenierie-data-science-et-iot/",
@@ -52,7 +52,7 @@ const experiences = [
     logos: [supMtiLogo]
   },
   {
-    period: "2021 — 2023",
+    period: "Oct 2021 — Jul 2023",
     role: "Preparatory Classes",
     company: "SUP'MTI Rabat",
     companyLink: "https://supmti.ac.ma/classes-preparatoires-technologies-de-linformation/",
