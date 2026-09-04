@@ -152,27 +152,27 @@ export const Hero = () => {
         </div>
 
         <div className="mt-12 md:mt-16 animate-fade-in animation-delay-600">
-          <div className="max-w-5xl mx-auto glass rounded-2xl border border-primary/20 px-4 py-5 md:px-6 md:py-6 shadow-[0_10px_35px_rgba(0,0,0,0.08)]">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div className="md:max-w-xs">
-                <p className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                  {t("hero.technologies")}
-                </p>
-                <p className="mt-1 text-xs md:text-sm text-muted-foreground">
-                  {t("hero.stackDescription")}
-                </p>
-              </div>
+          <div className="text-center mb-4 md:mb-5">
+            <p className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              {t("hero.technologies")}
+            </p>
+            <p className="mt-1.5 text-xs md:text-sm text-muted-foreground">
+              {t("hero.stackDescription")}
+            </p>
+          </div>
 
-              <div className="flex flex-wrap gap-2 md:justify-end md:max-w-3xl">
-                {skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs md:text-sm font-medium text-foreground/85 transition-all duration-300 hover:border-primary/50 hover:bg-primary/10 hover:text-primary hover:-translate-y-0.5"
-                  >
+          <div className="relative overflow-hidden border-y border-primary/10 py-3 md:py-4">
+            <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-background via-background/90 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-background via-background/90 to-transparent z-10 pointer-events-none" />
+
+            <div className="flex animate-marquee w-max">
+              {[...skills, ...skills].map((skill, idx) => (
+                <div key={`${skill}-${idx}`} className="flex-shrink-0 px-1.5 md:px-2">
+                  <span className="inline-flex items-center rounded-full border border-primary/15 bg-background/45 backdrop-blur-sm px-3.5 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium text-foreground/80 shadow-sm transition-all duration-300 hover:border-primary/40 hover:bg-primary/5 hover:text-primary">
                     {skill}
                   </span>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
