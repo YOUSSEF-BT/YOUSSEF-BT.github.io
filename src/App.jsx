@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Navbar } from "@/layout/Navbar";
 import { Hero } from "@/sections/Hero";
@@ -43,6 +43,15 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route
+              path="/projects/4-bigdata-reddit-sentiment-analysis-2026-02"
+              element={
+                <Navigate
+                  to="/projects/pulsestream-real-time-social-media-intelligence"
+                  replace
+                />
+              }
+            />
             <Route path="/projects/:slug" element={<ProjectDetail />} />
             <Route path="/demos" element={<Demos />} />
             <Route path="/skills" element={<Skills />} />
