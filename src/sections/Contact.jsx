@@ -7,6 +7,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/Button";
+import { FIVERR_PROFILE_URL } from "@/components/FiverrLogo";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useLanguage } from "@/context/LanguageContext";
@@ -27,7 +28,7 @@ const contactInfo = [
 ];
 
 export const Contact = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,6 +39,37 @@ export const Contact = () => {
     type: null, // 'success' or 'error'
     message: "",
   });
+
+  const availabilityCopy =
+    language === "fr"
+      ? {
+          title: "Ouvert aux opportunités IA/ML",
+          description:
+            "Ouvert aux postes en CDI / temps plein en ingénierie IA/ML et à une sélection de missions freelance, avec un focus sur les systèmes RAG, les applications LLM, la vision par ordinateur, le MLOps et la Data Science.",
+          badges: ["CDI / Temps plein", "Freelance", "Remote / Hybride"],
+          location:
+            "Rabat · Casablanca · Ouvert aux opportunités internationales",
+          contactCta: "Me contacter",
+          fiverrCta: "Profil Fiverr",
+        }
+      : {
+          title: "Open to AI/ML Opportunities",
+          description:
+            "Open to full-time AI/ML Engineering roles and selected freelance projects, with a focus on RAG systems, LLM applications, Computer Vision, MLOps, and Data Science.",
+          badges: ["Full-Time", "Freelance", "Remote / Hybrid"],
+          location:
+            "Rabat · Casablanca · Open to international opportunities",
+          contactCta: "Contact Me",
+          fiverrCta: "Fiverr Profile",
+        };
+
+  const focusContactForm = () => {
+    const form = document.getElementById("contact-form");
+    const nameField = document.getElementById("name");
+
+    form?.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(() => nameField?.focus(), 350);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -81,6 +113,7 @@ export const Contact = () => {
       setIsLoading(false);
     }
   };
+
   return (
     <section id="contact" className="py-20 md:py-32 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
@@ -107,7 +140,11 @@ export const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
           <div className="glass p-6 md:p-8 rounded-2xl md:rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
-            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+            <form
+              id="contact-form"
+              className="space-y-4 md:space-y-6"
+              onSubmit={handleSubmit}
+            >
               <div>
                 <label
                   htmlFor="name"
@@ -131,12 +168,13 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="email"
-                  type="email"
                   className="block text-xs md:text-sm font-medium mb-2"
                 >
                   {t("contact.email")}
                 </label>
                 <input
+                  id="email"
+                  type="email"
                   required
                   placeholder="your@email.com"
                   value={formData.email}
@@ -155,6 +193,7 @@ export const Contact = () => {
                   {t("contact.message")}
                 </label>
                 <textarea
+                  id="message"
                   rows={4}
                   required
                   value={formData.message}
@@ -222,7 +261,9 @@ export const Contact = () => {
                       <div className="text-xs md:text-sm text-muted-foreground">
                         {item.label}
                       </div>
-                      <div className="text-sm md:text-base font-medium">{item.value}</div>
+                      <div className="text-sm md:text-base font-medium">
+                        {item.value}
+                      </div>
                     </div>
                   </a>
                 ))}
@@ -230,23 +271,61 @@ export const Contact = () => {
             </div>
 
             {/* Availability Card */}
-            <div className="glass rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 border border-primary/30">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <span className="w-2.5 h-2.5 md:w-3 md:h-3 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-sm md:text-base font-medium">{t("contact.available")}</span>
+            <div className="glass relative overflow-hidden rounded-2xl md:rounded-3xl p-5 md:p-6 lg:p-8 border border-primary/35 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
+              <div className="absolute -top-16 -right-16 w-36 h-36 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-2.5 md:gap-3">
+                  <span className="relative flex w-2.5 h-2.5 md:w-3 md:h-3 flex-shrink-0">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
+                    <span className="relative inline-flex h-full w-full rounded-full bg-emerald-500" />
+                  </span>
+                  <h3 className="text-sm md:text-base font-semibold tracking-tight">
+                    {availabilityCopy.title}
+                  </h3>
+                </div>
+
+                <p className="mt-3 md:mt-4 text-xs md:text-sm leading-relaxed text-muted-foreground">
+                  {availabilityCopy.description}
+                </p>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {availabilityCopy.badges.map((badge) => (
+                    <span
+                      key={badge}
+                      className="rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-[10px] md:text-xs font-medium text-foreground/80"
+                    >
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-4 flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
+                  <MapPin className="mt-0.5 w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0 text-primary" />
+                  <span>{availabilityCopy.location}</span>
+                </div>
+
+                <div className="mt-5 flex flex-col sm:flex-row gap-3">
+                  <button
+                    type="button"
+                    onClick={focusContactForm}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:bg-primary/90 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  >
+                    {availabilityCopy.contactCta}
+                    <Send className="w-4 h-4" />
+                  </button>
+
+                  <a
+                    href={FIVERR_PROFILE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-primary/30 bg-surface/70 px-5 py-2.5 text-sm font-medium text-foreground transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  >
+                    {availabilityCopy.fiverrCta}
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
-              <p className="text-xs md:text-sm text-muted-foreground">
-                {t("contact.availableDesc")}
-              </p>
-              <a
-                href="https://www.fiverr.com/youssef_bouzit"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:bg-primary/90 hover:-translate-y-0.5"
-              >
-                {t("contact.fiverrCta")}
-                <ExternalLink className="w-4 h-4" />
-              </a>
             </div>
           </div>
         </div>
