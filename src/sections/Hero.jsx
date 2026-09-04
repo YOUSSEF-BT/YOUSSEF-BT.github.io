@@ -27,6 +27,13 @@ const socialButtonClass =
 export const Hero = () => {
   const { t } = useLanguage();
 
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0" style={{ zIndex: -1 }}>
@@ -182,9 +189,11 @@ export const Hero = () => {
         </div>
 
         <div className="mt-5 md:mt-6 flex justify-center animate-fade-in animation-delay-800">
-          <a
-            href="#about"
-            className="group inline-flex flex-col items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
+          <button
+            type="button"
+            onClick={scrollToAbout}
+            aria-label={t("hero.scroll")}
+            className="group inline-flex flex-col items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
           >
             <span className="text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-medium">
               {t("hero.scroll")}
@@ -192,7 +201,7 @@ export const Hero = () => {
             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-primary/15 bg-background/40 backdrop-blur-sm transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/5 group-hover:-translate-y-0.5">
               <ChevronDown className="w-4 h-4 animate-bounce" />
             </span>
-          </a>
+          </button>
         </div>
       </div>
     </section>
