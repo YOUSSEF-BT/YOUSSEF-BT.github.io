@@ -8,13 +8,17 @@ const skills = [
   "Python",
   "RAG",
   "LLMs",
-  "Computer Vision",
+  "FastAPI",
   "PyTorch",
   "TensorFlow",
-  "FastAPI",
+  "Scikit-learn",
+  "YOLO",
+  "OpenCV",
   "Docker",
   "MLflow",
+  "Apache Airflow",
   "Apache Spark",
+  "Apache Kafka",
 ];
 
 const socialButtonClass =
