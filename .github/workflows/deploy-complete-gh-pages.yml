@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: portfolio-gh-pages
+  group: portfolio-gh-pages-v2
   cancel-in-progress: true
 
 jobs:
