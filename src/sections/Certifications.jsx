@@ -2,37 +2,37 @@ import { ExternalLink, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { certificationsNewestFirst, CertificationIssuerLogo } from "@/pages/CertificationsPage";
+import { useLanguage } from "@/context/LanguageContext";
 
 export const Certifications = () => {
+  const { t } = useLanguage();
+
   // Always show the 4 most recent certifications, newest first.
-  // The full certifications page is the single source of truth for this preview.
+  // The full certifications page remains the single source of truth for this preview.
   const displayedCerts = certificationsNewestFirst.slice(0, 4);
 
   return (
     <section id="certifications" className="py-20 md:py-32 relative overflow-hidden">
-      {/* Background Glows */}
       <div className="absolute top-1/4 right-0 w-64 md:w-96 h-64 md:h-96 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-48 md:w-64 h-48 md:h-64 bg-highlight/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
           <span className="text-secondary-foreground text-xs md:text-sm font-medium tracking-wider uppercase animate-fade-in">
-            Certifications
+            {t("certifications.title")}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4 md:mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
-            Professional
+            {t("certifications.headline")}
             <span className="font-serif italic font-normal text-foreground">
               {" "}
-              Certifications
+              {t("certifications.headlineHighlight")}
             </span>
           </h2>
           <p className="text-sm md:text-base text-muted-foreground animate-fade-in animation-delay-200">
-            Certifications and training programs that validate my expertise in data science, AI, and engineering.
+            {t("certifications.description")}
           </p>
         </div>
 
-        {/* Certifications Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {displayedCerts.map((cert, idx) => (
             cert.link ? (
@@ -97,11 +97,10 @@ export const Certifications = () => {
           ))}
         </div>
 
-        {/* CTA */}
         <div className="text-center mt-8 md:mt-12 animate-fade-in animation-delay-500">
           <Link to="/certifications">
             <AnimatedBorderButton>
-              View All Certifications
+              {t("certifications.viewAll")}
               <ArrowUpRight className="w-5 h-5" />
             </AnimatedBorderButton>
           </Link>
