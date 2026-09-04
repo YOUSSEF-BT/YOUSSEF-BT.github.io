@@ -9,7 +9,7 @@ const featuredProjectSlugs = [
   "8-chatbot-2026-05",
   "real-time-road-accident-detection",
   "3-customer-mlops-pipeline-2025-12",
-  "4-bigdata-reddit-sentiment-analysis-2026-02",
+  "pulsestream-real-time-social-media-intelligence",
 ];
 
 const featuredProjectFrenchCopy = {
@@ -28,7 +28,7 @@ const featuredProjectFrenchCopy = {
     description:
       "Plateforme MLOps complète couvrant le traitement des données, l’entraînement, l’orchestration avec Apache Airflow, le suivi des expériences avec MLflow, le stockage d’artefacts avec MinIO et le monitoring via Streamlit.",
   },
-  "4-bigdata-reddit-sentiment-analysis-2026-02": {
+  "pulsestream-real-time-social-media-intelligence": {
     title: "PulseStream — Intelligence sociale Big Data en temps réel",
     description:
       "Plateforme Big Data conteneurisée pour l’analyse en temps réel des réseaux sociaux, avec ingestion Kafka, traitement Spark Structured Streaming, persistance MongoDB et pipelines de préparation pour l’analyse NLP et le sentiment.",
@@ -51,7 +51,7 @@ const featuredProjectEnglishCopy = {
     description:
       "End-to-end MLOps platform covering data processing, model training, Apache Airflow orchestration, MLflow experiment tracking, MinIO artifact storage, PostgreSQL persistence, and Streamlit monitoring.",
   },
-  "4-bigdata-reddit-sentiment-analysis-2026-02": {
+  "pulsestream-real-time-social-media-intelligence": {
     title: "PulseStream — Real-Time Big Data & Social Media Intelligence",
     description:
       "Containerized Big Data platform for real-time social media analytics using Kafka ingestion, Spark Structured Streaming, MongoDB persistence, and downstream NLP and sentiment-analysis workflows.",
@@ -96,10 +96,6 @@ export const Projects = () => {
             const displayTitle = localizedProject?.title || project.title;
             const displayDescription = localizedProject?.description || project.description;
             const projectPath = `/projects/${project.slug}`;
-            const projectGithub =
-              project.slug === "4-bigdata-reddit-sentiment-analysis-2026-02"
-                ? "https://github.com/YOUSSEF-BT/PulseStream_Real-Time-Social-Media-Sentiment-Intelligence"
-                : project.github;
 
             return (
               <article
@@ -128,9 +124,9 @@ export const Projects = () => {
                     >
                       <ArrowUpRight className="w-5 h-5" />
                     </Link>
-                    {projectGithub && projectGithub !== "#" && (
+                    {project.github && project.github !== "#" && (
                       <a
-                        href={projectGithub}
+                        href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Open ${displayTitle} on GitHub`}
