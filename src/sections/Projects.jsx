@@ -6,14 +6,14 @@ import { useLanguage } from "@/context/LanguageContext";
 import { resolveAssetUrl } from "@/utils/assetUrl";
 
 const featuredProjectSlugs = [
-  "8-chatbot-2026-05",
+  "openlegama-moroccan-legal-ai",
   "real-time-road-accident-detection",
-  "3-customer-mlops-pipeline-2025-12",
+  "customer-churn-mlops-platform",
   "pulsestream-real-time-social-media-intelligence",
 ];
 
 const featuredProjectFrenchCopy = {
-  "8-chatbot-2026-05": {
+  "openlegama-moroccan-legal-ai": {
     title: "OpenLegaMa — Assistant juridique marocain | RAG & LLM",
     description:
       "Assistant juridique marocain multilingue utilisant un RAG contrôlé pour retrouver des textes juridiques officiels, valider les références de lois et d’articles, relier les réponses aux preuves acceptées et s’abstenir lorsque les sources vérifiées sont insuffisantes.",
@@ -23,7 +23,7 @@ const featuredProjectFrenchCopy = {
     description:
       "Système hybride de sécurité routière en temps réel combinant YOLOv11, suivi multi-objets BoT-SORT, modèle d’accident fine-tuné et analyse comportementale pour déclencher des alertes et sauvegarder automatiquement les preuves vidéo et journaux CSV.",
   },
-  "3-customer-mlops-pipeline-2025-12": {
+  "customer-churn-mlops-platform": {
     title: "Prédiction du churn client — Plateforme MLOps de bout en bout",
     description:
       "Plateforme MLOps complète couvrant le traitement des données, l’entraînement, l’orchestration avec Apache Airflow, le suivi des expériences avec MLflow, le stockage d’artefacts avec MinIO et le monitoring via Streamlit.",
@@ -36,7 +36,7 @@ const featuredProjectFrenchCopy = {
 };
 
 const featuredProjectEnglishCopy = {
-  "8-chatbot-2026-05": {
+  "openlegama-moroccan-legal-ai": {
     title: "OpenLegaMa — Moroccan Legal AI Assistant | RAG & LLM",
     description:
       "Multilingual Moroccan legal AI assistant using controlled RAG to retrieve official legal texts, validate exact legal references, ground answers in accepted evidence, and abstain when verified sources are insufficient.",
@@ -46,7 +46,7 @@ const featuredProjectEnglishCopy = {
     description:
       "Hybrid real-time road-safety system combining YOLOv11, BoT-SORT multi-object tracking, a fine-tuned accident model, and behavioral analysis to trigger alerts and automatically preserve video evidence and CSV event logs.",
   },
-  "3-customer-mlops-pipeline-2025-12": {
+  "customer-churn-mlops-platform": {
     title: "Customer Churn Prediction — End-to-End MLOps Platform",
     description:
       "End-to-end MLOps platform covering data processing, model training, Apache Airflow orchestration, MLflow experiment tracking, MinIO artifact storage, PostgreSQL persistence, and Streamlit monitoring.",
