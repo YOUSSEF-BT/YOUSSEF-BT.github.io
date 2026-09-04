@@ -1,12 +1,12 @@
 export const mlopsPipelineProject = {
   id: 3,
-  slug: "3-customer-mlops-pipeline-2025-12",
+  slug: "customer-churn-mlops-platform",
   title: "Customer MLOps Pipeline",
   description:
     "Complete MLOps platform for customer churn prediction with automated orchestration (Airflow), experiment tracking (MLflow), artifact storage (MinIO), and interactive dashboard (Streamlit). End-to-end machine learning pipeline for production deployment.",
   image: "assets/images/projects/mlops-pipeline/main.png",
   tags: ["Python", "MLOps", "Airflow", "MLflow", "DevOps"],
-  link: "/projects/3-customer-mlops-pipeline-2025-12",
+  link: "/projects/customer-churn-mlops-platform",
   github: "https://github.com/YOUSSEF-BT/customer-mlops-pipeline",
   company: "Personal Project",
   period: "2025-12",
