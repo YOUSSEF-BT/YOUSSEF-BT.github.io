@@ -16,6 +16,16 @@ const experiences = [
     logos: [abaLogo]
   },
   {
+    period: "Sep 2026 — Present",
+    role: "Freelance AI/ML Engineer",
+    company: "Fiverr — AI/ML Freelance Services",
+    companyLink: "https://www.fiverr.com/youssef_bouzit",
+    description:
+      "Offering freelance AI and Machine Learning services focused on RAG systems, LLM applications, AI agents, document intelligence, machine learning, and computer vision. Building practical and business-oriented AI solutions tailored to client needs.",
+    technologies: ["RAG", "LLM", "AI Agents", "Python", "Machine Learning"],
+    current: true
+  },
+  {
     period: "2025 — 2026",
     role: "MLOps & Data Science Projects",
     company: "SUP'MTI & Personal Projects",
