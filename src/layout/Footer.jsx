@@ -112,6 +112,20 @@ export const Footer = () => {
                 />
               </a>
             ))}
+
+            <a
+              href="https://www.fiverr.com/youssef_bouzit"
+              aria-label="Fiverr — Hire me"
+              title="Fiverr — Hire me"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${socialButtonClass} bg-[#1DBF73] text-white border border-[#1DBF73]`}
+            >
+              <span className="font-black text-[7px] md:text-[8px] tracking-[-0.05em] leading-none">
+                fiverr.
+              </span>
+            </a>
+
             <SocialShareButton
               title="Youssef Bouzit - Data Science & AI Engineer"
               url={typeof window !== "undefined" ? window.location.href : ""}
