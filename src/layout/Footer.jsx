@@ -1,11 +1,21 @@
-import { Github, Linkedin, Heart, Share2 } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import { SocialShareButton } from "@/components/SocialShare";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/YOUSSEF-BT", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/youssef-bouzit-74863239b/", label: "LinkedIn" },
+  {
+    icon: Github,
+    href: "https://github.com/YOUSSEF-BT",
+    label: "GitHub",
+    className: "bg-[#181717] text-white border border-[#181717]",
+  },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/youssef-bouzit-74863239b/",
+    label: "LinkedIn",
+    className: "bg-[#0A66C2] text-white border border-[#0A66C2]",
+  },
 ];
 
 const footerLinks = [
@@ -14,6 +24,9 @@ const footerLinks = [
   { href: "#experience", label: "nav.experience" },
   { href: "#contact", label: "nav.contact" },
 ];
+
+const socialButtonClass =
+  "w-8 h-8 md:w-9 md:h-9 rounded-full shadow-sm flex items-center justify-center hover:scale-105 hover:shadow-md transition-all duration-300";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -88,17 +101,23 @@ export const Footer = () => {
                 key={social.label}
                 href={social.href}
                 aria-label={social.label}
+                title={social.label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+                className={`${socialButtonClass} ${social.className}`}
               >
-                <social.icon className="w-4 h-4 md:w-5 md:h-5" />
+                <social.icon
+                  className="w-4 h-4 md:w-[18px] md:h-[18px]"
+                  strokeWidth={2.2}
+                />
               </a>
             ))}
             <SocialShareButton
               title="Youssef Bouzit - Data Science & AI Engineer"
               url={typeof window !== "undefined" ? window.location.href : ""}
               description="Final-Year Data Science Engineering Student & AI & Computer Vision Engineer Intern specializing in AI, Computer Vision, and model robustness."
+              triggerClassName={`${socialButtonClass} bg-primary text-primary-foreground border border-primary`}
+              triggerIconClassName="w-4 h-4 md:w-[18px] md:h-[18px]"
             />
           </div>
         </div>
