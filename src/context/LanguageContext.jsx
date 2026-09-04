@@ -12,14 +12,13 @@ export const useLanguage = () => {
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(() => {
-    // Get language from localStorage or default to 'fr'
     const savedLanguage = localStorage.getItem("language");
     return savedLanguage || "fr";
   });
 
   useEffect(() => {
-    // Save language preference to localStorage
     localStorage.setItem("language", language);
+    document.documentElement.lang = language;
   }, [language]);
 
   const toggleLanguage = () => {
@@ -28,33 +27,33 @@ export const LanguageProvider = ({ children }) => {
 
   const translations = {
     fr: {
-      // Navigation
       nav: {
         about: "À propos",
         projects: "Projets",
-        demos: "Project Demos",
+        demos: "Démos de projets",
         skills: "Compétences",
         certifications: "Certifications",
         experience: "Expérience",
         contact: "Contact",
       },
-      // Hero
       hero: {
         badge: "Ingénieur d’État en Data Science",
         headline: "Construire des solutions",
         headlineHighlight: "intelligentes",
         headlineSuffix: "pour un impact réel.",
         description: "Bonjour, je suis Youssef Bouzit — Ingénieur d’État diplômé en Data Science à SUP’MTI Rabat. J’ai terminé un stage de six mois en IA & Vision par Ordinateur chez NEXTRONIC, filiale d’ABA Technology, au cours duquel j’ai conçu un système de détection en temps réel des accidents de la route. Je conçois des systèmes intelligents, robustes et destinés à résoudre des problèmes concrets.",
-        contact: "Me Contacter",
-        downloadCV: "Télécharger CV",
+        contact: "Me contacter",
+        downloadCV: "Télécharger le CV",
         follow: "Suivez-moi :",
-        technologies: "Technologies avec lesquelles je travaille",
-        available: "Actuellement Disponible",
+        technologies: "Technologies principales",
+        available: "Actuellement disponible",
+        availableForWork: "Disponible pour travailler",
+        yearsExp: "An d’expérience",
+        fiverrTitle: "Fiverr — Me contacter pour une mission",
         scroll: "Défiler",
       },
-      // About
       about: {
-        title: "À Propos de Moi",
+        title: "À propos de moi",
         headline: "Transformer les données en",
         headlineHighlight: "solutions intelligentes.",
         description1: "Diplômé du cycle d’Ingénieur d’État en Data Science à SUP’MTI Rabat, j’ai terminé un stage PFE de six mois chez NEXTRONIC, filiale d’ABA Technology. J’y ai conçu et développé un système de détection en temps réel des accidents de la route par vision par ordinateur et deep learning.",
@@ -72,52 +71,53 @@ export const LanguageProvider = ({ children }) => {
           fullstackDesc: "Construire des applications complètes avec TypeScript, JavaScript, Node.js et des frameworks modernes pour intégrer et valoriser les modèles IA.",
         },
       },
-      // Experience
       experience: {
-        title: "Parcours Professionnel",
+        title: "Parcours professionnel",
         headline: "L’expérience façonnée par",
         headlineHighlight: "l’innovation & l’impact.",
         description: "Un parcours allant de la formation d’ingénieur à la conception de systèmes d’intelligence artificielle, de vision par ordinateur et de data science appliqués à des problématiques réelles.",
       },
-      // Projects
       projects: {
-        title: "Travail Mis en Avant",
-        headline: "Projets IA qui",
-        headlineHighlight: "stimulent l’innovation.",
-        description: "Une sélection de mon travail en Data Science, IA et Machine Learning — de projets d’analyse de données à des systèmes intelligents et applications.",
-        viewAll: "Voir Tous les Projets & Démos",
+        title: "Travaux sélectionnés",
+        headline: "Des projets IA qui",
+        headlineHighlight: "créent de l’impact.",
+        description: "Une sélection de mes travaux en Data Science, intelligence artificielle et Machine Learning — de l’analyse de données aux systèmes intelligents et applications IA.",
+        viewAll: "Voir tous les projets & démos",
       },
-      // Testimonials
+      certifications: {
+        title: "Certifications",
+        headline: "Certifications",
+        headlineHighlight: "professionnelles",
+        description: "Une sélection de certifications et formations qui valident mes compétences en Data Science, intelligence artificielle et ingénierie.",
+        viewAll: "Voir toutes les certifications",
+      },
       testimonials: {
-        title: "Citations Inspirantes",
+        title: "Citations inspirantes",
         headline: "Sagesse de",
         headlineHighlight: "leaders de l’industrie.",
       },
-      // Contact
       contact: {
-        title: "Entrer en Contact",
+        title: "Entrer en contact",
         headline: "Construisons",
         headlineHighlight: "quelque chose de génial.",
-        description: "Avez-vous un projet en tête ? J’aimerais en entendre parler. Envoyez-moi un message et discutons de la façon dont nous pouvons travailler ensemble.",
+        description: "Vous avez un projet ou une opportunité en tête ? Envoyez-moi un message et discutons de la manière dont nous pouvons travailler ensemble.",
         name: "Nom",
-        email: "Email",
+        email: "E-mail",
         message: "Message",
-        send: "Envoyer le Message",
+        send: "Envoyer le message",
         sending: "Envoi...",
         success: "Message envoyé avec succès ! Je vous répondrai bientôt.",
         error: "Échec de l’envoi du message. Veuillez réessayer plus tard.",
-        contactInfo: "Informations de Contact",
+        contactInfo: "Informations de contact",
         available: "Disponible pour des opportunités",
         availableDesc: "Ouvert aux opportunités en CDI dans l’IA/ML, aux collaborations techniques et à une sélection de missions freelance.",
-        fiverrCta: "Engagez-moi sur Fiverr",
+        fiverrCta: "Profil Fiverr",
       },
-      // Footer
       footer: {
         copyright: "© {year} Youssef Bouzit. Tous droits réservés.",
       },
     },
     en: {
-      // Navigation
       nav: {
         about: "About",
         projects: "Projects",
@@ -127,7 +127,6 @@ export const LanguageProvider = ({ children }) => {
         experience: "Experience",
         contact: "Contact",
       },
-      // Hero
       hero: {
         badge: "State-Certified Data Science Engineer",
         headline: "Building intelligent",
@@ -137,11 +136,13 @@ export const LanguageProvider = ({ children }) => {
         contact: "Contact Me",
         downloadCV: "Download CV",
         follow: "Follow me:",
-        technologies: "Technologies I work with",
+        technologies: "Core technologies",
         available: "Currently Available",
+        availableForWork: "Available for work",
+        yearsExp: "Years Exp",
+        fiverrTitle: "Fiverr — Hire me",
         scroll: "Scroll",
       },
-      // About
       about: {
         title: "About Me",
         headline: "Transforming data into",
@@ -161,14 +162,12 @@ export const LanguageProvider = ({ children }) => {
           fullstackDesc: "Building complete applications with TypeScript, JavaScript, Node.js, and modern frameworks to integrate and deliver AI models.",
         },
       },
-      // Experience
       experience: {
         title: "Career Journey",
         headline: "Experience shaped by",
         headlineHighlight: "innovation & impact.",
         description: "A journey from engineering education to building applied artificial intelligence, computer vision, and data science systems for real-world challenges.",
       },
-      // Projects
       projects: {
         title: "Featured Work",
         headline: "AI Projects that",
@@ -176,18 +175,23 @@ export const LanguageProvider = ({ children }) => {
         description: "A selection of my work in Data Science, AI, and Machine Learning — from data analysis projects to intelligent systems and applications.",
         viewAll: "View All Projects & Demos",
       },
-      // Testimonials
+      certifications: {
+        title: "Certifications",
+        headline: "Professional",
+        headlineHighlight: "Certifications",
+        description: "A selection of certifications and training programs that validate my expertise in Data Science, AI, and engineering.",
+        viewAll: "View All Certifications",
+      },
       testimonials: {
         title: "Inspirational Quotes",
         headline: "Wisdom from",
         headlineHighlight: "industry leaders.",
       },
-      // Contact
       contact: {
         title: "Get In Touch",
         headline: "Let’s build",
         headlineHighlight: "something great.",
-        description: "Have a project in mind? I’d love to hear about it. Send me a message and let’s discuss how we can work together.",
+        description: "Have a project or opportunity in mind? Send me a message and let’s discuss how we can work together.",
         name: "Name",
         email: "Email",
         message: "Message",
@@ -198,9 +202,8 @@ export const LanguageProvider = ({ children }) => {
         contactInfo: "Contact Information",
         available: "Available for opportunities",
         availableDesc: "Open to full-time AI/ML opportunities, technical collaborations, and selected freelance projects.",
-        fiverrCta: "Hire Me on Fiverr",
+        fiverrCta: "Fiverr Profile",
       },
-      // Footer
       footer: {
         copyright: "© {year} Youssef Bouzit. All rights reserved.",
       },
