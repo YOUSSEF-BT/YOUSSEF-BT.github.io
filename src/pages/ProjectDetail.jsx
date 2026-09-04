@@ -3,7 +3,7 @@ import { ProjectDetail as LegacyProjectDetail } from "@/pages/LegacyProjectDetai
 import { ProjectDetail as RichProjectDetail } from "@/pages/OpenLegaMaProjectDetail";
 
 const RICH_PROJECT_SLUGS = new Set([
-  "8-chatbot-2026-05",
+  "openlegama-moroccan-legal-ai",
   "real-time-road-accident-detection",
 ]);
 
