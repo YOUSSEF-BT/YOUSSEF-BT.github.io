@@ -107,8 +107,9 @@ export const LanguageProvider = ({ children }) => {
         success: "Message envoyé avec succès ! Je vous répondrai bientôt.",
         error: "Échec de l’envoi du message. Veuillez réessayer plus tard.",
         contactInfo: "Informations de Contact",
-        available: "Actuellement Disponible",
-        availableDesc: "Je suis ouvert à de nouvelles opportunités en CDI et à des projets ambitieux en intelligence artificielle, vision par ordinateur, machine learning et data science.",
+        available: "Disponible pour des opportunités",
+        availableDesc: "Ouvert aux opportunités en CDI dans l’IA/ML, aux collaborations techniques et à une sélection de missions freelance.",
+        fiverrCta: "Engagez-moi sur Fiverr",
       },
       // Footer
       footer: {
@@ -195,8 +196,9 @@ export const LanguageProvider = ({ children }) => {
         success: "Message sent successfully! I’ll get back to you soon.",
         error: "Failed to send message. Please try again later.",
         contactInfo: "Contact Information",
-        available: "Currently Available",
-        availableDesc: "I am open to full-time opportunities and ambitious projects in artificial intelligence, computer vision, machine learning, and data science.",
+        available: "Available for opportunities",
+        availableDesc: "Open to full-time AI/ML opportunities, technical collaborations, and selected freelance projects.",
+        fiverrCta: "Hire Me on Fiverr",
       },
       // Footer
       footer: {
