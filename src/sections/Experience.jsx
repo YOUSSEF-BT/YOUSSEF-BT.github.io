@@ -2,20 +2,20 @@ import { useLanguage } from "@/context/LanguageContext";
 import abaLogo from "@/assets/images/logos/ABA_Technology.png";
 import supMtiLogo from "@/assets/images/logos/sup_mti.png";
 import githubLogo from "@/assets/images/logos/Github.png";
-
-const fiverrLogo = "https://cdn.simpleicons.org/fiverr/1DBF73";
+import { FIVERR_LOGO_URL, FIVERR_PROFILE_URL } from "@/components/FiverrLogo";
 
 const experiences = [
   {
     period: "Sep 2026 — Present",
     role: "Freelance AI/ML Engineer",
     company: "Fiverr — AI/ML Freelance Services",
-    companyLink: "https://www.fiverr.com/youssef_bouzit",
+    companyLink: FIVERR_PROFILE_URL,
     description:
       "Offering freelance AI and Machine Learning services focused on RAG systems, LLM applications, AI agents, document intelligence, machine learning, and computer vision. Building practical and business-oriented AI solutions tailored to client needs.",
     technologies: ["RAG", "LLM", "AI Agents", "Python", "Machine Learning"],
     current: true,
-    logos: [fiverrLogo]
+    logos: [FIVERR_LOGO_URL],
+    logoClassName: "w-full h-full object-contain bg-white p-2.5"
   },
   {
     period: "Feb 2026 — Aug 2026",
@@ -129,7 +129,7 @@ export const Experience = () => {
                                 <img
                                   src={logo}
                                   alt={`${exp.company} logo`}
-                                  className="w-full h-full object-cover filter brightness-90"
+                                  className={exp.logoClassName || "w-full h-full object-cover filter brightness-90"}
                                 />
                               </div>
                             </a>
