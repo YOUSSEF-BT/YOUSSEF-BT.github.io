@@ -5,11 +5,19 @@ import {
   Github,
   Linkedin,
   Download,
-  BriefcaseBusiness,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 import { CVDownloadButton } from "../components/CVDownloadButton";
 import { useLanguage } from "@/context/LanguageContext";
+
+const FiverrIcon = ({ className = "" }) => (
+  <img
+    src="https://cdn.simpleicons.org/fiverr/1DBF73"
+    alt=""
+    aria-hidden="true"
+    className={`${className} object-contain`}
+  />
+);
 
 const skills = [
   "Python",
@@ -109,7 +117,7 @@ export const Hero = () => {
                   label: "LinkedIn",
                 },
                 {
-                  icon: BriefcaseBusiness,
+                  icon: FiverrIcon,
                   href: "https://www.fiverr.com/youssef_bouzit",
                   label: "Fiverr — Hire me",
                 },
