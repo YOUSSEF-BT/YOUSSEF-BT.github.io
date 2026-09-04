@@ -5,31 +5,65 @@ import { projectsData } from "@/data/projects";
 import { useLanguage } from "@/context/LanguageContext";
 import { resolveAssetUrl } from "@/utils/assetUrl";
 
+const featuredProjectSlugs = [
+  "8-chatbot-2026-05",
+  "real-time-road-accident-detection",
+  "3-customer-mlops-pipeline-2025-12",
+  "4-bigdata-reddit-sentiment-analysis-2026-02",
+];
+
 const featuredProjectFrenchCopy = {
-  "real-time-road-accident-detection": {
-    title: "Détection en temps réel des accidents de la route — Vision par ordinateur & Deep Learning",
-    description:
-      "Système hybride de sécurité routière en temps réel combinant détection de véhicules avec YOLOv11, suivi multi-objets BoT-SORT, modèle d’accident YOLOv11s fine-tuné et analyse comportementale αβγ pour déclencher des alertes et conserver automatiquement les preuves vidéo et journaux CSV.",
-  },
   "8-chatbot-2026-05": {
-    title: "OpenLegaMa — Assistant juridique marocain basé sur l’IA",
+    title: "OpenLegaMa — Assistant juridique marocain | RAG & LLM",
     description:
       "Assistant juridique marocain multilingue utilisant un RAG contrôlé pour retrouver des textes juridiques officiels, valider les références de lois et d’articles, relier les réponses aux preuves acceptées et s’abstenir lorsque les sources vérifiées sont insuffisantes.",
   },
-  "8-hybrid-movie-recommender": {
-    title: "Système hybride de recommandation de films",
+  "real-time-road-accident-detection": {
+    title: "Détection en temps réel des accidents — Vision par ordinateur & Deep Learning",
     description:
-      "Moteur de recommandation combinant filtrage collaboratif et approches basées sur le contenu afin de produire des suggestions de films personnalisées à partir de plusieurs signaux de recommandation.",
+      "Système hybride de sécurité routière en temps réel combinant YOLOv11, suivi multi-objets BoT-SORT, modèle d’accident fine-tuné et analyse comportementale pour déclencher des alertes et sauvegarder automatiquement les preuves vidéo et journaux CSV.",
   },
-  "6-fraud-detection-app": {
-    title: "Système de détection de fraude bancaire",
+  "3-customer-mlops-pipeline-2025-12": {
+    title: "Prédiction du churn client — Plateforme MLOps de bout en bout",
     description:
-      "Application de Machine Learning dédiée à l’identification de transactions potentiellement frauduleuses, avec scoring de probabilité, analyse de l’importance des variables et interface interactive pour tester des transactions réelles ou personnalisées.",
+      "Plateforme MLOps complète couvrant le traitement des données, l’entraînement, l’orchestration avec Apache Airflow, le suivi des expériences avec MLflow, le stockage d’artefacts avec MinIO et le monitoring via Streamlit.",
+  },
+  "4-bigdata-reddit-sentiment-analysis-2026-02": {
+    title: "PulseStream — Intelligence sociale Big Data en temps réel",
+    description:
+      "Plateforme Big Data conteneurisée pour l’analyse en temps réel des réseaux sociaux, avec ingestion Kafka, traitement Spark Structured Streaming, persistance MongoDB et pipelines de préparation pour l’analyse NLP et le sentiment.",
+  },
+};
+
+const featuredProjectEnglishCopy = {
+  "8-chatbot-2026-05": {
+    title: "OpenLegaMa — Moroccan Legal AI Assistant | RAG & LLM",
+    description:
+      "Multilingual Moroccan legal AI assistant using controlled RAG to retrieve official legal texts, validate exact legal references, ground answers in accepted evidence, and abstain when verified sources are insufficient.",
+  },
+  "real-time-road-accident-detection": {
+    title: "Real-Time Road Accident Detection — Computer Vision & Deep Learning",
+    description:
+      "Hybrid real-time road-safety system combining YOLOv11, BoT-SORT multi-object tracking, a fine-tuned accident model, and behavioral analysis to trigger alerts and automatically preserve video evidence and CSV event logs.",
+  },
+  "3-customer-mlops-pipeline-2025-12": {
+    title: "Customer Churn Prediction — End-to-End MLOps Platform",
+    description:
+      "End-to-end MLOps platform covering data processing, model training, Apache Airflow orchestration, MLflow experiment tracking, MinIO artifact storage, PostgreSQL persistence, and Streamlit monitoring.",
+  },
+  "4-bigdata-reddit-sentiment-analysis-2026-02": {
+    title: "PulseStream — Real-Time Big Data & Social Media Intelligence",
+    description:
+      "Containerized Big Data platform for real-time social media analytics using Kafka ingestion, Spark Structured Streaming, MongoDB persistence, and downstream NLP and sentiment-analysis workflows.",
   },
 };
 
 export const Projects = () => {
   const { t, language } = useLanguage();
+
+  const featuredProjects = featuredProjectSlugs
+    .map((slug) => projectsData.find((project) => project.slug === slug))
+    .filter(Boolean);
 
   return (
     <section id="projects" className="py-32 relative overflow-hidden">
@@ -54,11 +88,18 @@ export const Projects = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-8">
-          {projectsData.slice(0, 4).map((project, index) => {
+          {featuredProjects.map((project, index) => {
             const localizedProject =
-              language === "fr" ? featuredProjectFrenchCopy[project.slug] : null;
+              language === "fr"
+                ? featuredProjectFrenchCopy[project.slug]
+                : featuredProjectEnglishCopy[project.slug];
             const displayTitle = localizedProject?.title || project.title;
             const displayDescription = localizedProject?.description || project.description;
+            const projectPath = `/projects/${project.slug}`;
+            const projectGithub =
+              project.slug === "4-bigdata-reddit-sentiment-analysis-2026-02"
+                ? "https://github.com/YOUSSEF-BT/PulseStream_Real-Time-Social-Media-Sentiment-Intelligence"
+                : project.github;
 
             return (
               <article
@@ -67,7 +108,7 @@ export const Projects = () => {
                 style={{ animationDelay: `${(index + 1) * 100}ms` }}
               >
                 <div className="relative overflow-hidden aspect-video">
-                  <Link to={project.link} aria-label={`View ${project.title}`}>
+                  <Link to={projectPath} aria-label={`View ${displayTitle}`}>
                     <img
                       src={resolveAssetUrl(project.image)}
                       alt={`${displayTitle} preview`}
@@ -81,18 +122,18 @@ export const Projects = () => {
 
                   <div className="absolute top-4 right-4 flex items-center gap-2">
                     <Link
-                      to={project.link}
-                      aria-label={`Open ${project.title} details`}
+                      to={projectPath}
+                      aria-label={`Open ${displayTitle} details`}
                       className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
                     >
                       <ArrowUpRight className="w-5 h-5" />
                     </Link>
-                    {project.github && project.github !== "#" && (
+                    {projectGithub && projectGithub !== "#" && (
                       <a
-                        href={project.github}
+                        href={projectGithub}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`Open ${project.title} on GitHub`}
+                        aria-label={`Open ${displayTitle} on GitHub`}
                         className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
                       >
                         <Github className="w-5 h-5" />
@@ -101,7 +142,7 @@ export const Projects = () => {
                   </div>
                 </div>
 
-                <Link to={project.link} className="block p-4 md:p-6 space-y-3 md:space-y-4">
+                <Link to={projectPath} className="block p-4 md:p-6 space-y-3 md:space-y-4">
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-base md:text-xl font-semibold group-hover:text-primary transition-colors line-clamp-2">
                       {displayTitle}
