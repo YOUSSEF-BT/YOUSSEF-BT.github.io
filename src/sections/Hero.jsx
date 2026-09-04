@@ -6,25 +6,15 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const skills = [
   "Python",
-  "Machine Learning",
-  "Deep Learning",
-  "NLP",
-  "Big Data",
-  "MLOps",
-  "Airflow",
-  "MLflow",
-  "TypeScript",
-  "JavaScript",
-  "Data Science",
-  "AI",
-  "Fraud Detection",
-  "Sentiment Analysis",
-  "Data Quality",
-  "Streamlit",
+  "RAG",
+  "LLMs",
+  "Computer Vision",
+  "PyTorch",
   "TensorFlow",
-  "Scikit-learn",
-  "XGBoost",
-  "Node.js",
+  "FastAPI",
+  "Docker",
+  "MLflow",
+  "Apache Spark",
 ];
 
 const socialButtonClass =
@@ -89,7 +79,7 @@ export const Hero = () => {
 
             <div className="flex items-center gap-3 md:gap-4 animate-fade-in animation-delay-400">
               <span className="text-xs md:text-sm text-muted-foreground">
-                {t("hero.follow")} 
+                {t("hero.follow")}
               </span>
 
               <a
@@ -116,8 +106,8 @@ export const Hero = () => {
 
               <a
                 href={FIVERR_PROFILE_URL}
-                aria-label="Fiverr — Hire me"
-                title="Fiverr — Hire me"
+                aria-label={t("hero.fiverrTitle")}
+                title={t("hero.fiverrTitle")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${socialButtonClass} bg-white border border-[#1DBF73] overflow-hidden`}
@@ -147,7 +137,7 @@ export const Hero = () => {
                   <div className="flex items-center gap-2 md:gap-3">
                     <div className="w-2 h-2 md:w-3 md:h-3 bg-green-500 rounded-full animate-pulse" />
                     <span className="text-xs md:text-sm font-medium">
-                      Available for work
+                      {t("hero.availableForWork")}
                     </span>
                   </div>
                 </div>
@@ -155,7 +145,7 @@ export const Hero = () => {
                 <div className="absolute -top-3 md:-top-4 -left-3 md:-left-4 glass rounded-xl px-3 md:px-4 py-2 md:py-3 animate-float animation-delay-500">
                   <div className="text-xl md:text-2xl font-bold text-primary">1+</div>
                   <div className="text-[10px] md:text-xs text-muted-foreground">
-                    Years Exp
+                    {t("hero.yearsExp")}
                   </div>
                 </div>
               </div>
