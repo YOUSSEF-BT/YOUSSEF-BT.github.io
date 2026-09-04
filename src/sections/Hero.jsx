@@ -1,6 +1,7 @@
 import { Button } from "@/components/Button";
 import { ArrowRight, ChevronDown, Github, Linkedin } from "lucide-react";
 import { CVDownloadButton } from "../components/CVDownloadButton";
+import { FiverrLogo, FIVERR_PROFILE_URL } from "@/components/FiverrLogo";
 import { useLanguage } from "@/context/LanguageContext";
 
 const skills = [
@@ -114,16 +115,14 @@ export const Hero = () => {
               </a>
 
               <a
-                href="https://www.fiverr.com/youssef_bouzit"
+                href={FIVERR_PROFILE_URL}
                 aria-label="Fiverr — Hire me"
                 title="Fiverr — Hire me"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${socialButtonClass} bg-[#1DBF73] text-white border border-[#1DBF73]`}
+                className={`${socialButtonClass} bg-white border border-[#1DBF73] overflow-hidden`}
               >
-                <span className="font-black text-[7px] md:text-[8px] tracking-[-0.05em] leading-none">
-                  fiverr.
-                </span>
+                <FiverrLogo className="w-6 md:w-7 h-auto" />
               </a>
             </div>
           </div>
