@@ -3,6 +3,8 @@ import abaLogo from "@/assets/images/logos/ABA_Technology.png";
 import supMtiLogo from "@/assets/images/logos/sup_mti.png";
 import githubLogo from "@/assets/images/logos/Github.png";
 
+const fiverrLogo = "https://cdn.simpleicons.org/fiverr/1DBF73";
+
 const experiences = [
   {
     period: "Sep 2026 — Present",
@@ -12,7 +14,8 @@ const experiences = [
     description:
       "Offering freelance AI and Machine Learning services focused on RAG systems, LLM applications, AI agents, document intelligence, machine learning, and computer vision. Building practical and business-oriented AI solutions tailored to client needs.",
     technologies: ["RAG", "LLM", "AI Agents", "Python", "Machine Learning"],
-    current: true
+    current: true,
+    logos: [fiverrLogo]
   },
   {
     period: "Feb 2026 — Aug 2026",
