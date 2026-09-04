@@ -73,7 +73,13 @@ export const SocialShare = ({ title, url, description }) => {
   );
 };
 
-export const SocialShareButton = ({ title, url, description }) => {
+export const SocialShareButton = ({
+  title,
+  url,
+  description,
+  triggerClassName = "",
+  triggerIconClassName = "w-4 h-4",
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const shareLinks = [
@@ -112,14 +118,18 @@ export const SocialShareButton = ({ title, url, description }) => {
     }
   };
 
+  const buttonClassName =
+    triggerClassName ||
+    "p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all";
+
   return (
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+        className={buttonClassName}
         aria-label="Share"
       >
-        <Share2 className="w-4 h-4" />
+        <Share2 className={triggerIconClassName} />
       </button>
 
       {isOpen && (
