@@ -105,7 +105,7 @@ export const Projects = () => {
         <div className="text-center mt-12 animate-fade-in animation-delay-500">
           <Link to="/demos">
             <AnimatedBorderButton>
-              View All Projects & Demos
+              {t("projects.viewAll")}
               <ArrowUpRight className="w-5 h-5" />
             </AnimatedBorderButton>
           </Link>
