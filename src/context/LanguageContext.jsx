@@ -19,6 +19,29 @@ export const LanguageProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("language", language);
     document.documentElement.lang = language;
+
+    const pageTitle =
+      language === "fr"
+        ? "Youssef Bouzit | Ingénieur IA/ML & Data Science"
+        : "Youssef Bouzit | AI/ML & Data Science Engineer";
+    const pageDescription =
+      language === "fr"
+        ? "Portfolio de Youssef Bouzit, ingénieur Data Science et IA/ML spécialisé en systèmes RAG, applications LLM, vision par ordinateur, Machine Learning, MLOps et Data Engineering."
+        : "Portfolio of Youssef Bouzit, Data Science and AI/ML Engineer specializing in RAG systems, LLM applications, Computer Vision, Machine Learning, MLOps, and Data Engineering.";
+
+    document.title = pageTitle;
+
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    if (descriptionMeta) descriptionMeta.setAttribute("content", pageDescription);
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute("content", pageTitle);
+
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) ogDescription.setAttribute("content", pageDescription);
+
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale) ogLocale.setAttribute("content", language === "fr" ? "fr_FR" : "en_US");
   }, [language]);
 
   const toggleLanguage = () => {
@@ -45,10 +68,11 @@ export const LanguageProvider = ({ children }) => {
         contact: "Me contacter",
         downloadCV: "Télécharger le CV",
         follow: "Suivez-moi :",
-        technologies: "Technologies principales",
+        technologies: "Stack IA principale",
+        stackDescription: "Technologies que j’utilise pour concevoir, entraîner, intégrer et déployer des systèmes IA modernes.",
         available: "Actuellement disponible",
         availableForWork: "Disponible pour travailler",
-        yearsExp: "An d’expérience",
+        yearsExp: "Année d’expérience",
         fiverrTitle: "Fiverr — Me contacter pour une mission",
         scroll: "Défiler",
       },
@@ -136,10 +160,11 @@ export const LanguageProvider = ({ children }) => {
         contact: "Contact Me",
         downloadCV: "Download CV",
         follow: "Follow me:",
-        technologies: "Core technologies",
+        technologies: "Core AI Engineering Stack",
+        stackDescription: "Technologies I use to design, train, integrate, and deploy modern AI systems.",
         available: "Currently Available",
         availableForWork: "Available for work",
-        yearsExp: "Years Exp",
+        yearsExp: "Year of Experience",
         fiverrTitle: "Fiverr — Hire me",
         scroll: "Scroll",
       },
