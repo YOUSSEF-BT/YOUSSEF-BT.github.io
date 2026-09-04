@@ -138,8 +138,8 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
-          <div className="glass p-6 md:p-8 rounded-2xl md:rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
+        <div className="grid lg:grid-cols-2 items-start gap-8 md:gap-12 max-w-5xl mx-auto">
+          <div className="glass self-start p-6 md:p-8 rounded-2xl md:rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
             <form
               id="contact-form"
               className="space-y-4 md:space-y-6"
