@@ -168,9 +168,10 @@ export const Demos = () => {
         </Link>
 
         <div className="max-w-3xl mb-6 md:mb-10">
-          <span className="text-secondary-foreground text-xs md:text-sm font-medium tracking-wider uppercase animate-fade-in">
-            💻 Project Demos
-          </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[11px] md:text-xs font-semibold uppercase tracking-[0.18em] animate-fade-in">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            Project Demos
+          </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-4 md:mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
             My
             <span className="font-serif italic font-normal text-foreground">
