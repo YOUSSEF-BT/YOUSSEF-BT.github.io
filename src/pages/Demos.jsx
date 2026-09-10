@@ -157,7 +157,7 @@ export const Demos = () => {
         );
 
   return (
-    <div className="min-h-screen overflow-hidden pt-24 md:pt-32 pb-16 md:pb-20">
+    <div className="min-h-screen overflow-hidden pt-20 md:pt-24 pb-16 md:pb-20">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <Link
           to="/"
