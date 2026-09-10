@@ -38,9 +38,9 @@ jobs:
       - name: Build portfolio
         run: npm run build
         env:
-          # Public backend URL only — never put GEMINI_API_KEY in the frontend.
-          # Leave the repository variable unset until the deployed assistant has
-          # passed /health and the online evaluation workflow.
+          # Optional public backend override for preview/staging. Production uses
+          # the verified Vercel URL embedded in AskYoussefAI.jsx by default.
+          # Never put GEMINI_API_KEY or any other secret in a VITE_* variable.
           VITE_ASK_YOUSSEF_API_URL: ${{ vars.ASK_YOUSSEF_API_URL }}
 
       - name: Publish complete dist directory
