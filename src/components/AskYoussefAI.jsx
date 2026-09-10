@@ -2,18 +2,20 @@ import { useEffect } from "react";
 
 const DEFAULT_WIDGET_SRC =
   "https://cdn.jsdelivr.net/gh/YOUSSEF-BT/ASK-YOUSSEF-AI@main/web/widget.js";
+const DEFAULT_API_URL = "https://ask-youssef-ai.vercel.app";
 
 /**
  * Production bridge for Ask Youssef AI.
  *
- * The widget stays completely dormant until the portfolio build receives a
- * verified backend URL through VITE_ASK_YOUSSEF_API_URL. This lets us ship the
- * integration code safely before the external Render service is provisioned,
- * without exposing a broken launcher to visitors.
+ * The verified Vercel API is the default backend. A Vite environment variable
+ * can still override it for preview/staging builds without exposing any API
+ * secret to the browser.
  */
 export function AskYoussefAI() {
   useEffect(() => {
-    const apiUrl = (import.meta.env.VITE_ASK_YOUSSEF_API_URL || "").trim();
+    const apiUrl = (
+      import.meta.env.VITE_ASK_YOUSSEF_API_URL || DEFAULT_API_URL
+    ).trim();
 
     if (!apiUrl || document.getElementById("ask-youssef-ai-loader")) {
       return undefined;
@@ -36,7 +38,7 @@ export function AskYoussefAI() {
 
     return () => {
       // App normally lives for the full page lifetime. Cleanup keeps HMR/tests
-      // tidy without ever exposing the API key (only the public backend URL).
+      // tidy without ever exposing GEMINI_API_KEY (only the public API URL).
       script.remove();
       document.getElementById("ask-youssef-ai-root")?.remove();
     };
