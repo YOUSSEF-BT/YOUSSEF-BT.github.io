@@ -18,6 +18,7 @@ import { NotFound } from "@/pages/NotFound";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { PageLoader } from "@/components/PageLoader";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
+import { AskYoussefAI } from "@/components/AskYoussefAI";
 
 function HomePage() {
   return (
@@ -79,6 +80,7 @@ function App() {
           </Routes>
           <Footer />
           <ScrollToTop />
+          <AskYoussefAI />
         </div>
       </Router>
     </ThemeProvider>
