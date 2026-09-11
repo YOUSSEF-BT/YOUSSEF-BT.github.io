@@ -3,16 +3,13 @@ import { useEffect } from "react";
 const DEFAULT_WIDGET_SRC =
   "https://cdn.jsdelivr.net/gh/YOUSSEF-BT/ASK-YOUSSEF-AI@main/web/widget.js";
 const DEFAULT_API_URL = "https://ask-youssef-ai.vercel.app";
-const SAFE_FALLBACK_API_URL =
-  "https://ask-youssef-9e1ihhfsh-youssefbts-projects.vercel.app";
 
 /**
  * Production bridge for Ask Youssef AI.
  *
- * Prefer the canonical Vercel production alias when it exposes the deployment
- * identity endpoint added by the current backend. During a blocked/stale Vercel
- * promotion, fall back to the last verified healthy immutable deployment so the
- * portfolio chatbot stays available instead of mounting a known-broken backend.
+ * The portfolio uses only the canonical public Vercel production alias. Preview
+ * deployment URLs may be protected by Vercel Authentication and therefore are
+ * not valid browser fallbacks for public visitors.
  *
  * A Vite environment variable can still override the backend explicitly for
  * preview/staging builds without exposing any API secret to the browser.
@@ -51,7 +48,7 @@ export function AskYoussefAI() {
       }
     };
 
-    const healthy = async (apiUrl, timeoutMs = 12000) => {
+    const healthy = async (apiUrl, timeoutMs = 15000) => {
       const body = await fetchJson(
         `${normalized(apiUrl)}/health`,
         timeoutMs
@@ -59,37 +56,9 @@ export function AskYoussefAI() {
       return Boolean(body?.ok);
     };
 
-    const currentProductionReady = async () => {
-      // Keep this probe deliberately short. A stale Vercel revision may cold-start
-      // slowly or even time out; that must never block the known-good fallback.
-      const body = await fetchJson(`${DEFAULT_API_URL}/deployment`, 3500);
-      return Boolean(body?.commit && body?.environment === "production");
-    };
-
     const chooseApi = async () => {
-      if (configuredApi) {
-        return (await healthy(configuredApi)) ? normalized(configuredApi) : null;
-      }
-
-      // Probe current production identity and fallback health independently so a
-      // slow/stale production function cannot cancel the fallback request.
-      const [productionReady, fallbackHealthy] = await Promise.all([
-        currentProductionReady(),
-        healthy(SAFE_FALLBACK_API_URL),
-      ]);
-
-      if (productionReady && (await healthy(DEFAULT_API_URL, 8000))) {
-        return DEFAULT_API_URL;
-      }
-
-      if (fallbackHealthy) {
-        console.warn(
-          "[portfolio] Ask Youssef AI is using the verified fallback deployment while production promotion is pending."
-        );
-        return SAFE_FALLBACK_API_URL;
-      }
-
-      return null;
+      const apiUrl = normalized(configuredApi || DEFAULT_API_URL);
+      return (await healthy(apiUrl)) ? apiUrl : null;
     };
 
     const mountWhenHealthy = async () => {
