@@ -3,74 +3,110 @@ import { useEffect } from "react";
 const DEFAULT_WIDGET_SRC =
   "https://cdn.jsdelivr.net/gh/YOUSSEF-BT/ASK-YOUSSEF-AI@main/web/widget.js";
 const DEFAULT_API_URL = "https://ask-youssef-ai.vercel.app";
+const SAFE_FALLBACK_API_URL =
+  "https://ask-youssef-9e1ihhfsh-youssefbts-projects.vercel.app";
 
 /**
  * Production bridge for Ask Youssef AI.
  *
- * The verified Vercel API is the default backend. A Vite environment variable
- * can still override it for preview/staging builds without exposing any API
- * secret to the browser.
+ * Prefer the canonical Vercel production alias when it exposes the deployment
+ * identity endpoint added by the current backend. During a blocked/stale Vercel
+ * promotion, fall back to the last verified healthy immutable deployment so the
+ * portfolio chatbot stays available instead of mounting a known-broken backend.
  *
- * Before mounting the widget, verify that the backend is healthy. This keeps a
- * transient backend deployment problem from surfacing as a broken chat UI on
- * the portfolio. The widget becomes available automatically on the next page
- * load as soon as the backend health endpoint recovers.
+ * A Vite environment variable can still override the backend explicitly for
+ * preview/staging builds without exposing any API secret to the browser.
  */
 export function AskYoussefAI() {
   useEffect(() => {
-    const apiUrl = (
-      import.meta.env.VITE_ASK_YOUSSEF_API_URL || DEFAULT_API_URL
-    ).trim();
+    const configuredApi = import.meta.env.VITE_ASK_YOUSSEF_API_URL?.trim();
 
-    if (!apiUrl || document.getElementById("ask-youssef-ai-loader")) {
+    if (document.getElementById("ask-youssef-ai-loader")) {
       return undefined;
     }
 
     const controller = new AbortController();
-    const timeoutId = window.setTimeout(() => controller.abort(), 5000);
+    const timeoutId = window.setTimeout(() => controller.abort(), 8000);
     let script = null;
     let cancelled = false;
 
-    const mountWhenHealthy = async () => {
+    const normalized = (value) => value.replace(/\/$/, "");
+
+    const healthy = async (apiUrl) => {
       try {
-        const response = await fetch(`${apiUrl.replace(/\/$/, "")}/health`, {
+        const response = await fetch(`${normalized(apiUrl)}/health`, {
           method: "GET",
           cache: "no-store",
           signal: controller.signal,
         });
-
-        if (!response.ok || cancelled) {
-          console.warn("[portfolio] Ask Youssef AI backend is temporarily unavailable.");
-          return;
-        }
-
-        const health = await response.json().catch(() => null);
-        if (!health?.ok || cancelled) {
-          console.warn("[portfolio] Ask Youssef AI backend health check did not pass.");
-          return;
-        }
-
-        script = document.createElement("script");
-        script.id = "ask-youssef-ai-loader";
-        script.src = DEFAULT_WIDGET_SRC;
-        script.dataset.api = apiUrl.replace(/\/$/, "");
-        script.dataset.title = "Ask Youssef AI";
-        script.dataset.subtitle = "Professional Portfolio Copilot";
-        script.dataset.accent = "#20b2a6";
-        script.async = true;
-
-        script.addEventListener("error", () => {
-          console.error("[portfolio] Ask Youssef AI widget failed to load.");
-        });
-
-        document.body.appendChild(script);
-      } catch (error) {
-        if (error?.name !== "AbortError") {
-          console.warn("[portfolio] Ask Youssef AI health check failed.");
-        }
-      } finally {
-        window.clearTimeout(timeoutId);
+        if (!response.ok) return false;
+        const body = await response.json().catch(() => null);
+        return Boolean(body?.ok);
+      } catch {
+        return false;
       }
+    };
+
+    const currentProductionReady = async () => {
+      try {
+        const response = await fetch(`${DEFAULT_API_URL}/deployment`, {
+          method: "GET",
+          cache: "no-store",
+          signal: controller.signal,
+        });
+        if (!response.ok) return false;
+        const body = await response.json().catch(() => null);
+        return Boolean(body?.commit && body?.environment === "production");
+      } catch {
+        return false;
+      }
+    };
+
+    const chooseApi = async () => {
+      if (configuredApi) {
+        return (await healthy(configuredApi)) ? normalized(configuredApi) : null;
+      }
+
+      // The current backend exposes /deployment. Older Vercel revisions do not.
+      // This prevents the UI from selecting a stale revision whose /health may
+      // still be green while /chat is broken.
+      if ((await currentProductionReady()) && (await healthy(DEFAULT_API_URL))) {
+        return DEFAULT_API_URL;
+      }
+
+      if (await healthy(SAFE_FALLBACK_API_URL)) {
+        console.warn(
+          "[portfolio] Ask Youssef AI is using the verified fallback deployment while production promotion is pending."
+        );
+        return SAFE_FALLBACK_API_URL;
+      }
+
+      return null;
+    };
+
+    const mountWhenHealthy = async () => {
+      const apiUrl = await chooseApi();
+      if (!apiUrl || cancelled) {
+        console.warn("[portfolio] Ask Youssef AI backend is temporarily unavailable.");
+        window.clearTimeout(timeoutId);
+        return;
+      }
+
+      script = document.createElement("script");
+      script.id = "ask-youssef-ai-loader";
+      script.src = DEFAULT_WIDGET_SRC;
+      script.dataset.api = apiUrl;
+      script.dataset.title = "Ask Youssef AI";
+      script.dataset.subtitle = "Professional Portfolio Copilot";
+      script.dataset.accent = "#20b2a6";
+      script.async = true;
+
+      script.addEventListener("error", () => {
+        console.error("[portfolio] Ask Youssef AI widget failed to load.");
+      });
+
+      document.body.appendChild(script);
+      window.clearTimeout(timeoutId);
     };
 
     mountWhenHealthy();
