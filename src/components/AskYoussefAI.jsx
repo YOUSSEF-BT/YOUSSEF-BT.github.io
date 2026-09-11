@@ -25,41 +25,45 @@ export function AskYoussefAI() {
       return undefined;
     }
 
-    const controller = new AbortController();
-    const timeoutId = window.setTimeout(() => controller.abort(), 8000);
     let script = null;
     let cancelled = false;
+    const activeControllers = new Set();
 
     const normalized = (value) => value.replace(/\/$/, "");
 
-    const healthy = async (apiUrl) => {
+    const fetchJson = async (url, timeoutMs) => {
+      const controller = new AbortController();
+      activeControllers.add(controller);
+      const timeoutId = window.setTimeout(() => controller.abort(), timeoutMs);
       try {
-        const response = await fetch(`${normalized(apiUrl)}/health`, {
+        const response = await fetch(url, {
           method: "GET",
           cache: "no-store",
           signal: controller.signal,
         });
-        if (!response.ok) return false;
-        const body = await response.json().catch(() => null);
-        return Boolean(body?.ok);
+        if (!response.ok) return null;
+        return await response.json().catch(() => null);
       } catch {
-        return false;
+        return null;
+      } finally {
+        window.clearTimeout(timeoutId);
+        activeControllers.delete(controller);
       }
     };
 
+    const healthy = async (apiUrl, timeoutMs = 12000) => {
+      const body = await fetchJson(
+        `${normalized(apiUrl)}/health`,
+        timeoutMs
+      );
+      return Boolean(body?.ok);
+    };
+
     const currentProductionReady = async () => {
-      try {
-        const response = await fetch(`${DEFAULT_API_URL}/deployment`, {
-          method: "GET",
-          cache: "no-store",
-          signal: controller.signal,
-        });
-        if (!response.ok) return false;
-        const body = await response.json().catch(() => null);
-        return Boolean(body?.commit && body?.environment === "production");
-      } catch {
-        return false;
-      }
+      // Keep this probe deliberately short. A stale Vercel revision may cold-start
+      // slowly or even time out; that must never block the known-good fallback.
+      const body = await fetchJson(`${DEFAULT_API_URL}/deployment`, 3500);
+      return Boolean(body?.commit && body?.environment === "production");
     };
 
     const chooseApi = async () => {
@@ -67,14 +71,18 @@ export function AskYoussefAI() {
         return (await healthy(configuredApi)) ? normalized(configuredApi) : null;
       }
 
-      // The current backend exposes /deployment. Older Vercel revisions do not.
-      // This prevents the UI from selecting a stale revision whose /health may
-      // still be green while /chat is broken.
-      if ((await currentProductionReady()) && (await healthy(DEFAULT_API_URL))) {
+      // Probe current production identity and fallback health independently so a
+      // slow/stale production function cannot cancel the fallback request.
+      const [productionReady, fallbackHealthy] = await Promise.all([
+        currentProductionReady(),
+        healthy(SAFE_FALLBACK_API_URL),
+      ]);
+
+      if (productionReady && (await healthy(DEFAULT_API_URL, 8000))) {
         return DEFAULT_API_URL;
       }
 
-      if (await healthy(SAFE_FALLBACK_API_URL)) {
+      if (fallbackHealthy) {
         console.warn(
           "[portfolio] Ask Youssef AI is using the verified fallback deployment while production promotion is pending."
         );
@@ -88,7 +96,6 @@ export function AskYoussefAI() {
       const apiUrl = await chooseApi();
       if (!apiUrl || cancelled) {
         console.warn("[portfolio] Ask Youssef AI backend is temporarily unavailable.");
-        window.clearTimeout(timeoutId);
         return;
       }
 
@@ -106,15 +113,16 @@ export function AskYoussefAI() {
       });
 
       document.body.appendChild(script);
-      window.clearTimeout(timeoutId);
     };
 
     mountWhenHealthy();
 
     return () => {
       cancelled = true;
-      controller.abort();
-      window.clearTimeout(timeoutId);
+      for (const controller of activeControllers) {
+        controller.abort();
+      }
+      activeControllers.clear();
       script?.remove();
       document.getElementById("ask-youssef-ai-root")?.remove();
     };
