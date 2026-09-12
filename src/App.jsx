@@ -19,6 +19,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { PageLoader } from "@/components/PageLoader";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
 import { AskYoussefAI } from "@/components/AskYoussefAI";
+import { AskYoussefProjectSEO } from "@/components/AskYoussefProjectSEO";
 
 function HomePage() {
   return (
@@ -39,6 +40,7 @@ function App() {
     <ThemeProvider>
       <Router>
         <div className="min-h-screen overflow-x-hidden">
+          <AskYoussefProjectSEO />
           <ParticlesBackground />
           <PageLoader />
           <Navbar />
