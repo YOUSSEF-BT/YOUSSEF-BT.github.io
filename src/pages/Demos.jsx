@@ -248,7 +248,6 @@ export const Demos = () => {
                     width="640"
                     height="360"
                   />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
 
                   {presentation.showBadges && (
                     <>
