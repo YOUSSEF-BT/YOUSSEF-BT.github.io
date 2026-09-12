@@ -7,6 +7,8 @@ const canonical =
 const title = "Ask Youssef AI | Evidence-Grounded RAG Portfolio Copilot";
 const description =
   "Production AI portfolio copilot by Youssef Bouzit built with Hybrid RAG, FastAPI, Gemini, BM25, FastEmbed, RRF, grounding and multilingual retrieval.";
+const keywords =
+  "Ask Youssef AI, Youssef Bouzit, Hybrid RAG, RAG portfolio copilot, FastAPI, Gemini, BM25, FastEmbed, Reciprocal Rank Fusion, Grounded AI, Multilingual AI";
 const image =
   "https://youssef-bt.github.io/assets/images/projects/ask-youssef-ai/main.png";
 const imageAlt =
@@ -41,12 +43,15 @@ html = html.replace(
 );
 
 html = replaceMeta(html, "name", "description", description);
+html = replaceMeta(html, "name", "keywords", keywords);
 html = replaceMeta(html, "property", "og:type", "website");
 html = replaceMeta(html, "property", "og:title", title);
 html = replaceMeta(html, "property", "og:description", description);
 html = replaceMeta(html, "property", "og:url", canonical);
 html = replaceMeta(html, "property", "og:image", image);
 html = replaceMeta(html, "property", "og:image:alt", imageAlt);
+html = replaceMeta(html, "property", "og:locale", "en_US");
+html = replaceMeta(html, "property", "og:locale:alternate", "fr_FR");
 html = replaceMeta(html, "name", "twitter:card", "summary_large_image");
 html = replaceMeta(html, "name", "twitter:title", title);
 html = replaceMeta(html, "name", "twitter:description", description);
