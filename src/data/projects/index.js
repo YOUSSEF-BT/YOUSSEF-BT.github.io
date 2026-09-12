@@ -8,6 +8,7 @@ import { hybridMovieRecommenderProject } from "./hybridMovieRecommender";
 import { chatbotProject } from "./chatbot";
 import { trafficMVPProject } from "./trafficMVP";
 import { accidentDetectionProject } from "./accidentDetection";
+import { askYoussefAIProject } from "./askYoussefAI";
 import pfeCoverBase64Part00 from "../../../build-assets/pfe-cover/part00.b64?raw";
 import pfeCoverBase64Part01 from "../../../build-assets/pfe-cover/part01.b64?raw";
 import pfeCoverBase64Part02 from "../../../build-assets/pfe-cover/part02.b64?raw";
@@ -35,6 +36,7 @@ const accidentDetectionProjectWithCover = {
 
 // Organized by creation date - most recent projects first
 export const projectsData = [
+  askYoussefAIProject,                // 2026-09 - Ask Youssef AI
   accidentDetectionProjectWithCover, // 2026-08 - PFE Accident Detection
   chatbotProject,                    // 2026-07 - OpenLegaMa Legal AI
   hybridMovieRecommenderProject,
@@ -48,6 +50,14 @@ export const projectsData = [
 ];
 
 const projectPresentation = {
+  "ask-youssef-ai-portfolio-intelligence": {
+    primaryDomain: "GenAI & RAG",
+    projectFocus: [
+      "Hybrid RAG",
+      "Grounded Generation",
+      "Production AI Engineering",
+    ],
+  },
   "real-time-road-accident-detection": {
     primaryDomain: "Computer Vision",
     projectFocus: ["Deep Learning", "Real-Time Video Analytics", "Road Safety"],
