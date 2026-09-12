@@ -34,9 +34,16 @@ const accidentDetectionProjectWithCover = {
   image: pfeCoverDataUrl,
 };
 
+// Use the real portfolio + Ask Youssef AI widget screenshot as the project cover.
+// The system architecture image remains defined separately in askYoussefAIProject.
+const askYoussefAIProjectWithCover = {
+  ...askYoussefAIProject,
+  image: "assets/images/projects/ask-youssef-ai/main.png",
+};
+
 // Organized by creation date - most recent projects first
 export const projectsData = [
-  askYoussefAIProject,                // 2026-09 - Ask Youssef AI
+  askYoussefAIProjectWithCover,       // 2026-09 - Ask Youssef AI
   accidentDetectionProjectWithCover, // 2026-08 - PFE Accident Detection
   chatbotProject,                    // 2026-07 - OpenLegaMa Legal AI
   hybridMovieRecommenderProject,
