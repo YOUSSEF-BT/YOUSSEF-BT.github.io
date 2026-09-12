@@ -1,0 +1,1 @@
+The Ask Youssef AI architecture image is bundled by Vite from src/assets to avoid runtime path and hotlink issues.
