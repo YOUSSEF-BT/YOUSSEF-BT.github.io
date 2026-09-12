@@ -1,1 +1,0 @@
-Temporary marker for bundled architecture asset migration. Safe to remove after the binary asset is added.
