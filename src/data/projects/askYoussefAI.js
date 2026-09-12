@@ -28,6 +28,9 @@ export const askYoussefAIProject = {
   overview: {
     description:
       "Ask Youssef AI is a production portfolio intelligence system designed to answer professional questions about my experience, projects, technical skills, certifications, education, and current career status using synchronized public evidence. The architecture deliberately separates deterministic facts from generative reasoning so exact professional information does not depend on probabilistic LLM output.",
+    architectureImage: "assets/architecture/ask-youssef-ai-system-architecture.webp",
+    architectureDescription:
+      "Production architecture for Ask Youssef AI: synchronized portfolio evidence, deterministic fact resolution, hybrid retrieval, Gemini generation, grounding, citations, safe abstention, and portfolio delivery.",
     keyContributions: [
       "Designed an evidence-first AI architecture that separates deterministic professional facts, hybrid retrieval, generation, grounding, and delivery.",
       "Built a hybrid retrieval pipeline combining structured profile search, BM25 lexical retrieval, FastEmbed semantic search, and Reciprocal Rank Fusion.",
