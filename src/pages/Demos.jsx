@@ -27,6 +27,10 @@ const DEMO_PARAM_CATEGORIES = Object.fromEntries(
 // this project in?", while the three display tags show the strongest technical
 // evidence for that specific demo.
 const DEMO_METADATA = {
+  "ask-youssef-ai-portfolio-intelligence": {
+    category: "GenAI & RAG",
+    tags: ["Hybrid RAG", "FastAPI", "Gemini"],
+  },
   "real-time-road-accident-detection": {
     category: "Computer Vision",
     tags: ["YOLOv11", "BoT-SORT", "OpenCV"],
