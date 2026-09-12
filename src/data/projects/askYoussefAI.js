@@ -1,3 +1,7 @@
+import askYoussefArchitectureBase64 from "../../../build-assets/ask-youssef-architecture/architecture.b64?raw";
+
+const askYoussefArchitectureDataUrl = `data:image/webp;base64,${askYoussefArchitectureBase64.trim()}`;
+
 export const askYoussefAIProject = {
   id: 11,
   slug: "ask-youssef-ai-portfolio-intelligence",
@@ -28,8 +32,7 @@ export const askYoussefAIProject = {
   overview: {
     description:
       "Ask Youssef AI is a production portfolio intelligence system designed to answer professional questions about my experience, projects, technical skills, certifications, education, and current career status using synchronized public evidence. The architecture deliberately separates deterministic facts from generative reasoning so exact professional information does not depend on probabilistic LLM output.",
-    architectureImage:
-      "https://raw.githubusercontent.com/YOUSSEF-BT/YOUSSEF-BT.github.io/main/public/assets/architecture/ask-youssef-ai-system-architecture.png",
+    architectureImage: askYoussefArchitectureDataUrl,
     architectureDescription:
       "Production architecture for Ask Youssef AI: synchronized portfolio evidence, deterministic fact resolution, hybrid retrieval, Gemini generation, grounding, citations, safe abstention, and portfolio delivery.",
     keyContributions: [
