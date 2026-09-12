@@ -236,10 +236,17 @@ export const Demos = () => {
             return (
               <div
                 key={demo.projectSlug}
-                className="group glass rounded-2xl overflow-hidden animate-fade-in hover:border-primary/50 transition-all duration-300"
+                className="group relative glass rounded-2xl overflow-hidden animate-fade-in hover:border-primary/50 transition-all duration-300 cursor-pointer"
                 style={{ animationDelay: `${(index + 1) * 100}ms` }}
               >
-                <div className="relative overflow-hidden aspect-video bg-black">
+                <Link
+                  to={`/projects/${demo.projectSlug}`}
+                  state={{ fromDemos: true, returnTo: demosReturnPath }}
+                  aria-label={`View ${demo.projectTitle} details`}
+                  className="absolute inset-0 z-0 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+                />
+
+                <div className="relative z-10 pointer-events-none overflow-hidden aspect-video bg-black">
                   <img
                     src={resolveAssetUrl(demo.projectImage)}
                     alt={`${demo.projectTitle} preview`}
@@ -262,7 +269,7 @@ export const Demos = () => {
                   )}
                 </div>
 
-                <div className="p-4 space-y-3">
+                <div className="relative z-10 pointer-events-none p-4 space-y-3">
                   <div className="space-y-1.5">
                     <p className="text-[11px] font-semibold uppercase tracking-wider text-primary">
                       {demo.projectCategory}
@@ -291,7 +298,7 @@ export const Demos = () => {
                       href={demo.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:gap-2 transition-all"
+                      className="pointer-events-auto inline-flex items-center gap-1 text-xs font-semibold text-primary hover:gap-2 transition-all"
                     >
                       {presentation.buttonLabel}
                       <ExternalLink className="w-3 h-3" />
@@ -300,7 +307,7 @@ export const Demos = () => {
                     <Link
                       to={`/projects/${demo.projectSlug}`}
                       state={{ fromDemos: true, returnTo: demosReturnPath }}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground transition-all"
+                      className="pointer-events-auto inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground transition-all"
                     >
                       View Details
                       <ChevronRight className="w-3 h-3" />
