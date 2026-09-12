@@ -5,9 +5,13 @@ const PROJECT_PATH = "/projects/ask-youssef-ai-portfolio-intelligence";
 
 const DEFAULT_SEO = {
   lang: "fr",
+  locale: "fr_FR",
+  alternateLocale: "en_US",
   title: "Youssef Bouzit | AI/ML & Data Science Engineer",
   description:
     "Portfolio of Youssef Bouzit, Data Science and AI/ML Engineer specializing in RAG systems, LLM applications, Computer Vision, Machine Learning, MLOps, and Data Engineering.",
+  keywords:
+    "Youssef Bouzit, AI Engineer, Machine Learning Engineer, Data Science Engineer, RAG, LLM, Computer Vision, MLOps, Python, Morocco",
   canonical: "https://youssef-bt.github.io/",
   image:
     "https://youssef-bt.github.io/assets/images/profile/youssef_bouzit_profile.png?v=20260904-3",
@@ -16,9 +20,13 @@ const DEFAULT_SEO = {
 
 const PROJECT_SEO = {
   lang: "en",
+  locale: "en_US",
+  alternateLocale: "fr_FR",
   title: "Ask Youssef AI | Evidence-Grounded RAG Portfolio Copilot",
   description:
     "Production AI portfolio copilot by Youssef Bouzit built with Hybrid RAG, FastAPI, Gemini, BM25, FastEmbed, RRF, grounding and multilingual retrieval.",
+  keywords:
+    "Ask Youssef AI, Youssef Bouzit, Hybrid RAG, RAG portfolio copilot, FastAPI, Gemini, BM25, FastEmbed, Reciprocal Rank Fusion, Grounded AI, Multilingual AI",
   canonical:
     "https://youssef-bt.github.io/projects/ask-youssef-ai-portfolio-intelligence",
   image:
@@ -63,6 +71,7 @@ export function AskYoussefProjectSEO() {
     setCanonical(seo.canonical);
 
     upsertMeta("name", "description", seo.description);
+    upsertMeta("name", "keywords", seo.keywords);
 
     upsertMeta("property", "og:type", "website");
     upsertMeta("property", "og:title", seo.title);
@@ -70,6 +79,8 @@ export function AskYoussefProjectSEO() {
     upsertMeta("property", "og:url", seo.canonical);
     upsertMeta("property", "og:image", seo.image);
     upsertMeta("property", "og:image:alt", seo.imageAlt);
+    upsertMeta("property", "og:locale", seo.locale);
+    upsertMeta("property", "og:locale:alternate", seo.alternateLocale);
 
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", seo.title);
